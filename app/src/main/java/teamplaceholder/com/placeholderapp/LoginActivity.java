@@ -28,7 +28,7 @@ public class LoginActivity  extends AppCompatActivity {
     public void onSubmitLoginPress(View view) {
         String username = ((EditText) findViewById(R.id.usernameBox)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordBox)).getText().toString();
-        if (username.equals("username") && password.equals("password")) {
+        if (username.equals("user") && password.equals("pass")) {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         } else {
