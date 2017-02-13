@@ -24,7 +24,7 @@ public class LoginActivity  extends AppCompatActivity {
     }
 
 
-    /* Called when the cancel login button is pressed*/
+    /* Called when the submit login button is pressed*/
     public void onSubmitLoginPress(View view) {
         String username = ((EditText) findViewById(R.id.usernameBox)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordBox)).getText().toString();
