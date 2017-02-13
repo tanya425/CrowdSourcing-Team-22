@@ -6,25 +6,25 @@
     android:weightSum="1">
 
     <TextView
-        android:text="TextView"
+        android:text="@string/username"
         android:layout_width="378dp"
         android:layout_height="wrap_content"
-        android:id="@+id/usernameTextBox"
+        android:id="@+id/login_screen_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="Username:"
+        tools:text="@string/Login_Screen"
         android:layout_weight="0.04" />
+
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/usernameBox"
         android:layout_weight="0.04" />
 
     <TextView
-        android:text="Password:"
+        android:text="@string/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordTextView"
@@ -39,10 +39,20 @@
         android:id="@+id/passwordBox" />
 
     <Button
-        android:text="Cancel Login"
+        android:text="@string/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_login"
+        android:layout_weight="0.04"
+        android:onClick="onSubmitLoginPress"/>
+
+
+    <Button
+        android:text="@string/cancel_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cancelButton"
-        android:layout_weight="0.04" />
+        android:layout_weight="0.04"
+        android:onClick="onCancelLoginPress"/>
 
 </LinearLayout>
