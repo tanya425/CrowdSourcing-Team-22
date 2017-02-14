@@ -32,10 +32,7 @@ public class LoginActivity  extends AppCompatActivity {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         } else {
-            Toast invalid_login = new Toast(this);
-            invalid_login.setView(view);
-            invalid_login.setDuration(Toast.LENGTH_LONG);
-            invalid_login.show();
+            Toast.makeText(this, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
         }
     }
 
