@@ -5,15 +5,22 @@
 
     <TextView
         android:text="You have successfully entered the application!"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/successTextBox"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
+        android:width="275dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp" />
 
     <Button
-        android:text="Logout"
-        android:layout_width="match_parent"
+        android:text="Log Out"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logoutButton"
-        android:onClick="onLogoutPress" />
+        android:onClick="onLogoutPress"
+        android:width="125dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
 </LinearLayout>
