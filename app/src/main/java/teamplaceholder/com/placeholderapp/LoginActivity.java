@@ -24,7 +24,10 @@ public class LoginActivity  extends AppCompatActivity {
     }
 
 
-    /* Called when the submit login button is pressed*/
+    /**
+     *  Called when the submit login button is pressed
+     *  @param view is the view in which the onSubmitLogin button was pressed
+     */
     public void onSubmitLoginPress(View view) {
         String username = ((EditText) findViewById(R.id.usernameBox)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordBox)).getText().toString();
@@ -36,7 +39,10 @@ public class LoginActivity  extends AppCompatActivity {
         }
     }
 
-    /* Called when the cancel login button is pressed*/
+    /**
+     * Called when the cancel login button is pressed
+     * @param view is the view in which the cancel login button was pressed
+     */
     public void onCancelLoginPress(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

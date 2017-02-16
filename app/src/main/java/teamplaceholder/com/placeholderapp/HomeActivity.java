@@ -16,7 +16,10 @@ public class HomeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
-    /* Called when the logout button is pressed*/
+    /**
+     * Called when the logout button is pressed
+     * @param view is the view in which the logout button is pressed
+     */
     protected void onLogoutPress(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
