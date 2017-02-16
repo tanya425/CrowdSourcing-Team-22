@@ -16,12 +16,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    /* Called when the login button is pressed*/
+
+    /**
+     * Called when the login button is pressed*
+     * @param view is the where the button was clicked
+     */
     protected void onLoginPress(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Override functionality
+     */
     public void onBackPressed() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
