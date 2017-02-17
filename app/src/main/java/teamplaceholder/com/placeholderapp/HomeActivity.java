@@ -1,9 +1,12 @@
 package teamplaceholder.com.placeholderapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * Created by Jack on 2/12/2017.
@@ -21,7 +24,43 @@ public class HomeActivity extends AppCompatActivity{
      * @param view is the view in which the logout button is pressed
      */
     protected void onLogoutPress(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+        alert.setTitle("Confirm Logout");
+        alert.setMessage("Do you really wish to log out?");
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        final AlertDialog dialog = alert.create();
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
+
+    public void onBackPressed() {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+        alert.setTitle("Confirm Logout");
+        alert.setMessage("Do you really wish to log out?");
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        final AlertDialog dialog = alert.create();
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
     }
 }
