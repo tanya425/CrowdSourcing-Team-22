@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Called when the login button is pressed*
+     * @param view is the where the button was clicked
+     */
+    protected void onRegisterPress(View view) {
+        Intent registerIntent = new Intent(this, RegisterActivity.class);
+        startActivity(registerIntent);
+    }
     /**
      * Override functionality
      */
