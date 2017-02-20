@@ -3,6 +3,7 @@ package teamplaceholder.com.placeholderapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
      */
     protected void onLoginPress(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Called when the login button is pressed*
+     * @param view is the where the button was clicked
+     */
+    protected void onRegisterPress(View view) {
+        Intent intent = new Intent(this, RegisterNewUserActivity.class);
         startActivity(intent);
     }
     /**
