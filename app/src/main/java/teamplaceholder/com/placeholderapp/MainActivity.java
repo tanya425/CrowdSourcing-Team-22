@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view is the where the button was clicked
      */
     protected void onRegisterPress(View view) {
-        Intent registerIntent = new Intent(this, RegisterActivity.class);
-        startActivity(registerIntent);
+        Intent intent = new Intent(this, RegisterNewUserActivity.class);
+        startActivity(intent);
     }
     /**
      * Override functionality
