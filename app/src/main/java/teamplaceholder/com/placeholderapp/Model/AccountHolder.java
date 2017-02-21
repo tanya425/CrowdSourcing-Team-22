@@ -1,26 +1,28 @@
 package teamplaceholder.com.placeholderapp.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by ashwiniiyer on 2/19/17.
  */
 
-public class AccountHolder {
+public class AccountHolder implements Parcelable {
     protected String username;
     protected String password;
     protected String typeOfAccount;
 
-    public  AccountHolder() {
-
-    }
     public AccountHolder(String username, String password) {
         this.username = username;
         this.password = password;
     }
-   /* abstract void setUsername(String user);
-    abstract String getUsername();
-    abstract void setPassword(String pass);
-    abstract String getPassword();
-*/
+
+    private AccountHolder(Parcel in) {
+        username = in.readString();
+        password = in.readString();
+        typeOfAccount = in.readString();
+    }
+
     public void setPassword(String s) {
         password = s;
     }
@@ -44,4 +46,24 @@ public class AccountHolder {
     public void setWorkerType(String type) {
         typeOfAccount = type;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(username);
+        dest.writeString(password);
+        dest.writeString(typeOfAccount);
+    }
+
+    public static final Parcelable.Creator<AccountHolder> CREATOR
+            = new Parcelable.Creator<AccountHolder>() {
+        public AccountHolder createFromParcel(Parcel in) {return new AccountHolder(in);}
+
+        public AccountHolder[] newArray(int size) {return new AccountHolder[size];}
+    };
 }

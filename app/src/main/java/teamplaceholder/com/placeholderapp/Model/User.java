@@ -6,10 +6,6 @@ package teamplaceholder.com.placeholderapp.Model;
 
 public class User extends AccountHolder {
 
-
-    public User(){
-
-    }
     public User(String username, String password) {
         super(username, password);
         typeOfAccount = "User";
