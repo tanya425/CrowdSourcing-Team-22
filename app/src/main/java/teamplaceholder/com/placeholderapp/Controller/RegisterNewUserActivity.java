@@ -41,7 +41,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("REGISTERACTIVITY","ENTERED ON CREATE");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.activity_register);
 
         usernameText = (EditText) findViewById(R.id.usernameBox);
         passwordText = (EditText) findViewById(R.id.passwordBox);
