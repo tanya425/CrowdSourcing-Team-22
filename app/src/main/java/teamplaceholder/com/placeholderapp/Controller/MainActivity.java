@@ -1,14 +1,11 @@
-package teamplaceholder.com.placeholderapp;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import teamplaceholder.com.placeholderapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
