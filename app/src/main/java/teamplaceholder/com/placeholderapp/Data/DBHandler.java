@@ -11,6 +11,7 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 
 /**
  * Created by Jason Ngor on 2/21/2017.
+ * This File handles USER database creation and operations
  */
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -29,17 +30,18 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        final String CREATE_USER_DATABASE = "CREATE TABLE" +
+        final String CREATE_USER_DATABASE = "CREATE TABLE " +
                 UserTable.TABLE_NAME + " (" +
-                UserTable._ID + " TEXT NOT NULL UNIQUE," +
-                UserTable.COLUMN_USER_PASSWORD + " TEXT NOT NULL," +
-                UserTable.COLUMN_USER_TYPE + " TEXT NOT NULL" + ");";
+                UserTable._ID + " TEXT NOT NULL UNIQUE, " +
+                UserTable.COLUMN_USER_PASSWORD + " TEXT NOT NULL, " +
+                UserTable.COLUMN_USER_TYPE + " TEXT NOT NULL " + ");";
 
         db.execSQL(CREATE_USER_DATABASE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        /* will need to update this method in future if new columns are added to USER table */
         db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
         onCreate(db);
     }
