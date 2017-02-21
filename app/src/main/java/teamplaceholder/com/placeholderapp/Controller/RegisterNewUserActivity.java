@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
+import teamplaceholder.com.placeholderapp.Data.DBHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.Model.Admin;
 import teamplaceholder.com.placeholderapp.Model.Manager;
@@ -34,6 +35,8 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     private String _password;
     private String _accountType;
     private AccountHolder _account;
+    private DBHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("REGISTERACTIVITY","ENTERED ON CREATE");
@@ -50,6 +53,8 @@ public class RegisterNewUserActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, legalAccountTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
+        db = new DBHandler(this);
+
     }
 
     protected void onSubmitPressed(View view) {
@@ -67,6 +72,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
             } else if (_accountType.equals("User")) {
                 _account = new User(_username,_password);
 
+
             } else if (_accountType.equals("Worker")) {
                 _account = new Worker(_username,_password);
 
@@ -74,6 +80,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
                 _account = new Manager(_username, _password);
             }
         }
+        db.addAccount(_account);
         //send _account to whatever database or file it needs to go to
     }
 

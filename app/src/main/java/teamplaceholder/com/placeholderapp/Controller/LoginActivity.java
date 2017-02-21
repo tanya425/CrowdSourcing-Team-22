@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import teamplaceholder.com.placeholderapp.Data.DBHandler;
+import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -17,11 +19,13 @@ import teamplaceholder.com.placeholderapp.R;
 
 public class LoginActivity  extends AppCompatActivity {
 
+    private DBHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //setContentView(R.layout.register);
+        db = new DBHandler(this);
     }
 
 
@@ -32,10 +36,14 @@ public class LoginActivity  extends AppCompatActivity {
     public void onSubmitLoginPress(View view) {
         String username = ((EditText) findViewById(R.id.usernameBox)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordBox)).getText().toString();
-        if (username.equals("user") && password.equals("pass")) {
+        try {
+            AccountHolder acc = db.getAccount(username);
+            if (!acc.getPassword().equals(password)) {
+                throw new IllegalArgumentException("Invalid password");
+            }
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
-        } else {
+        } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
         }
     }
