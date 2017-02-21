@@ -53,7 +53,6 @@ public class LoginActivity  extends AppCompatActivity {
      * @param view is the view in which the cancel login button was pressed
      */
     public void onCancelLoginPress(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 }

@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/submitButton"
         android:layout_weight="0.04"
-        android:onClick="onSubmitLoginPress"
+        android:onClick="onSubmitPressed"
         android:width="125dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp" />
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cancelButton"
         android:layout_weight="0.04"
-        android:onClick="onCancelLoginPress"
+        android:onClick="onCancelPressed"
         android:width="125dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp" />

@@ -86,7 +86,6 @@ public class RegisterNewUserActivity extends AppCompatActivity {
 
     // probably should end the activity instead of calling a new mainactivity -jason
     protected void onCancelPressed(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 }
