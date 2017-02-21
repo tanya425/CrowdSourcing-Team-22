@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Username"
         android:ems="10"
         android:id="@+id/usernameBox"
-        android:hint="Username"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:layout_marginRight="150dp"
-        android:layout_gravity="clip_horizontal" />
+        android:layout_weight="0.04"
+        android:hint="@string/user_id"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordBox"
-        android:hint="Password" />
+        android:hint="@string/password"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
 
     <Spinner
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
+        android:id="@+id/spinner"
+        android:layout_weight="0.04"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:minWidth="150dp" />
 
     <Button
-        android:text="Submit"
-        android:layout_width="match_parent"
+        android:text="@string/submit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onSubmitPressed"
-        android:id="@+id/submitButton" />
+        android:id="@+id/submitButton"
+        android:layout_weight="0.04"
+        android:onClick="onSubmitLoginPress"
+        android:width="125dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
 
     <Button
         android:text="Cancel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cancelButton" />
+        android:id="@+id/cancelButton"
+        android:layout_weight="0.04"
+        android:onClick="onCancelLoginPress"
+        android:width="125dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
+
 </LinearLayout>
