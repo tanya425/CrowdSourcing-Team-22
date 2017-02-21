@@ -26,7 +26,7 @@ import teamplaceholder.com.placeholderapp.R;
  */
 
 public class RegisterNewUserActivity extends AppCompatActivity {
-    public static List<String> legalAccountTypes = Arrays.asList("Admin", "User", "Worker", "Manager");
+    public static List<String> legalAccountTypes = Arrays.asList("User", "Worker", "Manager", "Admin");
     private EditText usernameText;
     private EditText passwordText;
     private Spinner accountTypeSpinner;
@@ -81,7 +81,8 @@ public class RegisterNewUserActivity extends AppCompatActivity {
             }
         }
         db.addAccount(_account);
-        //send _account to whatever database or file it needs to go to
+        Toast.makeText(this, "Account created!", Toast.LENGTH_LONG).show();
+        this.finish();
     }
 
     // probably should end the activity instead of calling a new mainactivity -jason
