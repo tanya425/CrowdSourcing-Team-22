@@ -14,7 +14,7 @@ public final class UserDBContract {
     private UserDBContract() {}
 
     /* Inner class to represent the user db table */
-    public static class User implements BaseColumns {
+    public static class UserTable implements BaseColumns {
         public static final String TABLE_NAME = "user";
         public static final String _ID = "username";
         public static final String COLUMN_USER_PASSWORD = "password";

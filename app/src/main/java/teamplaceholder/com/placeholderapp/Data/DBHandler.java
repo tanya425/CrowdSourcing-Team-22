@@ -7,54 +7,64 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 
 /**
  * Created by Jason Ngor on 2/21/2017.
+ * This File handles USER database creation and operations
  */
 
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "appDatabase";
+    private static final int DATABASE_VERSION = 2;
+    private static final String DATABASE_NAME = "appDatabase.db";
 
+    /*
     private static final String TABLE_ACCOUNTS = "accounts";
     private static final String KEY_USER = "user";
     private static final String KEY_PASS = "pass";
     private static final String KEY_TYPE = "type";
-
+    */
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ACCOUNTS_TABLE = "CREATE TABLE " + TABLE_ACCOUNTS + "("
-                + KEY_USER + " TEXT," + KEY_PASS + " TEXT," + KEY_TYPE + " TEXT" + ")";
-        db.execSQL(CREATE_ACCOUNTS_TABLE);
+        final String CREATE_USER_DATABASE = "CREATE TABLE " +
+                UserTable.TABLE_NAME + " (" +
+                UserTable._ID + " TEXT NOT NULL UNIQUE, " +
+                UserTable.COLUMN_USER_PASSWORD + " TEXT NOT NULL, " +
+                UserTable.COLUMN_USER_TYPE + " TEXT NOT NULL " + ");";
 
+        db.execSQL(CREATE_USER_DATABASE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACCOUNTS);
+        /* will need to update this method in future if new columns are added to USER table */
+        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
         onCreate(db);
     }
 
     public void addAccount(AccountHolder acc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_USER, acc.getUsername());
-        values.put(KEY_PASS, acc.getPassword());
-        values.put(KEY_TYPE, acc.getWorkerType());
+        values.put(UserTable._ID, acc.getUsername());
+        values.put(UserTable.COLUMN_USER_PASSWORD, acc.getPassword());
+        values.put(UserTable.COLUMN_USER_TYPE, acc.getWorkerType());
 
-        db.insert(TABLE_ACCOUNTS, null, values);
+        db.insert(UserTable.TABLE_NAME, null, values);
         db.close();
     }
 
     public AccountHolder getAccount(String username) throws IllegalArgumentException {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_ACCOUNTS,
-                new String[] {KEY_USER, KEY_PASS, KEY_TYPE},
-                KEY_USER + "=?",
+        Cursor cursor = db.query(UserTable.TABLE_NAME,
+                new String[] {
+                        UserTable._ID,
+                        UserTable.COLUMN_USER_PASSWORD,
+                        UserTable.COLUMN_USER_TYPE },
+                UserTable._ID + "=?",
                 new String[] {username},
                 null, null, null, null);
         if (cursor != null) {
