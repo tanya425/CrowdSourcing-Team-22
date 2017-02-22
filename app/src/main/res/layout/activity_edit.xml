@@ -27,7 +27,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="30dp"
-        android:id="@+id/button" />
+        android:id="@+id/button"
+        android:onClick="onSubmitPressed" />
 
     <TextView
         android:text="Email"
@@ -77,14 +78,13 @@
         android:layout_alignStart="@+id/textView3"
         android:layout_marginTop="11dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <Spinner
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
+        android:layout_marginTop="38dp"
+        android:id="@+id/spinner2"
         android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="14dp"
-        android:id="@+id/editText3" />
+        android:layout_alignEnd="@+id/button" />
 
 </RelativeLayout>
