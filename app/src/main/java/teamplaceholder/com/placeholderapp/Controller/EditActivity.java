@@ -1,5 +1,8 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,5 +43,51 @@ public class EditActivity extends AppCompatActivity {
 
     protected void onSubmitPressed(View view) {
         this.finish();
+    }
+
+    /**
+     * makes sure you want to leave the edit page
+     * @param view
+     */
+    protected void onCancelPress(View view) {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(EditActivity.this);
+        alert.setTitle("Discard Changes");
+        alert.setMessage("Do you really wish to discard your changes?");
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                EditActivity.this.finish();
+            }
+        });
+        final AlertDialog dialog = alert.create();
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
+
+    /**
+     * makes sure you want to leave the edit page
+     */
+    public void onBackPressed() {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(EditActivity.this);
+        alert.setTitle("Discard Changes");
+        alert.setMessage("Do you really wish to discard your changes?");
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                EditActivity.this.finish();
+            }
+        });
+        final AlertDialog dialog = alert.create();
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
     }
 }
