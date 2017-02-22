@@ -44,6 +44,15 @@ public class HomeActivity extends AppCompatActivity{
         alert.show();
     }
 
+    /**
+     * Called when the edit info button is pressed
+     * @param view is the view in which the logout button is pressed
+     */
+    protected void onEditPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, EditActivity.class);
+        startActivity(intent);
+    }
+
     public void onBackPressed() {
         final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
         alert.setTitle("Confirm Logout");
