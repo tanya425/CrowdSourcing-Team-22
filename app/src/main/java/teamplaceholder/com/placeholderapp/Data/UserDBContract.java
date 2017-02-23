@@ -10,7 +10,9 @@ import android.provider.BaseColumns;
 
 public final class UserDBContract {
 
-    //private constructor to prevent instantiation
+    /**
+     * private constructor to prevent instantiation
+     */
     private UserDBContract() {}
 
     /* Inner class to represent the user db table */
