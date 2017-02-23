@@ -62,6 +62,10 @@ public class HomeActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    /**
+     * Called when back button is pressed
+     *      asks user if they want to discard changes and exit app if yes is selected
+     */
     public void onBackPressed() {
         final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
         alert.setTitle("Confirm Logout");
