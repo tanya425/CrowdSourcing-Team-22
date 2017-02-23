@@ -14,6 +14,9 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
  * This File handles USER database creation and operations
  */
 
+/**
+ * This class handles the database that stores data for the app. It contains an accounts table.
+ */
 public class DBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "appDatabase.db";
@@ -43,6 +46,10 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Adds an account to the database.
+     * @param acc - AccountHolder object to be added to the database
+     */
     public void addAccount(AccountHolder acc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -54,6 +61,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Reconstructs and returns an AccountHolder that's stored in the database.
+     * @param username - username to search for in the database
+     * @return the AccountHolder stored in the database
+     * @throws IllegalArgumentException when the user does not exist in the database
+     */
     public AccountHolder getAccount(String username) throws IllegalArgumentException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(UserTable.TABLE_NAME,
@@ -78,6 +91,13 @@ public class DBHandler extends SQLiteOpenHelper {
         return acc;
     }
 
+    /**
+     * Adds or updates the profile of a user in the database
+     * @param username - username of the AccountHolder whose profile is to be added/updated
+     * @param email - email associated with the AccountHolder
+     * @param address - address associated with the AccountHolder
+     * @param title - title associated with the AccountHolder
+     */
     public void setProfile(String username, String email, String address, String title) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

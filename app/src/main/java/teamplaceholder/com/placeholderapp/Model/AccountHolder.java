@@ -7,6 +7,9 @@ import android.os.Parcelable;
  * Created by ashwiniiyer on 2/19/17.
  */
 
+/**
+ * Base class for an generic account holder of the app
+ */
 public class AccountHolder {
     protected String username;
     protected String password;
