@@ -15,7 +15,7 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
  */
 
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "appDatabase.db";
 
     public DBHandler(Context context) {
