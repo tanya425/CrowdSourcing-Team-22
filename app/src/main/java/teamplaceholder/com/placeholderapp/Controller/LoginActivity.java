@@ -1,6 +1,7 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,8 @@ import teamplaceholder.com.placeholderapp.R;
 
 public class LoginActivity  extends AppCompatActivity {
 
+    private SharedPreferences loginInfo;
+    private SharedPreferences.Editor loginInfoEditor;
     private DBHandler db;
 
     @Override
@@ -26,6 +29,8 @@ public class LoginActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         db = new DBHandler(this);
+        loginInfo = getSharedPreferences("login_info", 0);
+        loginInfoEditor = loginInfo.edit();
     }
 
 
@@ -41,6 +46,9 @@ public class LoginActivity  extends AppCompatActivity {
             if (!acc.getPassword().equals(password)) {
                 throw new IllegalArgumentException("Invalid password");
             }
+            loginInfoEditor.putString("logged_user", username);
+            loginInfoEditor.commit();
+
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         } catch (IllegalArgumentException e) {

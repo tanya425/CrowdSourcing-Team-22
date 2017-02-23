@@ -18,12 +18,6 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "appDatabase.db";
 
-    /*
-    private static final String TABLE_ACCOUNTS = "accounts";
-    private static final String KEY_USER = "user";
-    private static final String KEY_PASS = "pass";
-    private static final String KEY_TYPE = "type";
-    */
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -31,10 +25,13 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String CREATE_USER_DATABASE = "CREATE TABLE " +
-                UserTable.TABLE_NAME + " (" +
-                UserTable._ID + " TEXT NOT NULL UNIQUE, " +
+                UserTable.TABLE_NAME + "(" +
+                UserTable.COLUMN_USER_USERNAME + " TEXT NOT NULL UNIQUE, " +
                 UserTable.COLUMN_USER_PASSWORD + " TEXT NOT NULL, " +
-                UserTable.COLUMN_USER_TYPE + " TEXT NOT NULL " + ");";
+                UserTable.COLUMN_USER_TYPE + " TEXT NOT NULL, " +
+                UserTable.COLUMN_USER_EMAIL + " TEXT, " +
+                UserTable.COLUMN_USER_ADDRESS + " TEXT, " +
+                UserTable.COLUMN_USER_TITLE + " TEXT" + ");";
 
         db.execSQL(CREATE_USER_DATABASE);
     }
@@ -49,9 +46,9 @@ public class DBHandler extends SQLiteOpenHelper {
     public void addAccount(AccountHolder acc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(UserTable._ID, acc.getUsername());
+        values.put(UserTable.COLUMN_USER_USERNAME, acc.getUsername());
         values.put(UserTable.COLUMN_USER_PASSWORD, acc.getPassword());
-        values.put(UserTable.COLUMN_USER_TYPE, acc.getWorkerType());
+        values.put(UserTable.COLUMN_USER_TYPE, acc.getAccountType());
 
         db.insert(UserTable.TABLE_NAME, null, values);
         db.close();
@@ -61,10 +58,13 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(UserTable.TABLE_NAME,
                 new String[] {
-                        UserTable._ID,
+                        UserTable.COLUMN_USER_USERNAME,
                         UserTable.COLUMN_USER_PASSWORD,
-                        UserTable.COLUMN_USER_TYPE },
-                UserTable._ID + "=?",
+                        UserTable.COLUMN_USER_TYPE,
+                        UserTable.COLUMN_USER_EMAIL,
+                        UserTable.COLUMN_USER_ADDRESS,
+                        UserTable.COLUMN_USER_TITLE,},
+                UserTable.COLUMN_USER_USERNAME + "=?",
                 new String[] {username},
                 null, null, null, null);
         if (cursor != null) {
@@ -73,7 +73,18 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursor.getCount() == 0) {
             throw new IllegalArgumentException("getAccount - username does not exist");
         }
-        AccountHolder acc = new AccountHolder(cursor.getString(0), cursor.getString(1));
+        AccountHolder acc = new AccountHolder(cursor.getString(0), cursor.getString(1),
+                cursor.getString(3), cursor.getString(4), cursor.getString(5));
         return acc;
+    }
+
+    public void setProfile(String username, String email, String address, String title) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(UserTable.COLUMN_USER_EMAIL, email);
+        values.put(UserTable.COLUMN_USER_ADDRESS, address);
+        values.put(UserTable.COLUMN_USER_TITLE, title);
+
+        db.update(UserTable.TABLE_NAME, values, UserTable.COLUMN_USER_USERNAME + "=?", new String[] {username});
     }
 }

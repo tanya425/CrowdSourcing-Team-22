@@ -5,8 +5,13 @@ package teamplaceholder.com.placeholderapp.Model;
  */
 
 public class Worker extends User {
+
+    public Worker(String username, String password, String email, String address, String title) {
+        super(username, password, email, address, title);
+        accountType = "Worker";
+    }
+
     public Worker(String username, String password) {
-        super(username,password);
-        typeOfAccount = "Worker";
+        this(username, password, null, null, null);
     }
 }

@@ -15,10 +15,13 @@ public final class UserDBContract {
 
     /* Inner class to represent the user db table */
     public static class UserTable implements BaseColumns {
-        public static final String TABLE_NAME = "user";
-        public static final String _ID = "username";
+        public static final String TABLE_NAME = "accounts";
+        public static final String COLUMN_USER_USERNAME = "username";
         public static final String COLUMN_USER_PASSWORD = "password";
         public static final String COLUMN_USER_TYPE = "type";
+        public static final String COLUMN_USER_EMAIL = "email";
+        public static final String COLUMN_USER_ADDRESS = "address";
+        public static final String COLUMN_USER_TITLE = "title";
     }
 
 

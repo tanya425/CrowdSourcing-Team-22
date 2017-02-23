@@ -2,6 +2,7 @@ package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +16,18 @@ import teamplaceholder.com.placeholderapp.R;
  */
 
 public class HomeActivity extends AppCompatActivity{
+
+    private SharedPreferences loginInfo;
+    private SharedPreferences.Editor loginInfoEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        loginInfo = getSharedPreferences("login_info", 0);
+        loginInfoEditor = loginInfo.edit();
     }
+
     /**
      * Called when the logout button is pressed
      * @param view is the view in which the logout button is pressed
@@ -31,6 +39,7 @@ public class HomeActivity extends AppCompatActivity{
 
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
+                loginInfoEditor.putString("logged_user", null);
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
