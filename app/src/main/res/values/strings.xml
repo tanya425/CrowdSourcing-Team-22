@@ -9,4 +9,7 @@
     <string name="Login_Screen">Login Screen</string>
     <string name="submit">submit</string>
     <string name="user_id">User ID</string>
+    <string name="log_out">Log Out</string>
+    <string name="you_have_successfully_entered_the_application">You have successfully entered the application!</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
