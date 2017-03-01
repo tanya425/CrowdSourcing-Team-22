@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import teamplaceholder.com.placeholderapp.R;
@@ -26,6 +27,8 @@ public class HomeActivity extends AppCompatActivity{
         setContentView(R.layout.activity_home);
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
     }
 
     /**
@@ -59,6 +62,15 @@ public class HomeActivity extends AppCompatActivity{
      */
     protected void onEditPress(View view) {
         Intent intent = new Intent(HomeActivity.this, EditActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Called when the add
+     * @param view is the view in which the logout button is pressed
+     */
+    protected void onAddPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, SubWaterRepoActivity.class);
         startActivity(intent);
     }
 

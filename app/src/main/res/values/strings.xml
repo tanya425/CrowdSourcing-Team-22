@@ -12,4 +12,15 @@
     <string name="log_out">Log Out</string>
     <string name="you_have_successfully_entered_the_application">You have successfully entered the application!</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="email">Email</string>
+    <string name="title">Title</string>
+    <string name="address">Address</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_water_report">Add Water Report</string>
+    <string name="water_report">Water Report</string>
+    <string name="time_w_example">time - (dd-mm-yyyy)</string>
+    <string name="location">Location</string>
+    <string name="type">Type of Water</string>
+    <string name="water_condition">Water Condition</string>
 </resources>

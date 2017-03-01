@@ -1,39 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/SoftBlue"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+
     <TextView
+        android:layout_below="@+id/my_toolbar"
         android:text="@string/you_have_successfully_entered_the_application"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/successTextBox"
+        android:id="@+id/success_tv"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"
         android:width="275dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp" />
+
+        />
 
     <Button
         android:text="@string/log_out"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logoutButton"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/logout_button"
         android:onClick="onLogoutPress"
-        android:width="125dp"
-        android:layout_marginTop="20dp" />
+        android:layout_below="@+id/success_tv"
+        />
 
     <Button
         android:text="@string/edit_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
-        android:layout_weight="0.00"
+        android:id="@+id/edit_profile"
         android:onClick="onEditPress"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/logout_button"
+        android:layout_alignParentStart="true"
+        />
+
+    <Button
+        android:text="@string/add_water_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddPress"
+        android:layout_below="@+id/edit_profile"
+        android:id="@+id/add_report_button"
+        />
 
 </RelativeLayout>

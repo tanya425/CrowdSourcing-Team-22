@@ -3,6 +3,7 @@ package teamplaceholder.com.placeholderapp.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -42,6 +43,8 @@ public class RegisterNewUserActivity extends AppCompatActivity {
         Log.d("REGISTERACTIVITY","ENTERED ON CREATE");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         usernameText = (EditText) findViewById(R.id.usernameBox);
         passwordText = (EditText) findViewById(R.id.passwordBox);

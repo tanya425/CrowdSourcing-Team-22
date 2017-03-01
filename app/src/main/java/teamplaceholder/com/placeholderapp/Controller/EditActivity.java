@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -34,14 +35,17 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         loginInfo = getSharedPreferences("login_info", 0);
         username = loginInfo.getString("logged_user", null);
 
         db = new DBHandler(this);
 
-        emailText = (EditText) findViewById(R.id.emailText);
-        addressText = (EditText) findViewById(R.id.addressText);
-        titleSpinner = (Spinner) findViewById(R.id.titleSpinner);
+        emailText = (EditText) findViewById(R.id.email_et);
+        addressText = (EditText) findViewById(R.id.address_et);
+        titleSpinner = (Spinner) findViewById(R.id.title_spinner);
 
         AccountHolder acc = db.getAccount(username);
         emailText.setText(acc.getEmail());
@@ -51,7 +55,7 @@ public class EditActivity extends AppCompatActivity {
         /*
           Set up the adapter to display the allowable accounts in the spinner
          */
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, titles);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, titles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         titleSpinner.setAdapter(adapter);
 
