@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import teamplaceholder.com.placeholderapp.Data.DBHandler;
+import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
@@ -23,13 +23,13 @@ public class LoginActivity  extends AppCompatActivity {
 
     private SharedPreferences loginInfo;
     private SharedPreferences.Editor loginInfoEditor;
-    private DBHandler db;
+    private DBAccountHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        db = new DBHandler(this);
+        db = new DBAccountHandler(this);
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);

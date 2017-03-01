@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import java.util.Arrays;
 import java.util.List;
 
+import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Data.DBHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
@@ -28,7 +29,7 @@ public class EditActivity extends AppCompatActivity {
     private EditText addressText;
     private Spinner titleSpinner;
 
-    private DBHandler db;
+    private DBAccountHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class EditActivity extends AppCompatActivity {
         loginInfo = getSharedPreferences("login_info", 0);
         username = loginInfo.getString("logged_user", null);
 
-        db = new DBHandler(this);
+        db = new DBAccountHandler(this);
 
         emailText = (EditText) findViewById(R.id.email_et);
         addressText = (EditText) findViewById(R.id.address_et);

@@ -26,12 +26,13 @@ public final class UserDBContract {
         public static final String COLUMN_USER_TITLE = "title";
     }
 
-    public static class WaterSourceReportTable implements BaseColumns {
+    public static class WSRTable implements BaseColumns {
         public static final String TABLE_NAME = "waterReports";
         public static final String COLUMN_TIME_STAMP = "timeStamp";
         public static final String COLUMN_REPORT_ID = "id";
         public static final String COLUMN_WORKER_NAME = "workerName";
-        public static final String COLUMN_LOCATION = "location";
+        public static final String COLUMN_LOC_LAT = "latitude";
+        public static final String COLUMN_LOC_LONG = "longitude";
         public static final String COLUMN_WATER_TYPE = "waterType";
         public static final String COLUMN_WATER_CONDITION = "waterCondition";
     }

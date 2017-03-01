@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBHandler;
+import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.Model.Admin;
 import teamplaceholder.com.placeholderapp.Model.Manager;
@@ -36,7 +36,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     private String _password;
     private String _accountType;
     private AccountHolder _account;
-    private DBHandler db;
+    private DBAccountHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, legalAccountTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
-        db = new DBHandler(this);
+        db = new DBAccountHandler(this);
 
     }
 

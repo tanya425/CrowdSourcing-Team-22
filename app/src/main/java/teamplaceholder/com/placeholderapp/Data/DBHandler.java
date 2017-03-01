@@ -6,19 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 
 /**
  * Created by Jason Ngor on 2/21/2017.
- * This File handles USER database creation and operations
+ * This File Initialiizes and updates database
  */
 
 /**
  * This class handles the database that stores data for the app. It contains an accounts table.
  */
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "appDatabase.db";
 
     public DBHandler(Context context) {
@@ -36,75 +35,26 @@ public class DBHandler extends SQLiteOpenHelper {
                 UserTable.COLUMN_USER_ADDRESS + " TEXT, " +
                 UserTable.COLUMN_USER_TITLE + " TEXT" + ");";
 
+        final String CREATE_WATER_DATABASE = "CREATE TABLE " +
+                WSRTable.TABLE_NAME + "(" +
+                WSRTable.COLUMN_TIME_STAMP + " DATETIME NOT NULL, " +
+                WSRTable.COLUMN_REPORT_ID + " INT NOT NULL UNIQUE, " +
+                WSRTable.COLUMN_WORKER_NAME + " TEXT, " +
+                WSRTable.COLUMN_LOC_LAT + " DECIMAL, " +
+                WSRTable.COLUMN_LOC_LONG + " DECIMAL, " +
+                WSRTable.COLUMN_WATER_TYPE + " TEXT, " +
+                WSRTable.COLUMN_WATER_CONDITION + " TEXT " + ");";
+
+
         db.execSQL(CREATE_USER_DATABASE);
+        db.execSQL(CREATE_WATER_DATABASE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         /* will need to update this method in future if new columns are added to USER table */
         db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + WSRTable.TABLE_NAME);
         onCreate(db);
-    }
-
-    /**
-     * Adds an account to the database.
-     * @param acc - AccountHolder object to be added to the database
-     */
-    public void addAccount(AccountHolder acc) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UserTable.COLUMN_USER_USERNAME, acc.getUsername());
-        values.put(UserTable.COLUMN_USER_PASSWORD, acc.getPassword());
-        values.put(UserTable.COLUMN_USER_TYPE, acc.getAccountType());
-
-        db.insert(UserTable.TABLE_NAME, null, values);
-        db.close();
-    }
-
-    /**
-     * Reconstructs and returns an AccountHolder that's stored in the database.
-     * @param username - username to search for in the database
-     * @return the AccountHolder stored in the database
-     * @throws IllegalArgumentException when the user does not exist in the database
-     */
-    public AccountHolder getAccount(String username) throws IllegalArgumentException {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(UserTable.TABLE_NAME,
-                new String[] {
-                        UserTable.COLUMN_USER_USERNAME,
-                        UserTable.COLUMN_USER_PASSWORD,
-                        UserTable.COLUMN_USER_TYPE,
-                        UserTable.COLUMN_USER_EMAIL,
-                        UserTable.COLUMN_USER_ADDRESS,
-                        UserTable.COLUMN_USER_TITLE,},
-                UserTable.COLUMN_USER_USERNAME + "=?",
-                new String[] {username},
-                null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-        if (cursor.getCount() == 0) {
-            throw new IllegalArgumentException("getAccount - username does not exist");
-        }
-        AccountHolder acc = new AccountHolder(cursor.getString(0), cursor.getString(1),
-                cursor.getString(3), cursor.getString(4), cursor.getString(5));
-        return acc;
-    }
-
-    /**
-     * Adds or updates the profile of a user in the database
-     * @param username - username of the AccountHolder whose profile is to be added/updated
-     * @param email - email associated with the AccountHolder
-     * @param address - address associated with the AccountHolder
-     * @param title - title associated with the AccountHolder
-     */
-    public void setProfile(String username, String email, String address, String title) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UserTable.COLUMN_USER_EMAIL, email);
-        values.put(UserTable.COLUMN_USER_ADDRESS, address);
-        values.put(UserTable.COLUMN_USER_TITLE, title);
-
-        db.update(UserTable.TABLE_NAME, values, UserTable.COLUMN_USER_USERNAME + "=?", new String[] {username});
     }
 }
