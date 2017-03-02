@@ -1,6 +1,8 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -89,7 +91,22 @@ public class SubWaterRepoActivity extends AppCompatActivity {
     }
 
     protected void onCancelPress(View view) {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(SubWaterRepoActivity.this);
+        alert.setTitle("Discard Changes");
+        alert.setMessage("Do you really wish to discard your changes?");
 
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                SubWaterRepoActivity.this.finish();
+            }
+        });
+        final AlertDialog dialog = alert.create();
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 
 }
