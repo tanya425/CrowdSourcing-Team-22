@@ -9,14 +9,9 @@
     tools:context="teamplaceholder.com.placeholderapp.Controller.MainActivity">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/SoftBlue"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
+    <include
+        layout="@layout/basic_toolbar"
+        android:id="@id/my_toolbar"/>
 
     <Button
         android:text="@string/Login"

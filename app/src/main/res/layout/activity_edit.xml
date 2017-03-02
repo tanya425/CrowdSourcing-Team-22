@@ -7,13 +7,10 @@
     android:layout_height="match_parent"
     tools:context="teamplaceholder.com.placeholderapp.Controller.EditActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/SoftBlue"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:id="@+id/my_toolbar"
+
+
+    <include
+        layout="@layout/basic_toolbar"
         />
 
     <TextView
