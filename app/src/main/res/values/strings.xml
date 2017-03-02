@@ -26,4 +26,6 @@
     <string name="longitude">longitude</string>
     <string name="latitude">latitude</string>
     <string name="default_0">0</string>
+    <string name="user_type">User Type</string>
+    <string name="water_you_looking_at">Water You Looking At</string>
 </resources>
