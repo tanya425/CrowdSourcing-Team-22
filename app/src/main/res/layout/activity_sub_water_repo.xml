@@ -27,7 +27,7 @@
         />
 
     <TextView
-        android:text="@string/time_w_example"
+        android:text="@string/latitude"
         android:textSize="20sp"
         android:textColor="@color/Black"
         android:layout_width="wrap_content"
@@ -37,29 +37,31 @@
         />
 
     <EditText
-        android:inputType="text"
+        android:text="@string/default_0"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/time_detail_tv"
-        android:id="@+id/time_detail_et"
+        android:id="@+id/latitude_et"
         />
 
     <TextView
-        android:text="@string/location"
+        android:text="@string/longitude"
         android:textSize="20sp"
         android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/time_detail_et"
-        android:id="@+id/location_tv"
+        android:layout_below="@+id/latitude_et"
+        android:id="@+id/longitude_tv"
         />
 
     <EditText
-        android:inputType="text"
+        android:text="@string/default_0"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/location_tv"
-        android:id="@+id/location_et"
+        android:layout_below="@+id/longitude_tv"
+        android:id="@+id/longitude_et"
         />
 
     <TextView
@@ -68,7 +70,7 @@
         android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/location_et"
+        android:layout_below="@+id/longitude_et"
         android:id="@+id/water_type_tv"
         />
 
@@ -102,6 +104,7 @@
         android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onSubmitPress"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/submit_button"
@@ -113,6 +116,7 @@
         android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onCancelPress"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:id="@+id/cancel_button"

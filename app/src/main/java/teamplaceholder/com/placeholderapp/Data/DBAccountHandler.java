@@ -19,8 +19,6 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
  */
 public class DBAccountHandler extends DBHandler{
 
-    private final SQLiteDatabase accDB = this.getWritableDatabase();
-
     public DBAccountHandler(Context context) {
         super(context);
     }

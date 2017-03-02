@@ -1,8 +1,13 @@
 package teamplaceholder.com.placeholderapp.Model;
 
-import java.sql.Time;
-import java.util.Date;
 
+import java.sql.Time;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import java.util.Arrays;
+import java.util.List;
 /**
  * Created by Tanya on 2/28/2017.
  * Class that stores the information for a Water Source Report
@@ -13,32 +18,60 @@ public class WaterSourceReport {
     private Date dateCreated;
     private int reportNumber;
     private String reporterName;
-    private String location;
+    private double latitude;
+    private double longitude;
     private WaterType type;
     private Condition condition;
     private boolean isValidReport;
 
-    private enum WaterType {
-        BOTTLED, WELL, STREAM, LAKE, SPRING, OTHER;
+    public static List<WaterType> WaterTypeList = Arrays.asList(WaterType.values());
+    public static List<Condition> WaterConditionList = Arrays.asList(Condition.values());
+
+    public enum WaterType {
+        BOTTLED("Bottled"),
+        WELL("Well"),
+        STREAM("Stream"),
+        LAKE("Lake"),
+        SPRING("Spring"),
+        OTHER("Other");
+
+        private String type;
+        WaterType(String type) {
+            this.type = type;
+        }
+        public String toString() {
+            return this.type;
+        }
+
     }
 
-    private enum Condition {
-        WASTE, TREATABLECLEAR, TREATABLEMUDDY, POTABLE;
+    public enum Condition {
+        WASTE("Waste"),
+        TREATABLECLEAR("Treatable Clear"),
+        TREATABLEMUDDY("Treatable Muddy"),
+        POTABLE("Potable");
+
+        private String cond;
+        Condition(String cond) {
+            this.cond = cond;
+        }
+        public String toString() {
+            return this.cond;
+        }
     }
 
-    public WaterSourceReport(String name, String location, WaterType type, Condition condition) {
-        this(name, ((int) ((Math.random() * 3000) + 100)), location, type, condition);
-    }
-
-    public WaterSourceReport(String name, int reportNumber, String location, WaterType type, Condition condition) {
+    public WaterSourceReport(String name, int reportNumber, double latitude, double longitude,
+                             WaterType type, Condition condition) {
         this.dateCreated = new Date();
         this.reportNumber = reportNumber;
         this.reporterName = name;
-        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.type = type;
         this.condition = condition;
         this.isValidReport = false; //changed to true by Worker
     }
+
 
     public String getDateandTime() {
         return dateCreated.toString();
@@ -52,12 +85,20 @@ public class WaterSourceReport {
         return reporterName;
     }
 
-    public String getLocation() {
-        return location;
+    public double getLatitude() {
+        return this.latitude;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return this.longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public WaterType getWaterType() {
@@ -75,4 +116,5 @@ public class WaterSourceReport {
     public void setCondition(Condition condition) {
         this.condition = condition;
     }
+
 }

@@ -79,7 +79,6 @@ public class RegisterNewUserActivity extends AppCompatActivity {
             } else if (_accountType.equals("User")) {
                 _account = new User(_username,_password);
 
-
             } else if (_accountType.equals("Worker")) {
                 _account = new Worker(_username,_password);
 
