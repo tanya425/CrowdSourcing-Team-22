@@ -5,13 +5,24 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/ripplewater_background"
     tools:context="teamplaceholder.com.placeholderapp.Controller.MainActivity">
 
 
     <include
-        layout="@layout/basic_toolbar"
-        android:id="@id/my_toolbar"/>
+        layout="@layout/basic_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/water_you_looking_at"
+        android:textColor="@color/Black"
+        android:id="@+id/Welcome_Text_View"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textAlignment="center"
+        android:layout_above="@+id/login_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="70dp" />
 
     <Button
         android:text="@string/Login"
@@ -22,18 +33,6 @@
         android:width="125dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Welcome"
-        android:textColor="@color/DarkBlue"
-        android:id="@+id/Welcome_Text_View"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textAlignment="center"
-        android:layout_above="@+id/login_button"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="70dp" />
 
     <Button
         android:text="@string/Register"
