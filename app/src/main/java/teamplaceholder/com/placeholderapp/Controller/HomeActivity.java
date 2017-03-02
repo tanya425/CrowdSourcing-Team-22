@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -25,11 +28,36 @@ public class HomeActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        DBAccountHandler db = new DBAccountHandler(this);
+
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
+        String username = loginInfo.getString("logged_user","");
+        AccountHolder account = db.getAccount(username);
+
+        TextView user_id_text = (TextView) findViewById(R.id.user_id_tv);
+        String id_text = user_id_text.getText().toString() + " : " + account.getTitle() + username;
+        user_id_text.setText(id_text);
+
+        TextView user_password_text = (TextView) findViewById(R.id.user_password_tv);
+        String pass_text = user_password_text.getText().toString() + " : " + account.getPassword();
+        user_password_text.setText(pass_text);
+
+        TextView user_type_text = (TextView) findViewById(R.id.user_type_tv);
+        String type_text = user_type_text.getText().toString() + " : "  + account.getAccountType();
+        user_type_text.setText(type_text);
+
+        TextView user_email_text = (TextView) findViewById(R.id.user_email_tv);
+        String email_text = user_email_text.getText().toString() + " : " + account.getEmail();
+        user_email_text.setText(email_text);
+
+        TextView user_addr_text = (TextView) findViewById(R.id.user_address_tv);
+        String addr_text = user_addr_text.getText().toString() + " : " + account.getAddress();
+        user_addr_text.setText(addr_text);
+        
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
