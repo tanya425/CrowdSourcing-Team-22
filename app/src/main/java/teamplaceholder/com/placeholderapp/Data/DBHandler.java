@@ -17,7 +17,7 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
  * This class handles the database that stores data for the app. It contains an accounts table.
  */
 public class DBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "appDatabase.db";
 
     public DBHandler(Context context) {

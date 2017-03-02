@@ -39,7 +39,8 @@ public class HomeActivity extends AppCompatActivity{
         AccountHolder account = db.getAccount(username);
 
         TextView user_id_text = (TextView) findViewById(R.id.user_id_tv);
-        String id_text = user_id_text.getText().toString() + " : " + account.getTitle() + username;
+        String title = account.getTitle() == null ? "":account.getTitle();
+        String id_text = user_id_text.getText().toString() + " : " + title + username;
         user_id_text.setText(id_text);
 
         TextView user_password_text = (TextView) findViewById(R.id.user_password_tv);
@@ -51,11 +52,13 @@ public class HomeActivity extends AppCompatActivity{
         user_type_text.setText(type_text);
 
         TextView user_email_text = (TextView) findViewById(R.id.user_email_tv);
-        String email_text = user_email_text.getText().toString() + " : " + account.getEmail();
+        String email = account.getEmail()==null ? "NA":account.getEmail();
+        String email_text = user_email_text.getText().toString() + " : " + email;
         user_email_text.setText(email_text);
 
         TextView user_addr_text = (TextView) findViewById(R.id.user_address_tv);
-        String addr_text = user_addr_text.getText().toString() + " : " + account.getAddress();
+        String addr = account.getAddress()==null ? "NA":account.getAddress();
+        String addr_text = user_addr_text.getText().toString() + " : " + addr;
         user_addr_text.setText(addr_text);
         
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);

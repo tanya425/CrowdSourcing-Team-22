@@ -5,9 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.Model.Admin;
+import teamplaceholder.com.placeholderapp.Model.Manager;
+import teamplaceholder.com.placeholderapp.Model.User;
+import teamplaceholder.com.placeholderapp.Model.Worker;
 
 
 /**
@@ -34,7 +39,7 @@ public class DBAccountHandler extends DBHandler{
         values.put(UserTable.COLUMN_USER_USERNAME, acc.getUsername());
         values.put(UserTable.COLUMN_USER_PASSWORD, acc.getPassword());
         values.put(UserTable.COLUMN_USER_TYPE, acc.getAccountType());
-
+        Log.w("verify adding user", acc.getAccountType());
         db.insert(UserTable.TABLE_NAME, null, values);
         db.close();
     }
@@ -55,7 +60,7 @@ public class DBAccountHandler extends DBHandler{
                         UserTable.COLUMN_USER_EMAIL,
                         UserTable.COLUMN_USER_ADDRESS,
                         UserTable.COLUMN_USER_TITLE,},
-                UserTable.COLUMN_USER_USERNAME + "=?",
+                        UserTable.COLUMN_USER_USERNAME + "=?",
                 new String[] {username},
                 null, null, null, null);
         if (cursor != null) {
@@ -66,7 +71,46 @@ public class DBAccountHandler extends DBHandler{
         }
         AccountHolder acc = new AccountHolder(cursor.getString(0), cursor.getString(1),
                 cursor.getString(3), cursor.getString(4), cursor.getString(5));
-        return acc;
+        Log.w("user", cursor.getString(0));
+        Log.w("pass", cursor.getString(1));
+        Log.w("type", cursor.getString(2));
+
+        String type = cursor.getString(2);
+
+        if (type.equals("Admin")) {
+            return new Admin(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5));
+        } else if (type.equals("Manager")) {
+            return new Manager(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+        } else if (type.equals("Worker")) {
+            return new Worker(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+        } else if (type.equals(("User"))) {
+            return new User(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+        }
+
+        throw new IllegalStateException("Account type: " + acc.getAccountType() + " Not valid");
     }
 
     /**

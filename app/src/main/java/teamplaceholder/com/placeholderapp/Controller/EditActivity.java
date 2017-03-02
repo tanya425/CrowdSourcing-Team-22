@@ -1,5 +1,6 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -71,7 +72,8 @@ public class EditActivity extends AppCompatActivity {
                 emailText.getText().toString(),
                 addressText.getText().toString(),
                 titleSpinner.getSelectedItem().toString());
-        this.finish();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
     /**
