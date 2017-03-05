@@ -60,11 +60,11 @@ public class WaterSourceReport {
         }
     }
 
-    public WaterSourceReport(String name, int reportNumber, double latitude, double longitude,
-                             WaterType type, Condition condition) {
-        this.dateCreated = new Date();
+    public WaterSourceReport(Date dateCreated, String reporterName, int reportNumber,
+                             double latitude, double longitude, WaterType type, Condition condition) {
+        this.dateCreated = dateCreated;
         this.reportNumber = reportNumber;
-        this.reporterName = name;
+        this.reporterName = reporterName;
         this.latitude = latitude;
         this.longitude = longitude;
         this.type = type;
@@ -72,8 +72,16 @@ public class WaterSourceReport {
         this.isValidReport = false; //changed to true by Worker
     }
 
+    public WaterSourceReport(String reporterName, int reportNumber, double latitude, double longitude,
+                             WaterType type, Condition condition) {
+        this(new Date(), reporterName, reportNumber, latitude, longitude, type, condition);
+    }
 
-    public String getDateandTime() {
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public String getDateString() {
         return dateCreated.toString();
     }
 

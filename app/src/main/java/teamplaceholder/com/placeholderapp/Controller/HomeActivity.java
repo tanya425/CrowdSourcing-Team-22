@@ -117,6 +117,11 @@ public class HomeActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    protected void onViewSourcesPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, ViewWaterSourceReportsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -127,6 +132,8 @@ public class HomeActivity extends AppCompatActivity{
         //noinspection SimplifiableIfStatement
         if (id == R.id.add_report_toolbar_item) {
             this.onAddPress(findViewById(R.id.add_report_toolbar_item));
+        } else if (id == R.id.view_source_reports_toolbar_item) {
+            this.onViewSourcesPress(findViewById(R.id.view_source_reports_toolbar_item));
         } else if (id == R.id.edit_profile_toolbar_item) {
             this.onEditPress(findViewById(R.id.edit_profile_toolbar_item));
         } else if (id == R.id.logout_toolbar_item) {

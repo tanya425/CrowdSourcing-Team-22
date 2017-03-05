@@ -11,16 +11,20 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/edit_profile_toolbar_item"
+        android:id="@+id/view_source_reports_toolbar_item"
         android:orderInCategory="200"
+        android:title="View Water Source Reports"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/edit_profile_toolbar_item"
+        android:orderInCategory="300"
         android:title="@string/edit_profile"
         app:showAsAction="ifRoom"/>
 
 
     <item
         android:id="@+id/logout_toolbar_item"
-        android:orderInCategory="300"
-        android:title="@string/log_out"
-        app:showAsAction="ifRoom"/>
+        android:orderInCategory="400"
+        android:title="@string/log_out" />
 
 </menu>
