@@ -12,6 +12,11 @@ public class Worker extends User {
         accountType = "Worker";
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     */
     public Worker(String username, String password) {
         this(username, password, null, null, null);
     }

@@ -24,6 +24,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
     private DBWaterReportHandler db;
     private ArrayList<WaterSourceReport> waterSourceList;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_water_source_reports);
@@ -48,6 +49,9 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         this.finish();
     }
 
+    /**
+     * handles water source report info
+     */
     public class WaterSourceAdapter extends RecyclerView.Adapter<WaterSourceAdapter.WaterSourceViewHolder> {
         private ArrayList<WaterSourceReport> waterSourceList;
 
@@ -79,6 +83,9 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
             return waterSourceList.size();
         }
 
+        /**
+         * handles view of water source
+         */
         public class WaterSourceViewHolder extends RecyclerView.ViewHolder {
             protected TextView vWaterType;
             protected TextView vReportNum;
@@ -88,6 +95,10 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
             protected TextView vLatitude;
             protected TextView vLongitude;
 
+            /**
+             * view handler code for water source view
+             * @param v is the current view passed into the button handler
+             */
             public WaterSourceViewHolder(View v) {
                 super(v);
                 vWaterType = (TextView) v.findViewById(R.id.txtWaterType);

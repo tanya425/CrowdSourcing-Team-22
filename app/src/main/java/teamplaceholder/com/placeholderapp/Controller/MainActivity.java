@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences loginInfo;
     private SharedPreferences.Editor loginInfoEditor;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
