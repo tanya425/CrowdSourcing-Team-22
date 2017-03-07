@@ -58,6 +58,10 @@ public class DBWaterReportHandler extends DBHandler{
         }
     }
 
+    /**
+     *
+     * @return ArrayList of water reports
+     */
     public ArrayList<WaterSourceReport> getReports() {
         ArrayList<WaterSourceReport> list = new ArrayList<>();
 

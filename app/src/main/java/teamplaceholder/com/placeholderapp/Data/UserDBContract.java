@@ -26,6 +26,7 @@ public final class UserDBContract {
         public static final String COLUMN_USER_TITLE = "title";
     }
 
+    /* Inner class to represent the water source table */
     public static class WSRTable implements BaseColumns {
         public static final String TABLE_NAME = "waterReports";
         public static final String COLUMN_TIME_STAMP = "timeStamp";
