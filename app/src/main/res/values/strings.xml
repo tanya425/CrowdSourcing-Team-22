@@ -28,4 +28,7 @@
     <string name="default_0">0</string>
     <string name="user_type">User Type</string>
     <string name="water_you_looking_at">Water You Looking At</string>
+    <string name="title_activity_water_availability">Map</string>
+    <string name="water_availability">Water Availability</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

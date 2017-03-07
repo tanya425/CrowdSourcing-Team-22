@@ -109,7 +109,7 @@ public class HomeActivity extends AppCompatActivity{
     }
 
     /**
-     * Called when the add
+     * Displays the submit water report activity
      * @param view is the view in which the logout button is pressed
      */
     protected void onAddPress(View view) {
@@ -117,8 +117,21 @@ public class HomeActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    /**
+     * Displays the water source reports activity
+     * @param view is the view in which the view water source report button is pressed
+     */
     protected void onViewSourcesPress(View view) {
         Intent intent = new Intent(HomeActivity.this, ViewWaterSourceReportsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Displays the water availability report
+     * @param view is the view in which the view water availability report button was presseds
+     */
+    protected void onViewWaterAvailabilityPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, WaterAvailabilityActivity.class);
         startActivity(intent);
     }
 
@@ -130,7 +143,11 @@ public class HomeActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.add_report_toolbar_item) {
+        if (id == R.id.view_water_availability_report_toolbar_item) {
+            this.onViewWaterAvailabilityPress(
+                    findViewById(R.id.view_water_availability_report_toolbar_item)
+            );
+        } else if (id == R.id.add_report_toolbar_item) {
             this.onAddPress(findViewById(R.id.add_report_toolbar_item));
         } else if (id == R.id.view_source_reports_toolbar_item) {
             this.onViewSourcesPress(findViewById(R.id.view_source_reports_toolbar_item));

@@ -48,7 +48,6 @@
         android:id="@+id/user_email_tv"
         />
 
-
     <TextView
         android:text="@string/address"
         android:layout_width="wrap_content"
