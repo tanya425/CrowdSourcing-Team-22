@@ -50,7 +50,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
     }
 
     /**
-     * handles water source report info
+     * Adapter for recycler view to read the data from the database
      */
     public class WaterSourceAdapter extends RecyclerView.Adapter<WaterSourceAdapter.WaterSourceViewHolder> {
         private ArrayList<WaterSourceReport> waterSourceList;
