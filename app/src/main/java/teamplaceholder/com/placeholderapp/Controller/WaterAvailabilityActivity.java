@@ -46,38 +46,5 @@ public class WaterAvailabilityActivity extends FragmentActivity implements OnMap
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Atlanta));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
 
-        /*
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-
-            @Override
-            public void onMapClick(LatLng latLng) {
-
-
-
-                // Creating a marker
-                MarkerOptions markerOptions = new MarkerOptions();
-
-                // Setting the position for the marker
-                markerOptions.position(latLng);
-
-
-
-                // Clears the previously touched position
-                // mMap.clear();
-                //mFacade.addReport("newly added", "Bobs Place", new Location(latLng.latitude, latLng.longitude));
-
-                // Setting the title for the marker.
-                // This will be displayed on taping the marker
-                //markerOptions.title(mFacade.getLastReport().getName());
-                //markerOptions.snippet(mFacade.getLastReport().getDescription());
-
-                // Animating to the touched position
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-
-                // Placing a marker on the touched position
-                mMap.addMarker(markerOptions);
-            }
-        });
-        */
     }
 }
