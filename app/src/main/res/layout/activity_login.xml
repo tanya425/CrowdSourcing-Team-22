@@ -43,14 +43,14 @@
         android:layout_marginTop="15dp" />
 
     <Button
-        android:text="@string/cancel_login"
+        android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:layout_weight="0.04"
-        android:onClick="onCancelLoginPress"
-        android:width="125dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.04"
+        android:width="125dp"
+        android:onClick="onCancelLoginPress"
+        android:text="@string/cancel_login" />
 
 </LinearLayout>

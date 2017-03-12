@@ -11,80 +11,98 @@
 
     <include
         layout="@layout/basic_toolbar"
-        />
+        android:id="@+id/include2" />
 
     <TextView
-        android:text="@string/edit_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:layout_below="@+id/my_toolbar"
         android:id="@+id/edit_info_tv"
-        />
-
-    <TextView
-        android:text="@string/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_info_tv"
+        android:layout_alignStart="@+id/email_tv"
+        android:layout_below="@+id/include2"
+        android:layout_marginTop="24dp"
+        android:text="@string/edit_profile"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <TextView
         android:id="@+id/email_tv"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
+        android:text="@string/email"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_below="@+id/edit_info_tv"
+        android:layout_alignStart="@+id/address_tv" />
 
     <EditText
+        android:id="@+id/email_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:minWidth="300dp"
         android:layout_below="@+id/email_tv"
-        android:id="@+id/email_et"
-        />
+        android:layout_alignStart="@+id/email_tv" />
 
     <TextView
-        android:text="@string/address"
+        android:id="@+id/address_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="17dp"
         android:layout_below="@+id/email_et"
-        android:id="@+id/address_tv"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="31dp" />
 
     <EditText
+        android:id="@+id/address_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="300dp"
         android:layout_below="@+id/address_tv"
-        android:id="@+id/address_et"
-        />
+        android:layout_alignStart="@+id/address_tv" />
 
     <TextView
-        android:text="@string/title"
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="34dp"
         android:layout_below="@+id/address_et"
-        android:id="@+id/title_tv"
-        />
+        android:layout_alignStart="@+id/address_et" />
 
     <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title_tv"
         android:id="@+id/title_spinner"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/address_et"
+        android:layout_alignTop="@+id/title_tv"
+        android:minWidth="125dp"
+        android:textAlignment="textEnd" />
 
     <Button
         android:text="@string/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onCancelPress"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:id="@+id/cancel_Button"
-        />
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/title_spinner"
+        android:layout_alignStart="@+id/title_tv"
+        android:layout_marginStart="23dp" />
 
     <Button
         android:text="@string/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onSubmitPressed"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:id="@+id/submitButton"
-        />
+        android:layout_alignBaseline="@+id/cancel_Button"
+        android:layout_alignBottom="@+id/cancel_Button"
+        android:layout_alignEnd="@+id/title_spinner" />
 </RelativeLayout>

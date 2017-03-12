@@ -42,5 +42,6 @@
         android:onClick="onRegisterPress"
         android:width="125dp"
         android:layout_below="@+id/login_button"
-        android:layout_alignStart="@+id/login_button" />
+        android:layout_alignStart="@+id/login_button"
+        android:layout_marginTop="11dp" />
 </RelativeLayout>

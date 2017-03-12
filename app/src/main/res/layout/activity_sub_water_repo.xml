@@ -8,111 +8,129 @@
     tools:context="teamplaceholder.com.placeholderapp.Controller.SubWaterRepoActivity">
 
     <include
-        layout="@layout/basic_toolbar"/>
+        layout="@layout/basic_toolbar"
+        android:id="@+id/include3" />
 
     <TextView
-        android:text="@string/water_report"
-        android:textSize="45sp"
-        android:textColor="@color/Black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/my_toolbar"
         android:id="@+id/water_report_tv"
-        />
-
-    <TextView
-        android:text="@string/latitude"
-        android:textSize="20sp"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/water_report_tv"
+        android:layout_marginTop="40dp"
+        android:text="@string/water_report"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        android:layout_below="@+id/include3"
+        android:layout_alignStart="@+id/time_detail_tv" />
+
+    <TextView
         android:id="@+id/time_detail_tv"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/latitude_et"
+        android:layout_alignBottom="@+id/latitude_et"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="18dp"
+        android:text="@string/latitude"
+        android:textColor="@color/Black"
+        android:textSize="18sp" />
 
     <EditText
-        android:text="@string/default_0"
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/time_detail_tv"
         android:id="@+id/latitude_et"
-        />
-
-    <TextView
-        android:text="@string/longitude"
-        android:textSize="20sp"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/latitude_et"
+        android:width="100dp"
+        android:inputType="numberDecimal"
+        android:text="@string/default_0"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/water_report_tv"
+        android:layout_alignEnd="@+id/water_type_spinner"
+        android:layout_marginEnd="10dp" />
+
+    <TextView
         android:id="@+id/longitude_tv"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/time_detail_tv"
+        android:layout_below="@+id/latitude_et"
+        android:layout_marginTop="18dp"
+        android:text="@string/longitude"
+        android:textColor="@color/Black"
+        android:textSize="18sp" />
 
     <EditText
-        android:text="@string/default_0"
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/longitude_tv"
         android:id="@+id/longitude_et"
-        />
-
-    <TextView
-        android:text="@string/type"
-        android:textSize="20sp"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/longitude_et"
+        android:width="100dp"
+        android:inputType="numberDecimal"
+        android:text="@string/default_0"
+        android:layout_alignBaseline="@+id/longitude_tv"
+        android:layout_alignBottom="@+id/longitude_tv"
+        android:layout_alignStart="@+id/latitude_et" />
+
+    <TextView
         android:id="@+id/water_type_tv"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/type"
+        android:textColor="@color/Black"
+        android:textSize="18sp"
+        android:layout_below="@+id/longitude_et"
+        android:layout_alignStart="@+id/longitude_tv" />
 
     <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/water_type_tv"
         android:id="@+id/water_type_spinner"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/water_type_tv"
+        android:layout_marginEnd="12dp"
+        android:minWidth="190dp"
+        android:textAlignment="textEnd" />
 
     <TextView
-        android:text="@string/water_condition"
-        android:textSize="20sp"
-        android:textColor="@color/Black"
+        android:id="@+id/water_condition_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/water_condition"
+        android:textColor="@color/Black"
+        android:textSize="18sp"
         android:layout_below="@+id/water_type_spinner"
-        android:id="@+id/water_condition_tv"
-        />
+        android:layout_alignStart="@+id/water_type_tv" />
 
     <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/water_condition_tv"
         android:id="@+id/water_condition_spinner"
-        />
-
-    <Button
-        android:text="@string/submit"
-        android:textSize="20sp"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onSubmitPress"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/submit_button"
-        android:layout_alignTop="@+id/cancel_button" />
+        android:layout_alignStart="@+id/water_type_spinner"
+        android:layout_alignTop="@+id/water_condition_tv"
+        android:minWidth="190dp"
+        android:textAlignment="viewEnd" />
 
     <Button
-        android:text="@string/cancel"
-        android:textSize="20sp"
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:onClick="onSubmitPress"
+        android:text="@string/submit"
         android:textColor="@color/Black"
+        android:textSize="16sp"
+        android:layout_alignBaseline="@+id/cancel_button"
+        android:layout_alignBottom="@+id/cancel_button"
+        android:layout_alignEnd="@+id/longitude_et" />
+
+    <Button
+        android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onCancelPress"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/cancel_button"
-        />
+        android:text="@string/cancel"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        android:layout_below="@+id/water_condition_spinner"
+        android:layout_alignEnd="@+id/water_condition_tv"
+        android:layout_marginTop="66dp" />
 </RelativeLayout>
