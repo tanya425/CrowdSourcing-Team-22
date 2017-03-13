@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view is the where the button was clicked
      */
     protected void onLoginPress(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class); // change back to LoginActivity.class
         startActivity(intent);
     }
 

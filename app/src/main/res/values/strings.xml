@@ -30,4 +30,5 @@
     <string name="title_activity_water_availability">Map</string>
     <string name="water_availability">Water Availability</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_water_source_maps">Map</string>
 </resources>

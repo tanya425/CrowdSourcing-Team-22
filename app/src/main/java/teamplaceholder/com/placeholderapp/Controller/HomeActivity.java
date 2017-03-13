@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity{
      * @param view is the view in which the view water availability report button was presseds
      */
     protected void onViewWaterAvailabilityPress(View view) {
-        Intent intent = new Intent(HomeActivity.this, WaterAvailabilityActivity.class);
+        Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
         startActivity(intent);
     }
 

@@ -19,7 +19,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:layout_below="@+id/my_toolbar"
         android:id="@+id/user_id_tv"
-        />
+        tools:ignore="UnknownId" />
 
     <TextView
         android:text="@string/password"
