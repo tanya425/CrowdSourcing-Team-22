@@ -67,7 +67,7 @@ public class EditActivity extends AppCompatActivity {
      * onSubmitPressed is the button handler for the submit button
      * @param view is the current view being passed in
      */
-    protected void onSubmitPressed(View view) {
+    public void onSubmitPressed(View view) {
         db.setProfile(username,
                 emailText.getText().toString(),
                 addressText.getText().toString(),
@@ -80,7 +80,7 @@ public class EditActivity extends AppCompatActivity {
      * makes sure you want to leave the edit page
      * @param view is the current view being passed in
      */
-    protected void onCancelPress(View view) {
+    public void onCancelPress(View view) {
         final AlertDialog.Builder alert = new AlertDialog.Builder(EditActivity.this);
         alert.setTitle("Discard Changes");
         alert.setMessage("Do you really wish to discard your changes?");

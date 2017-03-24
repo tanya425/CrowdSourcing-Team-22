@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
      * Called when the login button is pressed*
      * @param view is the where the button was clicked
      */
-    protected void onLoginPress(View view) {
+    public void onLoginPress(View view) {
         Intent intent = new Intent(this, LoginActivity.class); // change back to LoginActivity.class
         startActivity(intent);
     }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
      * Called when the login button is pressed*
      * @param view is the where the button was clicked
      */
-    protected void onRegisterPress(View view) {
+    public void onRegisterPress(View view) {
         Intent intent = new Intent(this, RegisterNewUserActivity.class);
         startActivity(intent);
     }

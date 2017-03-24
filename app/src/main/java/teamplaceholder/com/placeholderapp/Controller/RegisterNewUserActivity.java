@@ -64,7 +64,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
      * onSubmitPressed is the button handler code for the submit button
      * @param view is the current view passed into the button handler
      */
-    protected void onSubmitPressed(View view) {
+    public void onSubmitPressed(View view) {
         _accountType = (String) accountTypeSpinner.getSelectedItem();
         _username = usernameText.getText().toString();
         _password = passwordText.getText().toString();
@@ -96,7 +96,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
      *      probably should end the activity instead of calling a new mainactivity -jason
      * @param view is the current view passed into the button press code
      */
-    protected void onCancelPressed(View view) {
+    public void onCancelPressed(View view) {
         this.finish();
     }
 }

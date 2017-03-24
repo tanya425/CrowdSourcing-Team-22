@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity{
      * Called when the logout button is pressed
      * @param view is the view in which the logout button is pressed
      */
-    protected void onLogoutPress(View view) {
+    public void onLogoutPress(View view) {
         final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
         alert.setTitle("Confirm Logout");
         alert.setMessage("Do you really wish to log out?");
@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity{
      * Called when the edit info button is pressed
      * @param view is the view in which the logout button is pressed
      */
-    protected void onEditPress(View view) {
+    public void onEditPress(View view) {
         Intent intent = new Intent(HomeActivity.this, EditActivity.class);
         startActivity(intent);
     }
@@ -112,7 +112,7 @@ public class HomeActivity extends AppCompatActivity{
      * Displays the submit water report activity
      * @param view is the view in which the logout button is pressed
      */
-    protected void onAddPress(View view) {
+    public void onAddPress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubWaterRepoActivity.class);
         startActivity(intent);
     }
@@ -130,7 +130,7 @@ public class HomeActivity extends AppCompatActivity{
      * Displays the water availability report
      * @param view is the view in which the view water availability report button was presseds
      */
-    protected void onViewWaterAvailabilityPress(View view) {
+    public void onViewWaterAvailabilityPress(View view) {
         Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
         startActivity(intent);
     }

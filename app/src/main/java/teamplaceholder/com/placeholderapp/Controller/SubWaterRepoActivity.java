@@ -68,7 +68,7 @@ public class SubWaterRepoActivity extends AppCompatActivity {
      * onSubmitPressed is the button handler code for the submit button
      * @param view is the current view passed into the button handler
      */
-    protected void onSubmitPress(View view){
+    public void onSubmitPress(View view){
         now = new Date();
         report_id = db.getMaxId() + 1;
         username = loginInfo.getString("logged_user", null);
@@ -97,7 +97,7 @@ public class SubWaterRepoActivity extends AppCompatActivity {
      * onCancelPressed is the button handler code for the cancel button
      * @param view is the current view passed into the button handler
      */
-    protected void onCancelPress(View view) {
+    public void onCancelPress(View view) {
         final AlertDialog.Builder alert = new AlertDialog.Builder(SubWaterRepoActivity.this);
         alert.setTitle("Discard Changes");
         alert.setMessage("Do you really wish to discard your changes?");
