@@ -2,27 +2,24 @@ package teamplaceholder.com.placeholderapp.Controller;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterReportHandler;
+import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private DBWaterReportHandler db;
+    private DBWaterSourceReportHandler db;
     private ArrayList<WaterSourceReport> waterSourceList;
 
     @Override
@@ -32,7 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        db = new DBWaterReportHandler(this);
+        db = new DBWaterSourceReportHandler(this);
         waterSourceList = db.getReports();
     }
 

@@ -11,10 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.sql.Time;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterReportHandler;
+import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
@@ -31,7 +30,7 @@ public class SubWaterRepoActivity extends AppCompatActivity {
     private Spinner water_type;
     private Spinner water_condition;
 
-    private DBWaterReportHandler db;
+    private DBWaterSourceReportHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class SubWaterRepoActivity extends AppCompatActivity {
         condition_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         water_condition.setAdapter(condition_adapter);
 
-        db = new DBWaterReportHandler(this);
+        db = new DBWaterSourceReportHandler(this);
     }
 
     /**

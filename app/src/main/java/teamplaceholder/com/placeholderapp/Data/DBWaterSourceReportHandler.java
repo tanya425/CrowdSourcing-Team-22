@@ -3,9 +3,7 @@ package teamplaceholder.com.placeholderapp.Data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,16 +17,16 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
  * This File handles Water Report database creation and operations
  */
 
-public class DBWaterReportHandler extends DBHandler{
+public class DBWaterSourceReportHandler extends DBHandler{
 
-    private SQLiteDatabase db = super.getWritableDatabase();
+    private SQLiteDatabase db;
 
-    public DBWaterReportHandler(Context context) {
+    public DBWaterSourceReportHandler(Context context) {
         super(context);
     }
 
     public void addWaterSourceReport(WaterSourceReport wsr) {
-        SQLiteDatabase db = super.getWritableDatabase();
+        db = super.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(WSRTable.COLUMN_TIME_STAMP, wsr.getDateCreated().getTime());
         values.put(WSRTable.COLUMN_REPORT_ID, wsr.getReportNumber());
@@ -44,29 +42,27 @@ public class DBWaterReportHandler extends DBHandler{
 
     /**
      * This method gives the number of reports in the DB
-     * @return
+     * @return the number of reports in the database
      */
     public int getMaxId() {
         final String COUNT_REPORTS = "SELECT MAX(" + WSRTable.COLUMN_REPORT_ID + ") FROM " + WSRTable.TABLE_NAME;
         Cursor cursor = db.rawQuery(COUNT_REPORTS, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            int ctr = cursor.getInt(0);
-            return ctr;
+            return cursor.getInt(0);
         } else {
             return 0;
         }
     }
 
     /**
-     *
+     * This method returns an ArrayList of all the water source reports in the database
      * @return ArrayList of water reports
      */
     public ArrayList<WaterSourceReport> getReports() {
         ArrayList<WaterSourceReport> list = new ArrayList<>();
 
-        SQLiteDatabase db = getReadableDatabase();
-        long cnt = DatabaseUtils.queryNumEntries(db, WSRTable.TABLE_NAME);
+        db = getReadableDatabase();
 
         Cursor cursor = db.query(WSRTable.TABLE_NAME,
                 new String[] {

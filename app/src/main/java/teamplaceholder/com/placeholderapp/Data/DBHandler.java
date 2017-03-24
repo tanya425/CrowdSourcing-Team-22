@@ -35,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 UserTable.COLUMN_USER_ADDRESS + " TEXT, " +
                 UserTable.COLUMN_USER_TITLE + " TEXT" + ");";
 
-        final String CREATE_WATER_DATABASE = "CREATE TABLE " +
+        final String CREATE_WATER_SOURCE_DATABASE = "CREATE TABLE " +
                 WSRTable.TABLE_NAME + "(" +
                 WSRTable.COLUMN_TIME_STAMP + " DATETIME NOT NULL, " +
                 WSRTable.COLUMN_REPORT_ID + " INT NOT NULL UNIQUE, " +
@@ -45,9 +45,20 @@ public class DBHandler extends SQLiteOpenHelper {
                 WSRTable.COLUMN_WATER_TYPE + " TEXT, " +
                 WSRTable.COLUMN_WATER_CONDITION + " TEXT " + ");";
 
+        final String CREATE_WATER_QUALITY_DATABASE = "CREATE TABLE " +
+                WQTable.TABLE_NAME + "(" +
+                WQTable.COLUMN_TIME_STAMP + " DATETIME NOT NULL, " +
+                WQTable.COLUMN_REPORT_ID + " INT NOT NULL UNIQUE, " +
+                WQTable.COLUMN_WORKER_NAME + " TEXT, " +
+                WQTable.COLUMN_LOC_LAT + " DECIMAL, " +
+                WQTable.COLUMN_LOC_LONG + " DECIMAL, " +
+                WQTable.COLUMN_CONDITION + " TEXT, " +
+                WQTable.COLUMN_VIRUS_PPM + " INT NOT NULL, " +
+                WQTable.COLUMN_CONTAMINANT_PPM + " INT NOT NULL " + ");";
 
         db.execSQL(CREATE_USER_DATABASE);
-        db.execSQL(CREATE_WATER_DATABASE);
+        db.execSQL(CREATE_WATER_SOURCE_DATABASE);
+        db.execSQL(CREATE_WATER_QUALITY_DATABASE);
     }
 
     @Override
@@ -55,6 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
         /* will need to update this method in future if new columns are added to USER table */
         db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + WSRTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + WQTable.TABLE_NAME);
         onCreate(db);
     }
 }

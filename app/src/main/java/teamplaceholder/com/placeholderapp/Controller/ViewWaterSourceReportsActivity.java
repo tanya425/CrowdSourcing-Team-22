@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterReportHandler;
+import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
@@ -21,7 +21,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private DBWaterReportHandler db;
+    private DBWaterSourceReportHandler db;
     private ArrayList<WaterSourceReport> waterSourceList;
 
     @Override
@@ -31,7 +31,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        db = new DBWaterReportHandler(this);
+        db = new DBWaterSourceReportHandler(this);
         waterSourceList = db.getReports();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
