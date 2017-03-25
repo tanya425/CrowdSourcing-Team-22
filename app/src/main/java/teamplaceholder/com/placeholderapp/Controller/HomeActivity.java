@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,9 +42,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ArrayList<WaterSourceReport> waterSourceList;
     private DBWaterSourceReportHandler waterSourceDB;
     private DBAccountHandler accountDB;
-    
-
-
+    private String[] options;
+    private ListView drawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +60,31 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
+        options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+        drawerList = (ListView) findViewById(R.id.left_drawer);
+        drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, options));
+        drawerList.setOnItemClickListener(new DrawerItemClickListener());
+    }
 
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            switch (position) {
+                case 0: onEditPress(view);
+                    break;
+                case 1: onAddPress(view);
+                    break;
+                case 2: onViewSourcesPress(view);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     @Override
@@ -135,15 +158,6 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         //noinspection SimplifiableIfStatement
 
         switch (id) {
-            case R.id.add_report_toolbar_item:
-                this.onAddPress(findViewById(R.id.add_report_toolbar_item));
-                break;
-            case R.id.view_source_reports_toolbar_item:
-                this.onViewSourcesPress(findViewById(R.id.view_source_reports_toolbar_item));
-                break;
-            case R.id.edit_profile_toolbar_item:
-                this.onEditPress(findViewById(R.id.edit_profile_toolbar_item));
-                break;
             case R.id.logout_toolbar_item:
                 this.onLogoutPress(findViewById(R.id.logout_toolbar_item));
                 break;

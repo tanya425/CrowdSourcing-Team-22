@@ -28,9 +28,13 @@
     </FrameLayout>
 
     <ListView
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:id="@+id/left_drawer"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:choiceMode="singleChoice"/>
+        android:choiceMode="singleChoice"
+        android:background="#373737"
+        android:divider="#55595C"
+        android:dividerHeight="1dp"/>
 </android.support.v4.widget.DrawerLayout>
