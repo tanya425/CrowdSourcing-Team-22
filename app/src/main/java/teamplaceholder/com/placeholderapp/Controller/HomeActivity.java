@@ -14,6 +14,10 @@ import android.widget.TextView;
 
 import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Model.Admin;
+import teamplaceholder.com.placeholderapp.Model.Manager;
+import teamplaceholder.com.placeholderapp.Model.User;
+import teamplaceholder.com.placeholderapp.Model.Worker;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -25,6 +29,7 @@ public class HomeActivity extends AppCompatActivity{
 
     private SharedPreferences loginInfo;
     private SharedPreferences.Editor loginInfoEditor;
+    private AccountHolder account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,7 @@ public class HomeActivity extends AppCompatActivity{
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
         String username = loginInfo.getString("logged_user","");
-        AccountHolder account = db.getAccount(username);
+        account = db.getAccount(username);
 
         TextView user_id_text = (TextView) findViewById(R.id.user_id_tv);
         String title = account.getTitle() == null ? "":account.getTitle();
@@ -68,7 +73,12 @@ public class HomeActivity extends AppCompatActivity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_menu, menu);
+        if (!(account instanceof Worker) && !(account instanceof Manager)
+                && !(account instanceof Admin)) {
+            getMenuInflater().inflate(R.menu.home_menu, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.worker_menu, menu);
+        }
         return true;
     }
 

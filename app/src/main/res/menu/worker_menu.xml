@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity">
+
+    <item
+        android:id="@+id/view_water_availability_report_toolbar_item"
+        android:orderInCategory="99"
+        android:title="@string/water_availability"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/add_report_toolbar_item"
+        android:orderInCategory="100"
+        android:title="@string/add_water_report"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/add_quality_report_toolbar_item"
+        android:orderInCategory="200"
+        android:title="Add Water Quality Report"
+        app:showAsAction="ifRoom" />
+    />
+
+    <item
+        android:id="@+id/view_source_reports_toolbar_item"
+        android:orderInCategory="300"
+        android:title="View Water Source Reports"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/view_quality_reports_toolbar_item"
+        android:orderInCategory="400"
+        android:title="View Water Quality Reports"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/edit_profile_toolbar_item"
+        android:orderInCategory="500"
+        android:title="@string/edit_profile"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/logout_toolbar_item"
+        android:orderInCategory="600"
+        android:title="@string/log_out" />
+
+</menu>
