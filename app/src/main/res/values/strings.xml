@@ -31,4 +31,6 @@
     <string name="water_availability">Water Availability</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_water_source_maps">Map</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
 </resources>
