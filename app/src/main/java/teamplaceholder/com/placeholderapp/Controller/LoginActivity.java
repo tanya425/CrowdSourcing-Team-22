@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Model.Admin;
+import teamplaceholder.com.placeholderapp.Model.Manager;
+import teamplaceholder.com.placeholderapp.Model.User;
+import teamplaceholder.com.placeholderapp.Model.Worker;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -49,6 +53,17 @@ public class LoginActivity  extends AppCompatActivity {
             if (!acc.getPassword().equals(password)) {
                 throw new IllegalArgumentException("Invalid password");
             }
+            String userType;
+            if (acc instanceof Admin) {
+                userType = "admin";
+            } else if (acc instanceof Manager) {
+                userType = "manager";
+            } else if (acc instanceof Worker) {
+                userType = "worker";
+            } else {
+                userType = "user";
+            }
+            loginInfoEditor.putString("user_type", userType);
             loginInfoEditor.putString("logged_user", username);
             loginInfoEditor.commit();
 

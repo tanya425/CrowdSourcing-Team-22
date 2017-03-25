@@ -44,9 +44,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap map;
     private ArrayList<WaterSourceReport> waterSourceList;
     private DBWaterSourceReportHandler waterSourceDB;
-    private DBAccountHandler accountDB;
+    private String username;
+    private String userType;
 
-    private String[] options;
     private ListView drawerList;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
@@ -60,17 +60,40 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
-        String username = loginInfo.getString("logged_user","");
-        AccountHolder account = accountDB.getAccount(username);
+        username = loginInfo.getString("logged_user","");
+        userType = loginInfo.getString("user_type", "");
 
+        //Sets up actionbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        //Sets up map fragment
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
-        options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+        //Sets up navigation drawer
+        String[] options;
+        switch (userType) {
+            case "admin":
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                break;
+            case "manager":
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                break;
+            case "worker":
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports",
+                "Add Water Quality Report", "View Water Quality Reports"};
+                break;
+            case "user":
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                break;
+            default:
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                break;
+        }
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerList = (ListView) findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, options));
@@ -79,37 +102,90 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open,
                 R.string.drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
+    //For navigation drawer icon functionality
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
     }
-
+    //For navigation drawer icon functionality
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    /**
+     * Private listener class for navigation drawer
+      */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
-
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            switch (position) {
-                case 0: onEditPress(view);
+            switch (userType) {
+                case "admin":
+                    switch (position) {
+                        case 0: onEditPress(view);
+                            break;
+                        case 1: onAddPress(view);
+                            break;
+                        case 2: onViewSourcesPress(view);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
-                case 1: onAddPress(view);
+                case "manager":
+                    switch (position) {
+                        case 0: onEditPress(view);
+                            break;
+                        case 1: onAddPress(view);
+                            break;
+                        case 2: onViewSourcesPress(view);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
-                case 2: onViewSourcesPress(view);
+                case "worker":
+                    switch (position) {
+                        case 0: onEditPress(view);
+                            break;
+                        case 1: onAddPress(view);
+                            break;
+                        case 2: onViewSourcesPress(view);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "user":
+                    switch (position) {
+                        case 0: onEditPress(view);
+                            break;
+                        case 1: onAddPress(view);
+                            break;
+                        case 2: onViewSourcesPress(view);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 default:
-                    break;
+                    switch (position) {
+                        case 0: onEditPress(view);
+                            break;
+                        case 1: onAddPress(view);
+                            break;
+                        case 2: onViewSourcesPress(view);
+                            break;
+                        default:
+                            break;
+                    }
             }
+
         }
     }
 
@@ -223,6 +299,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    //Used to draw markers on map
     @Override
     public void onMapReady(GoogleMap googleMap) {
         waterSourceDB = new DBWaterSourceReportHandler(this);
