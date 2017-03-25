@@ -9,54 +9,15 @@
     android:weightSum="1">
 
     <include
-        layout="@layout/basic_toolbar" />
+        layout="@layout/basic_toolbar"
+        android:id="@+id/my_toolbar" />
 
-
-    <TextView
-        android:text="@string/user_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_below="@+id/my_toolbar"
-        android:id="@+id/user_id_tv"
-        tools:ignore="UnknownId" />
-
-    <TextView
-        android:text="@string/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_below="@id/user_id_tv"
-        android:id="@+id/user_password_tv"
-        />
-
-    <TextView
-        android:text="@string/user_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_below="@id/user_password_tv"
-        android:id="@+id/user_type_tv"
-        />
-
-    <TextView
-        android:text="@string/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_below="@id/user_type_tv"
-        android:id="@+id/user_email_tv"
-        />
-
-    <TextView
-        android:text="@string/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_below="@id/user_email_tv"
-        android:id="@+id/user_address_tv"
-        />
-
+    <fragment
+        android:id="@+id/mapFragment"
+        class="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/my_toolbar" />
 
 
 

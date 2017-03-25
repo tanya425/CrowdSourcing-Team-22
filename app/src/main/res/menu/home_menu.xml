@@ -5,12 +5,6 @@
     tools:context=".HomeActivity">
 
     <item
-        android:id="@+id/view_water_availability_report_toolbar_item"
-        android:orderInCategory="99"
-        android:title="@string/water_availability"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/add_report_toolbar_item"
         android:orderInCategory="100"
         android:title="@string/add_water_report"

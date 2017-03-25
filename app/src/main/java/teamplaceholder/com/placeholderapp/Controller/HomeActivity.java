@@ -10,10 +10,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -21,48 +31,37 @@ import teamplaceholder.com.placeholderapp.R;
  * This activity will be the main home page of the app
  */
 
-public class HomeActivity extends AppCompatActivity{
+public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private SharedPreferences loginInfo;
     private SharedPreferences.Editor loginInfoEditor;
+    private GoogleMap map;
+    private ArrayList<WaterSourceReport> waterSourceList;
+    private DBWaterSourceReportHandler waterSourceDB;
+    private DBAccountHandler accountDB;
+    
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.navigation_drawer);
 
-        DBAccountHandler db = new DBAccountHandler(this);
+        DBAccountHandler accountDB = new DBAccountHandler(this);
 
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();
         String username = loginInfo.getString("logged_user","");
-        AccountHolder account = db.getAccount(username);
+        AccountHolder account = accountDB.getAccount(username);
 
-        TextView user_id_text = (TextView) findViewById(R.id.user_id_tv);
-        String title = account.getTitle() == null ? "":account.getTitle();
-        String id_text = user_id_text.getText().toString() + " : " + title + username;
-        user_id_text.setText(id_text);
-
-        TextView user_password_text = (TextView) findViewById(R.id.user_password_tv);
-        String pass_text = user_password_text.getText().toString() + " : " + account.getPassword();
-        user_password_text.setText(pass_text);
-
-        TextView user_type_text = (TextView) findViewById(R.id.user_type_tv);
-        String type_text = user_type_text.getText().toString() + " : "  + account.getAccountType();
-        user_type_text.setText(type_text);
-
-        TextView user_email_text = (TextView) findViewById(R.id.user_email_tv);
-        String email = account.getEmail()==null ? "NA":account.getEmail();
-        String email_text = user_email_text.getText().toString() + " : " + email;
-        user_email_text.setText(email_text);
-
-        TextView user_addr_text = (TextView) findViewById(R.id.user_address_tv);
-        String addr = account.getAddress()==null ? "NA":account.getAddress();
-        String addr_text = user_addr_text.getText().toString() + " : " + addr;
-        user_addr_text.setText(addr_text);
-        
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
         setSupportActionBar(myToolbar);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);
+
+
     }
 
     @Override
@@ -126,15 +125,6 @@ public class HomeActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    /**
-     * Displays the water availability report
-     * @param view is the view in which the view water availability report button was presseds
-     */
-    public void onViewWaterAvailabilityPress(View view) {
-        Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -143,18 +133,22 @@ public class HomeActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.view_water_availability_report_toolbar_item) {
-            this.onViewWaterAvailabilityPress(
-                    findViewById(R.id.view_water_availability_report_toolbar_item)
-            );
-        } else if (id == R.id.add_report_toolbar_item) {
-            this.onAddPress(findViewById(R.id.add_report_toolbar_item));
-        } else if (id == R.id.view_source_reports_toolbar_item) {
-            this.onViewSourcesPress(findViewById(R.id.view_source_reports_toolbar_item));
-        } else if (id == R.id.edit_profile_toolbar_item) {
-            this.onEditPress(findViewById(R.id.edit_profile_toolbar_item));
-        } else if (id == R.id.logout_toolbar_item) {
-            this.onLogoutPress(findViewById(R.id.logout_toolbar_item));
+
+        switch (id) {
+            case R.id.add_report_toolbar_item:
+                this.onAddPress(findViewById(R.id.add_report_toolbar_item));
+                break;
+            case R.id.view_source_reports_toolbar_item:
+                this.onViewSourcesPress(findViewById(R.id.view_source_reports_toolbar_item));
+                break;
+            case R.id.edit_profile_toolbar_item:
+                this.onEditPress(findViewById(R.id.edit_profile_toolbar_item));
+                break;
+            case R.id.logout_toolbar_item:
+                this.onLogoutPress(findViewById(R.id.logout_toolbar_item));
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -183,5 +177,21 @@ public class HomeActivity extends AppCompatActivity{
         });
         alert.show();
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        waterSourceDB = new DBWaterSourceReportHandler(this);
+        waterSourceList = waterSourceDB.getReports();
+
+        map = googleMap;
+
+        for (int i = 0; i < waterSourceList.size(); i++) {
+            WaterSourceReport report = waterSourceList.get(i);
+            LatLng temp = new LatLng(report.getLatitude(),report.getLongitude());
+            map.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
+                    toString()).snippet(report.getReporterName() + " " + report.getDateString()));
+            map.moveCamera(CameraUpdateFactory.newLatLng(temp));
+        }
     }
 }
