@@ -9,5 +9,4 @@
         android:orderInCategory="400"
         android:title="@string/log_out"
         app:showAsAction="never"/>
-
 </menu>
