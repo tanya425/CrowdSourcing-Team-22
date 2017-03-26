@@ -5,7 +5,7 @@
     android:id="@+id/activity_sub_water_repo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teamplaceholder.com.placeholderapp.Controller.SubWaterRepoActivity">
+    tools:context="teamplaceholder.com.placeholderapp.Controller.SubmitSourceReportActivity">
 
     <include
         layout="@layout/basic_toolbar"

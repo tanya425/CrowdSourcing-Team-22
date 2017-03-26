@@ -24,7 +24,7 @@
         <activity android:name=".Controller.HomeActivity" />
         <activity android:name=".Controller.RegisterNewUserActivity" />
         <activity android:name=".Controller.EditActivity" />
-        <activity android:name=".Controller.SubWaterRepoActivity" />
+        <activity android:name=".Controller.SubmitSourceReportActivity" />
         <activity android:name=".Controller.ViewWaterSourceReportsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

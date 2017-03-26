@@ -17,7 +17,7 @@ import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
-public class SubWaterRepoActivity extends AppCompatActivity {
+public class SubmitSourceReportActivity extends AppCompatActivity {
 
     private SharedPreferences loginInfo;
 
@@ -98,13 +98,13 @@ public class SubWaterRepoActivity extends AppCompatActivity {
      * @param view is the current view passed into the button handler
      */
     public void onCancelPress(View view) {
-        final AlertDialog.Builder alert = new AlertDialog.Builder(SubWaterRepoActivity.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(SubmitSourceReportActivity.this);
         alert.setTitle("Discard Changes");
         alert.setMessage("Do you really wish to discard your changes?");
 
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
-                SubWaterRepoActivity.this.finish();
+                SubmitSourceReportActivity.this.finish();
             }
         });
         final AlertDialog dialog = alert.create();

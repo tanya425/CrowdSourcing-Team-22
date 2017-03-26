@@ -233,7 +233,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * @param view is the view in which the logout button is pressed
      */
     public void onAddPress(View view) {
-        Intent intent = new Intent(HomeActivity.this, SubWaterRepoActivity.class);
+        Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
         startActivity(intent);
     }
 
