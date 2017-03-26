@@ -23,7 +23,7 @@
         <activity android:name=".Controller.LoginActivity" />
         <activity android:name=".Controller.HomeActivity" />
         <activity android:name=".Controller.RegisterNewUserActivity" />
-        <activity android:name=".Controller.EditActivity" />
+        <activity android:name=".Controller.EditProfileActivity" />
         <activity android:name=".Controller.SubmitSourceReportActivity" />
         <activity android:name=".Controller.ViewWaterSourceReportsActivity" />
         <activity android:name=".Controller.ViewWaterQualityReportsActivity" />

@@ -227,7 +227,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * @param view is the view in which the logout button is pressed
      */
     public void onEditPress(View view) {
-        Intent intent = new Intent(HomeActivity.this, EditActivity.class);
+        Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
         startActivity(intent);
     }
 

@@ -16,11 +16,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.Data.DBHandler;
 import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
-public class EditActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
 
     private SharedPreferences loginInfo;
     private String username;
@@ -81,13 +80,13 @@ public class EditActivity extends AppCompatActivity {
      * @param view is the current view being passed in
      */
     public void onCancelPress(View view) {
-        final AlertDialog.Builder alert = new AlertDialog.Builder(EditActivity.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(EditProfileActivity.this);
         alert.setTitle("Discard Changes");
         alert.setMessage("Do you really wish to discard your changes?");
 
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
-                EditActivity.this.finish();
+                EditProfileActivity.this.finish();
             }
         });
         final AlertDialog dialog = alert.create();
@@ -103,13 +102,13 @@ public class EditActivity extends AppCompatActivity {
      * makes sure you want to leave the edit page
      */
     public void onBackPressed() {
-        final AlertDialog.Builder alert = new AlertDialog.Builder(EditActivity.this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(EditProfileActivity.this);
         alert.setTitle("Discard Changes");
         alert.setMessage("Do you really wish to discard your changes?");
 
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
-                EditActivity.this.finish();
+                EditProfileActivity.this.finish();
             }
         });
         final AlertDialog dialog = alert.create();
