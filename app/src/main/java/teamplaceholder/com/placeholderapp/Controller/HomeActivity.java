@@ -26,9 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
@@ -55,8 +53,6 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
-
-        DBAccountHandler accountDB = new DBAccountHandler(this);
 
         loginInfo = getSharedPreferences("login_info", 0);
         loginInfoEditor = loginInfo.edit();

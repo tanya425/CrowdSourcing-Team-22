@@ -44,4 +44,21 @@
         android:layout_below="@+id/login_button"
         android:layout_alignStart="@+id/login_button"
         android:layout_marginTop="11dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/register_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <fragment
+            android:id="@+id/dummyMapFragment"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
 </RelativeLayout>
