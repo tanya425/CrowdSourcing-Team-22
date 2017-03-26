@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="175dp">
+        android:layout_height="165dp">
 
         <TextView
             android:id="@+id/txtCondition"
@@ -21,7 +21,7 @@
             android:background="@color/MediumAquamarine"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="water type"
+            android:text="Condition"
             android:textAlignment="gravity"
             android:textColor="@color/White"
             android:textSize="20sp" />
@@ -36,6 +36,7 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:stretchColumns="0,1,2">
+
 
             <TableRow
                 android:layout_width="match_parent"
@@ -78,24 +79,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Condition:" />
-
-                <TextView
-                    android:id="@+id/txtCondition"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textAlignment="textEnd" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,19 +108,58 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textAlignment="textEnd" />
+
             </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Virus PPM:" />
+
+                <TextView
+                    android:id="@+id/txtVirusPPM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="textEnd" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contaminant PPM:" />
+
+                <TextView
+                    android:id="@+id/txtContaminantPPM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="textEnd" />
+            </TableRow>
+
         </TableLayout>
+
 
         <TextView
             android:id="@+id/txtReportNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textAlignment="textEnd"
             android:layout_alignBaseline="@+id/txtCondition"
             android:layout_alignBottom="@+id/txtCondition"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:text="TextView"
+            android:textAlignment="textEnd" />
 
     </RelativeLayout>
 

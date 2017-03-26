@@ -74,20 +74,21 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         String[] options;
         switch (userType) {
             case "admin":
-                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
             case "manager":
-                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports ",
+                        "Add Water Quality Report", "View Water Quality Reports"};
                 break;
             case "worker":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports",
-                "Add Water Quality Report", "View Water Quality Reports"};
+                        "Add Water Quality Report"};
                 break;
             case "user":
-                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
             default:
-                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Sources"};
+                options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
         }
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -125,7 +126,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
-                        case 1: onAddPress(view);
+                        case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
                             break;
@@ -137,9 +138,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
-                        case 1: onAddPress(view);
+                        case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
+                            break;
+                        case 4: onViewQualityReportsPress(view);
                             break;
                         default:
                             break;
@@ -149,7 +152,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
-                        case 1: onAddPress(view);
+                        case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
                             break;
@@ -161,7 +164,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
-                        case 1: onAddPress(view);
+                        case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
                             break;
@@ -173,7 +176,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
-                        case 1: onAddPress(view);
+                        case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
                             break;
@@ -232,7 +235,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the submit water report activity
      * @param view is the view in which the logout button is pressed
      */
-    public void onAddPress(View view) {
+    public void onAddSourcePress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
         startActivity(intent);
     }
@@ -241,8 +244,17 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the water source reports activity
      * @param view is the view in which the view water source report button is pressed
      */
-    protected void onViewSourcesPress(View view) {
+    public void onViewSourcesPress(View view) {
         Intent intent = new Intent(HomeActivity.this, ViewWaterSourceReportsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Displays the water quality reports activity
+     * @param view is the view in which the view water quality report button is pressed
+     */
+    public void onViewQualityReportsPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, ViewWaterQualityReportsActivity.class);
         startActivity(intent);
     }
 

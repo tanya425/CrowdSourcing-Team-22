@@ -1,7 +1,7 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,27 +12,27 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
-public class ViewWaterSourceReportsActivity extends AppCompatActivity {
+public class ViewWaterQualityReportsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private DBWaterSourceReportHandler db;
-    private ArrayList<WaterSourceReport> waterSourceList;
+    private DBWaterQualityReportHandler db;
+    private ArrayList<WaterQualityReport> waterQualityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_water_source_reports);
+        setContentView(R.layout.activity_view_water_quality_reports);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        db = new DBWaterSourceReportHandler(this);
-        waterSourceList = db.getReports();
+        db = new DBWaterQualityReportHandler(this);
+        waterQualityList = db.getReports();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -40,7 +40,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new WaterSourceAdapter(waterSourceList);
+        adapter = new WaterQualityAdapter(waterQualityList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -52,62 +52,65 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
     /**
      * Adapter for recycler view to read the data from the database
      */
-    public class WaterSourceAdapter extends RecyclerView.Adapter<WaterSourceAdapter.WaterSourceViewHolder> {
-        private ArrayList<WaterSourceReport> waterSourceList;
+    public class WaterQualityAdapter extends RecyclerView.Adapter<WaterQualityAdapter.WaterQualityViewHolder> {
+        private ArrayList<WaterQualityReport> waterQualityList;
 
-        public WaterSourceAdapter(ArrayList<WaterSourceReport> waterSourceList) {
-            this.waterSourceList = waterSourceList;
+        public WaterQualityAdapter(ArrayList<WaterQualityReport> waterQualityList) {
+            this.waterQualityList = waterQualityList;
         }
 
         @Override
-        public WaterSourceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.water_source_card,
+        public WaterQualityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.water_quality_card,
                     parent, false);
-            return new WaterSourceViewHolder(itemView);
+            return new WaterQualityViewHolder(itemView);
         }
 
         @Override
-        public void onBindViewHolder(WaterSourceViewHolder holder, int position) {
-            WaterSourceReport source = waterSourceList.get(position);
-            holder.vWaterType.setText(source.getWaterType().toString());
+        public void onBindViewHolder(WaterQualityViewHolder holder, int position) {
+            WaterQualityReport source = waterQualityList.get(position);
+            holder.vCondition.setText(source.getCondition().toString());
             holder.vReportNum.setText("#" + String.valueOf(source.getReportNumber()));
-            holder.vReportedBy.setText(source.getReporterName());
+            holder.vReportedBy.setText(source.getWorkerName());
             holder.vDate.setText(source.getDateString());
-            holder.vWaterCondition.setText(source.getCondition().toString());
             holder.vLatitude.setText("" + source.getLatitude());
             holder.vLongitude.setText("" + source.getLongitude());
+            holder.vVirusPPM.setText("" + source.getVirusPPM());
+            holder.vContaminantPPM.setText("" + source.getContaminantPPM());
         }
 
         @Override
         public int getItemCount() {
-            return waterSourceList.size();
+            return waterQualityList.size();
         }
 
         /**
-         * handles view of water source
+         * handles view of water quality report
          */
-        public class WaterSourceViewHolder extends RecyclerView.ViewHolder {
-            protected TextView vWaterType;
+        public class WaterQualityViewHolder extends RecyclerView.ViewHolder {
+            protected TextView vCondition;
             protected TextView vReportNum;
             protected TextView vReportedBy;
             protected TextView vDate;
-            protected TextView vWaterCondition;
             protected TextView vLatitude;
             protected TextView vLongitude;
+            protected TextView vVirusPPM;
+            protected TextView vContaminantPPM;
 
             /**
-             * view handler code for water source view
+             * view handler code for water quality view
              * @param v is the current view passed into the button handler
              */
-            public WaterSourceViewHolder(View v) {
+            public WaterQualityViewHolder(View v) {
                 super(v);
-                vWaterType = (TextView) v.findViewById(R.id.txtCondition);
+                vCondition = (TextView) v.findViewById(R.id.txtCondition);
                 vReportNum = (TextView) v.findViewById(R.id.txtReportNum);
                 vReportedBy = (TextView) v.findViewById(R.id.txtReportedBy);
                 vDate = (TextView) v.findViewById(R.id.txtDate);
-                vWaterCondition = (TextView) v.findViewById(R.id.txtCondition);
                 vLatitude = (TextView) v.findViewById(R.id.txtLatitude);
                 vLongitude = (TextView) v.findViewById(R.id.txtLongitude);
+                vVirusPPM = (TextView) v.findViewById((R.id.txtVirusPPM));
+                vContaminantPPM = (TextView) v.findViewById((R.id.txtContaminantPPM));
             }
         }
     }

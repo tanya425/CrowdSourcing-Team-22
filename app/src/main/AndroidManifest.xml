@@ -26,6 +26,7 @@
         <activity android:name=".Controller.EditActivity" />
         <activity android:name=".Controller.SubmitSourceReportActivity" />
         <activity android:name=".Controller.ViewWaterSourceReportsActivity" />
+        <activity android:name=".Controller.ViewWaterQualityReportsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
