@@ -48,6 +48,7 @@ public class DBWaterQualityReportHandler extends DBHandler {
      * @return the number of reports in the database
      */
     public int getMaxId() {
+        db = super.getReadableDatabase();
         final String COUNT_REPORTS = "SELECT MAX(" + WQTable.COLUMN_REPORT_ID + ") FROM " + WQTable.TABLE_NAME;
         Cursor cursor = db.rawQuery(COUNT_REPORTS, null);
         if (cursor != null) {
