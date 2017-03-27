@@ -18,8 +18,8 @@ public class WaterQualityReport {
     private double latitude;
     private double longitude;
     private OverallCondition condition;
-    private int virusPPM;
-    private int contaminantPPM;
+    private double virusPPM;
+    private double contaminantPPM;
 
     public static List<WaterQualityReport.OverallCondition> WaterOverallConditionList =
             Arrays.asList(WaterQualityReport.OverallCondition.values());
@@ -40,7 +40,7 @@ public class WaterQualityReport {
 
     public WaterQualityReport(Date dateCreated, String workerName, int reportNumber,
                              double latitude, double longitude, WaterQualityReport.OverallCondition condition,
-                              int virusPPM, int contaminantPPM) {
+                              double virusPPM, double contaminantPPM) {
         this.dateCreated = dateCreated;
         this.reportNumber = reportNumber;
         this.workerName = workerName;
@@ -52,8 +52,8 @@ public class WaterQualityReport {
     }
 
     public WaterQualityReport(String workerName, int reportNumber, double latitude, double longitude,
-                              WaterQualityReport.OverallCondition condition, int virusPPM,
-                              int contaminantPPM) {
+                              WaterQualityReport.OverallCondition condition, double virusPPM,
+                              double contaminantPPM) {
         this(new Date(), workerName, reportNumber, latitude, longitude, condition, virusPPM,
                 contaminantPPM);
     }
@@ -98,7 +98,7 @@ public class WaterQualityReport {
         this.condition = condition;
     }
 
-    public int getVirusPPM() {
+    public double getVirusPPM() {
         return virusPPM;
     }
 
@@ -106,7 +106,7 @@ public class WaterQualityReport {
         this.virusPPM = virusPPM;
     }
 
-    public int getContaminantPPM() {
+    public double getContaminantPPM() {
         return contaminantPPM;
     }
 

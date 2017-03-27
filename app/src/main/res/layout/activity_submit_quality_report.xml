@@ -2,28 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_sub_water_repo"
+    android:id="@+id/activity_submit_quality_report"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teamplaceholder.com.placeholderapp.Controller.SubmitSourceReportActivity">
-
-    <include
-        layout="@layout/basic_toolbar"
-        android:id="@+id/include3" />
+    tools:context="teamplaceholder.com.placeholderapp.Controller.SubmitQualityReportActivity">
 
     <TextView
-        android:id="@+id/water_report_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/water_report"
-        android:textColor="@color/Black"
-        android:textSize="30sp"
-        android:layout_below="@+id/include3"
-        android:layout_alignStart="@+id/time_detail_tv" />
-
-    <TextView
-        android:id="@+id/time_detail_tv"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/latitude_et"
@@ -34,6 +19,21 @@
         android:textColor="@color/Black"
         android:textSize="18sp" />
 
+    <include
+        layout="@layout/basic_toolbar"
+        android:id="@+id/include3" />
+
+    <TextView
+        android:id="@+id/quality_report_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/virus_ppm_tv"
+        android:layout_below="@+id/include3"
+        android:layout_marginTop="40dp"
+        android:text="Submit Quality Report"
+        android:textColor="@color/Black"
+        android:textSize="30sp" />
+
     <EditText
         android:id="@+id/latitude_et"
         android:layout_width="wrap_content"
@@ -42,15 +42,15 @@
         android:inputType="numberDecimal"
         android:text="@string/default_0"
         android:layout_marginTop="67dp"
-        android:layout_below="@+id/water_report_tv"
-        android:layout_alignEnd="@+id/water_type_spinner"
+        android:layout_below="@+id/quality_report_tv"
+        android:layout_alignEnd="@+id/overall_condition_spinner"
         android:layout_marginEnd="10dp" />
 
     <TextView
         android:id="@+id/longitude_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/time_detail_tv"
+        android:layout_alignStart="@+id/virus_ppm_tv"
         android:layout_below="@+id/latitude_et"
         android:layout_marginTop="18dp"
         android:text="@string/longitude"
@@ -69,58 +69,80 @@
         android:layout_alignStart="@+id/latitude_et" />
 
     <TextView
-        android:id="@+id/water_type_tv"
+        android:id="@+id/overall_condition_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/type"
-        android:textColor="@color/Black"
-        android:textSize="18sp"
+        android:layout_alignStart="@+id/longitude_tv"
         android:layout_below="@+id/longitude_et"
-        android:layout_alignStart="@+id/longitude_tv" />
+        android:layout_marginTop="16dp"
+        android:text="Overall Condition"
+        android:textColor="@color/Black"
+        android:textSize="18sp" />
 
     <Spinner
-        android:id="@+id/water_type_spinner"
+        android:id="@+id/overall_condition_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/water_type_tv"
+        android:layout_alignTop="@+id/overall_condition_tv"
         android:layout_marginEnd="12dp"
         android:minWidth="190dp"
         android:textAlignment="textEnd" />
 
     <TextView
-        android:id="@+id/water_condition_tv"
+        android:id="@+id/virus_ppm_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/water_condition"
+        android:text="Virus PPM"
         android:textColor="@color/Black"
         android:textSize="18sp"
-        android:layout_below="@+id/water_type_spinner"
-        android:layout_alignStart="@+id/water_type_tv" />
+        android:layout_alignBottom="@+id/virus_ppm_et"
+        android:layout_alignStart="@+id/textView2" />
 
-    <Spinner
-        android:id="@+id/water_condition_spinner"
+    <EditText
+        android:id="@+id/virus_ppm_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/water_type_spinner"
-        android:layout_alignTop="@+id/water_condition_tv"
-        android:minWidth="190dp"
-        android:textAlignment="viewEnd" />
+        android:width="100dp"
+        android:inputType="numberDecimal"
+        android:text="@string/default_0"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/overall_condition_spinner"
+        android:layout_alignStart="@+id/longitude_et" />
+
+    <TextView
+        android:id="@+id/contaminant_ppm_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contaminant PPM"
+        android:textColor="@color/Black"
+        android:textSize="18sp"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/virus_ppm_tv"
+        android:layout_alignStart="@+id/virus_ppm_tv" />
+
+    <EditText
+        android:id="@+id/contaminant_ppm_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="100dp"
+        android:inputType="numberDecimal"
+        android:text="@string/default_0"
+        android:layout_alignBottom="@+id/contaminant_ppm_tv"
+        android:layout_alignStart="@+id/virus_ppm_et" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="30dp"
         android:onClick="onSubmitPress"
         android:text="@string/submit"
         android:textColor="@color/Black"
         android:textSize="16sp"
         android:layout_alignBaseline="@+id/cancel_button"
         android:layout_alignBottom="@+id/cancel_button"
-        android:layout_alignEnd="@+id/longitude_et" />
+        android:layout_alignEnd="@+id/contaminant_ppm_et" />
 
     <Button
         android:id="@+id/cancel_button"
@@ -130,7 +152,8 @@
         android:text="@string/cancel"
         android:textColor="@color/Black"
         android:textSize="16sp"
-        android:layout_below="@+id/water_condition_spinner"
-        android:layout_alignEnd="@+id/water_condition_tv"
-        android:layout_marginTop="66dp" />
+        android:layout_marginBottom="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/overall_condition_tv" />
+
 </RelativeLayout>

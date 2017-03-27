@@ -142,6 +142,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                         case 2: onViewSourcesPress(view);
                             break;
+                        case 3: onAddQualityPress(view);
+                            break;
                         case 4: onViewQualityReportsPress(view);
                             break;
                         default:
@@ -155,6 +157,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                         case 1: onAddSourcePress(view);
                             break;
                         case 2: onViewSourcesPress(view);
+                            break;
+                        case 3: onAddQualityPress(view);
                             break;
                         default:
                             break;
@@ -246,6 +250,15 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     public void onViewSourcesPress(View view) {
         Intent intent = new Intent(HomeActivity.this, ViewWaterSourceReportsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Displays the submit water quality report activity
+     * @param view is the view in which the logout button is pressed
+     */
+    public void onAddQualityPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, SubmitQualityReportActivity.class);
         startActivity(intent);
     }
 
