@@ -35,7 +35,7 @@ public class SubmitQualityReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sub_water_repo);
+        setContentView(R.layout.activity_submit_quality_report);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         loginInfo = getSharedPreferences("login_info", 0);
