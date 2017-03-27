@@ -43,7 +43,7 @@ public class SubmitSourceReportActivity extends AppCompatActivity {
 
         latitude = (EditText) findViewById(R.id.latitude_et);
         longitude = (EditText) findViewById(R.id.longitude_et);
-        water_type = (Spinner) findViewById(R.id.overall_condition_spinner);
+        water_type = (Spinner) findViewById(R.id.water_type_spinner);
         water_condition = (Spinner) findViewById(R.id.water_condition_spinner);
 
          /*
