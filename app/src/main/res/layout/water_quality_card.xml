@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="165dp">
+        android:layout_height="175dp">
 
         <TextView
             android:id="@+id/txtCondition"
