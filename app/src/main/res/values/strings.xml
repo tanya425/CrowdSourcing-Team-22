@@ -33,4 +33,18 @@
     <string name="title_activity_water_source_maps">Map</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
+    <string name="title_activity_water_quality_history_graph">WaterQualityHistoryGraphActivity
+    </string>
+    <string name="year">Year (ex 2017)</string>
+    <string name="current_year">2017</string>
+    <string name="latitutde_helper">Latitutde (ex 100)</string>
+    <string name="latitude_hint">enter desired latitude</string>
+    <string name="longitude_helper">Longitude (ex 100)</string>
+    <string name="longitude_hint">enter desired longitude</string>
+    <string name="view_graph">View Graph</string>
+    <string name="submit_quality_report">Submit Quality Report</string>
+    <string name="new_report_button_text">Submit New Report Query</string>
+    <string name="return_home">Return Home</string>
+    <string name="VirusPPM">View Virus PPM</string>
+    <string name="view_contaminants">View Contaminants PPM</string>
 </resources>

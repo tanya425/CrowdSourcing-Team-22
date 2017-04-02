@@ -42,7 +42,8 @@
         <activity
             android:name=".Controller.MapsActivity"
             android:label="@string/title_activity_water_source_maps" />
-        <activity android:name=".Controller.SubmitQualityReportActivity"></activity>
+        <activity android:name=".Controller.SubmitQualityReportActivity" />
+        <activity android:name=".Controller.HistoryReportsActivity"></activity>
     </application>
 
 </manifest>

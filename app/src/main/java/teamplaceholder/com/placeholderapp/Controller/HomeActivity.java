@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 break;
             case "manager":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports ",
-                        "Add Water Quality Report", "View Water Quality Reports"};
+                        "Add Water Quality Report", "View Water Quality Reports", "View Historical Purity Report"};
                 break;
             case "worker":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports",
@@ -146,6 +146,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                         case 4: onViewQualityReportsPress(view);
                             break;
+                        case 5: onViewHistoryReportsPress(view);
                         default:
                             break;
                     }
@@ -241,6 +242,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     public void onAddSourcePress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
+        startActivity(intent);
+    }
+
+    public void onViewHistoryReportsPress(View view) {
+        Intent intent = new Intent(HomeActivity.this, HistoryReportsActivity.class);
         startActivity(intent);
     }
 

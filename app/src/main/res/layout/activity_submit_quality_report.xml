@@ -30,7 +30,7 @@
         android:layout_alignStart="@+id/virus_ppm_tv"
         android:layout_below="@+id/include3"
         android:layout_marginTop="40dp"
-        android:text="Submit Quality Report"
+        android:text="@string/submit_quality_report"
         android:textColor="@color/Black"
         android:textSize="30sp" />
 

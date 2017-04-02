@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="teamplaceholder.com.placeholderapp.Controller.HistoryReportsActivity">
+
+    <include
+        layout="@layout/basic_toolbar"
+        android:id="@+id/my_toolbar" />
+
+    <TextView
+        android:layout_below="@id/my_toolbar"
+        android:layout_alignParentStart="true"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:text="@string/year"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/Year_TV"/>
+
+    <EditText
+        android:layout_below="@+id/Year_TV"
+        android:layout_alignParentStart="true"
+
+        android:inputType="number"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:hint="@string/current_year"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Year_ET"/>
+
+    <TextView
+        android:layout_below="@id/Year_ET"
+        android:layout_alignParentStart="true"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:text="@string/latitutde_helper"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/latitude_TV"/>
+
+    <EditText
+        android:layout_below="@+id/latitude_TV"
+        android:layout_alignParentStart="true"
+
+        android:inputType="numberDecimal"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:hint="@string/latitude_hint"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/latitude_ET"/>
+
+    <TextView
+        android:layout_below="@id/latitude_ET"
+        android:layout_alignParentStart="true"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:text="@string/longitude_helper"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/longitude_TV"/>
+
+    <EditText
+        android:layout_below="@+id/longitude_TV"
+        android:layout_alignParentStart="true"
+
+        android:inputType="numberDecimal"
+
+        android:layout_margin="10dp"
+
+        android:textColor="@color/Black"
+        android:hint="@string/longitude_hint"
+        android:textSize="20sp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/longitude_ET"/>
+
+    <Button
+        android:layout_above="@+id/Virus_Graph_Button"
+
+        android:textColor="@color/Black"
+        android:text="@string/view_contaminants"
+        android:textSize="20sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:onClick="onContamPressed"
+
+
+        android:id="@+id/Cont_Graph_Button"/>
+
+    <Button
+
+        android:textColor="@color/Black"
+        android:text="@string/VirusPPM"
+        android:textSize="20sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:onClick="onVirusPressed"
+
+        android:id="@+id/Virus_Graph_Button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+
+
+</RelativeLayout>
