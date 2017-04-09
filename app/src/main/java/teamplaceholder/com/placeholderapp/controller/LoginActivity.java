@@ -64,7 +64,7 @@ public class LoginActivity  extends AppCompatActivity {
 
             loginInfoEditor.putString("user_type", userType);
             loginInfoEditor.putString("logged_user", username);
-            loginInfoEditor.commit();
+            loginInfoEditor.apply();
 
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);

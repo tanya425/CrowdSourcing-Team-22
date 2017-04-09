@@ -211,7 +211,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(DialogInterface dialog,int id) {
                 SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
                 loginInfoEditor.putString("logged_user", null);
-                loginInfoEditor.commit();
+                loginInfoEditor.apply();
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }

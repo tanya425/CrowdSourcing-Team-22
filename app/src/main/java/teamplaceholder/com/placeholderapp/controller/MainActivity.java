@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // makes sure to clear any logged-in user
         SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
         loginInfoEditor.putString("logged_user", null);
-        loginInfoEditor.commit();
+        loginInfoEditor.apply();
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
