@@ -45,6 +45,15 @@ public class DBAccountHandler extends DBHandler{
     }
 
     /**
+     * Deletes a row in the account table corresponding to the username passed in
+     * @param username - username belonging to the account to be deleted
+     */
+    public void deleteAccount(String username) {
+        SQLiteDatabase db = super.getWritableDatabase();
+        db.delete(UserTable.TABLE_NAME, UserTable.COLUMN_USER_USERNAME + "=?", new String[] {username});
+    }
+
+    /**
      * Reconstructs and returns an AccountHolder that's stored in the database.
      * @param username - username to search for in the database
      * @return the AccountHolder stored in the database
