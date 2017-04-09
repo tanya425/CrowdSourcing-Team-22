@@ -28,7 +28,7 @@ public class JasonUnitTest {
     @Before
     public void setup() {
         db = new DBAccountHandler(InstrumentationRegistry.getTargetContext());
-        db.deleteAccount("usernametest");
+        db.deleteAccount("quhwfruiqhefuianefiuean fasdjasod");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -38,50 +38,50 @@ public class JasonUnitTest {
 
     @Test
     public void testAdmin() {
-        Admin acc = new Admin("usernametest", "passwordtest", "emailtest", "addresstest", "Mr.");
+        Admin acc = new Admin("quhwfruiqhefuianefiuean fasdjasod", "passwordtest", "emailtest", "addresstest", "Mr.");
         db.addAccount(acc);
-        db.setProfile("usernametest", "emailtest", "addresstest", "Mr.");
-        AccountHolder accResult = db.getAccount("usernametest");
+        db.setProfile("quhwfruiqhefuianefiuean fasdjasod", "emailtest", "addresstest", "Mr.");
+        AccountHolder accResult = db.getAccount("quhwfruiqhefuianefiuean fasdjasod");
         int accountCompare = compare(acc, accResult);
         assertEquals(0, accountCompare);
 
-        db.deleteAccount("usernametest");
+        db.deleteAccount("quhwfruiqhefuianefiuean fasdjasod");
     }
 
     @Test
     public void testManager() {
-        Manager acc = new Manager("usernametest", "passwordtest", "emailtest", "addresstest", "Mr.");
+        Manager acc = new Manager("quhwfruiqhefuianefiuean fasdjasod", "passwordtest", "emailtest", "addresstest", "Mr.");
         db.addAccount(acc);
-        db.setProfile("usernametest", "emailtest", "addresstest", "Mr.");
-        AccountHolder accResult = db.getAccount("usernametest");
+        db.setProfile("quhwfruiqhefuianefiuean fasdjasod", "emailtest", "addresstest", "Mr.");
+        AccountHolder accResult = db.getAccount("quhwfruiqhefuianefiuean fasdjasod");
         int accountCompare = compare(acc, accResult);
         assertEquals(0, accountCompare);
 
-        db.deleteAccount("usernametest");
+        db.deleteAccount("quhwfruiqhefuianefiuean fasdjasod");
     }
 
     @Test
     public void testWorker() {
-        Worker acc = new Worker("usernametest", "passwordtest", "emailtest", "addresstest", "Mr.");
+        Worker acc = new Worker("quhwfruiqhefuianefiuean fasdjasod", "passwordtest", "emailtest", "addresstest", "Mr.");
         db.addAccount(acc);
-        db.setProfile("usernametest", "emailtest", "addresstest", "Mr.");
-        AccountHolder accResult = db.getAccount("usernametest");
+        db.setProfile("quhwfruiqhefuianefiuean fasdjasod", "emailtest", "addresstest", "Mr.");
+        AccountHolder accResult = db.getAccount("quhwfruiqhefuianefiuean fasdjasod");
         int accountCompare = compare(acc, accResult);
         assertEquals(0, accountCompare);
 
-        db.deleteAccount("usernametest");
+        db.deleteAccount("quhwfruiqhefuianefiuean fasdjasod");
     }
 
     @Test
     public void testUser() {
-        User acc = new User("usernametest", "passwordtest", "emailtest", "addresstest", "Mr.");
+        User acc = new User("quhwfruiqhefuianefiuean fasdjasod", "passwordtest", "emailtest", "addresstest", "Mr.");
         db.addAccount(acc);
-        db.setProfile("usernametest", "emailtest", "addresstest", "Mr.");
-        AccountHolder accResult = db.getAccount("usernametest");
+        db.setProfile("quhwfruiqhefuianefiuean fasdjasod", "emailtest", "addresstest", "Mr.");
+        AccountHolder accResult = db.getAccount("quhwfruiqhefuianefiuean fasdjasod");
         int accountCompare = compare(acc, accResult);
         assertEquals(0, accountCompare);
 
-        db.deleteAccount("usernametest");
+        db.deleteAccount("quhwfruiqhefuianefiuean fasdjasod");
     }
 
     public int compare(AccountHolder a, AccountHolder b) {
