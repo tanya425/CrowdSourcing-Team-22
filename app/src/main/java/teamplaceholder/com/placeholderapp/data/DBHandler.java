@@ -1,12 +1,10 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 
 /**
  * Created by Jason Ngor on 2/21/2017.

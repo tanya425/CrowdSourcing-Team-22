@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 
 
 /**

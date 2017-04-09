@@ -1,18 +1,17 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
-import teamplaceholder.com.placeholderapp.Model.Admin;
-import teamplaceholder.com.placeholderapp.Model.Manager;
-import teamplaceholder.com.placeholderapp.Model.User;
-import teamplaceholder.com.placeholderapp.Model.Worker;
+import teamplaceholder.com.placeholderapp.model.AccountHolder;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.model.Admin;
+import teamplaceholder.com.placeholderapp.model.Manager;
+import teamplaceholder.com.placeholderapp.model.User;
+import teamplaceholder.com.placeholderapp.model.Worker;
 
 
 /**

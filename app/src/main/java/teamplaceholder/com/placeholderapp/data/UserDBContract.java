@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.provider.BaseColumns;
 

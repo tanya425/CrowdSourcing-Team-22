@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 /**

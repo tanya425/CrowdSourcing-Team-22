@@ -7,12 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
-import teamplaceholder.com.placeholderapp.Model.Admin;
-import teamplaceholder.com.placeholderapp.Model.Manager;
-import teamplaceholder.com.placeholderapp.Model.User;
-import teamplaceholder.com.placeholderapp.Model.Worker;
+import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.model.AccountHolder;
+import teamplaceholder.com.placeholderapp.model.Admin;
+import teamplaceholder.com.placeholderapp.model.Manager;
+import teamplaceholder.com.placeholderapp.model.User;
+import teamplaceholder.com.placeholderapp.model.Worker;
 
 import static org.junit.Assert.*;
 

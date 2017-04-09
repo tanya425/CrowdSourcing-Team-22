@@ -13,20 +13,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.LoginActivity" />
-        <activity android:name=".Controller.HomeActivity" />
-        <activity android:name=".Controller.RegisterNewUserActivity" />
-        <activity android:name=".Controller.EditProfileActivity" />
-        <activity android:name=".Controller.SubmitSourceReportActivity" />
-        <activity android:name=".Controller.ViewWaterSourceReportsActivity" />
-        <activity android:name=".Controller.ViewWaterQualityReportsActivity" />
+        <activity android:name=".controller.LoginActivity" />
+        <activity android:name=".controller.HomeActivity" />
+        <activity android:name=".controller.RegisterNewUserActivity" />
+        <activity android:name=".controller.EditProfileActivity" />
+        <activity android:name=".controller.SubmitSourceReportActivity" />
+        <activity android:name=".controller.ViewWaterSourceReportsActivity" />
+        <activity android:name=".controller.ViewWaterQualityReportsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -40,10 +40,10 @@
             android:value="AIzaSyC2bMsmcqhgFvXMFt5opi_UbHBFHamUeOc" />
 
         <activity
-            android:name=".Controller.MapsActivity"
+            android:name=".controller.MapsActivity"
             android:label="@string/title_activity_water_source_maps" />
-        <activity android:name=".Controller.SubmitQualityReportActivity" />
-        <activity android:name=".Controller.HistoryReportsActivity"></activity>
+        <activity android:name=".controller.SubmitQualityReportActivity" />
+        <activity android:name=".controller.HistoryReportsActivity"></activity>
     </application>
 
 </manifest>

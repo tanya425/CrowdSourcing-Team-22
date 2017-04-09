@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,11 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -19,9 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBHandler;
-import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class HistoryReportsActivity extends AppCompatActivity {

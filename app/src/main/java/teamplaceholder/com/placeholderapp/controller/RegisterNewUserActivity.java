@@ -1,6 +1,5 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,12 +13,12 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
-import teamplaceholder.com.placeholderapp.Model.Admin;
-import teamplaceholder.com.placeholderapp.Model.Manager;
-import teamplaceholder.com.placeholderapp.Model.User;
-import teamplaceholder.com.placeholderapp.Model.Worker;
+import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.model.AccountHolder;
+import teamplaceholder.com.placeholderapp.model.Admin;
+import teamplaceholder.com.placeholderapp.model.Manager;
+import teamplaceholder.com.placeholderapp.model.User;
+import teamplaceholder.com.placeholderapp.model.Worker;
 import teamplaceholder.com.placeholderapp.R;
 
 /**

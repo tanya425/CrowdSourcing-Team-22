@@ -1,11 +1,9 @@
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.internal.exceptions.ExceptionIncludingMockitoWarnings;
 
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 
 import static org.junit.Assert.*;
 /**

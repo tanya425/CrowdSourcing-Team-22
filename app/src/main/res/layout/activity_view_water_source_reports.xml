@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teamplaceholder.com.placeholderapp.Controller.ViewWaterSourceReportsActivity">
+    tools:context="teamplaceholder.com.placeholderapp.controller.ViewWaterSourceReportsActivity">
 
     <include
         layout="@layout/basic_toolbar"

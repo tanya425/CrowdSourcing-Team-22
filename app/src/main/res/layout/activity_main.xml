@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ripplewater_background"
-    tools:context="teamplaceholder.com.placeholderapp.Controller.MainActivity">
+    tools:context="teamplaceholder.com.placeholderapp.controller.MainActivity">
 
 
     <include

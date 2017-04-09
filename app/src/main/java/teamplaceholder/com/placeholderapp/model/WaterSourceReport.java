@@ -1,13 +1,10 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 
-import java.sql.Time;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import java.util.Arrays;
-import java.util.List;
 /**
  * Created by Tanya on 2/28/2017.
  * Class that stores the information for a Water Source Report

@@ -1,7 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package teamplaceholder.com.placeholderapp.model;
 
 /**
  * Created by ashwiniiyer on 2/19/17.

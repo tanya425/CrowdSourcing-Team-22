@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 /**
  * Created by Jason Ngor on 2/21/2017.

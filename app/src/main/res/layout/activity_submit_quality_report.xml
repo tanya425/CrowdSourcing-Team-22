@@ -5,7 +5,7 @@
     android:id="@+id/activity_submit_quality_report"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teamplaceholder.com.placeholderapp.Controller.SubmitQualityReportActivity">
+    tools:context="teamplaceholder.com.placeholderapp.controller.SubmitQualityReportActivity">
 
     <TextView
         android:id="@+id/textView2"
