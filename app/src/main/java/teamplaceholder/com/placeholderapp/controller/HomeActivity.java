@@ -38,7 +38,6 @@ import teamplaceholder.com.placeholderapp.R;
 public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private SharedPreferences loginInfo;
-    private SharedPreferences.Editor loginInfoEditor;
     private GoogleMap map;
     private ArrayList<WaterSourceReport> waterSourceList;
     private DBWaterSourceReportHandler waterSourceDB;
@@ -55,7 +54,6 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.navigation_drawer);
 
         loginInfo = getSharedPreferences("login_info", 0);
-        loginInfoEditor = loginInfo.edit();
         username = loginInfo.getString("logged_user","");
         userType = loginInfo.getString("user_type", "");
 
@@ -209,10 +207,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         alert.setTitle("Confirm Logout");
         alert.setMessage("Do you really wish to log out?");
 
-
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
+                SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
                 loginInfoEditor.putString("logged_user", null);
+                loginInfoEditor.commit();
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }

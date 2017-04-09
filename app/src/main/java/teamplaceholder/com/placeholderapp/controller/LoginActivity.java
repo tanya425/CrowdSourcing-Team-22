@@ -25,7 +25,6 @@ import teamplaceholder.com.placeholderapp.R;
 public class LoginActivity  extends AppCompatActivity {
 
     private SharedPreferences loginInfo;
-    private SharedPreferences.Editor loginInfoEditor;
     private DBAccountHandler db;
 
     @Override
@@ -34,7 +33,6 @@ public class LoginActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         db = new DBAccountHandler(this);
         loginInfo = getSharedPreferences("login_info", 0);
-        loginInfoEditor = loginInfo.edit();
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
@@ -62,6 +60,8 @@ public class LoginActivity  extends AppCompatActivity {
             } else {
                 userType = "user";
             }
+            SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
+
             loginInfoEditor.putString("user_type", userType);
             loginInfoEditor.putString("logged_user", username);
             loginInfoEditor.commit();
