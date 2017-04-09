@@ -77,6 +77,41 @@ public class WaterSourceReport {
         this(new Date(), reporterName, reportNumber, latitude, longitude, type, condition);
     }
 
+    /*
+    Tests to see whether the water quality is clean and sufficient
+     */
+
+    public boolean isWaterQualitySufficient() {
+        if (condition.toString().equals(Condition.POTABLE.toString())) {
+            if (type.toString().equals(WaterType.OTHER.toString())) {
+                return false;
+            }
+            return true;
+        }
+        if (condition.toString().equals(Condition.TREATABLECLEAR.toString())) {
+            if (type.toString().equals(WaterType.OTHER.toString())) {
+                return false;
+            }
+            return true;
+        }
+        if (condition.toString().equals(Condition.TREATABLEMUDDY.toString())) {
+            if (type.toString().equals(WaterType.STREAM.toString())) {
+                return true;
+            }
+            if (type.toString().equals(WaterType.SPRING.toString())) {
+                return true;
+            }
+            if (type.toString().equals(WaterType.LAKE.toString())) {
+                return true;
+            }
+            return false;
+        }
+        if (condition.toString().equals(Condition.WASTE.toString())) {
+            return false;
+        }
+        return false;
+    }
+
     public Date getDateCreated() {
         return dateCreated;
     }
