@@ -134,8 +134,8 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textAlignment="textEnd"
-            android:layout_alignBaseline="@+id/txtCondition"
-            android:layout_alignBottom="@+id/txtCondition"
+            android:layout_alignBaseline="@+id/txtWaterType"
+            android:layout_alignBottom="@+id/txtWaterType"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp" />
 
