@@ -101,7 +101,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
              */
             public WaterSourceViewHolder(View v) {
                 super(v);
-                vWaterType = (TextView) v.findViewById(R.id.txtCondition);
+                vWaterType = (TextView) v.findViewById(R.id.txtWaterType);
                 vReportNum = (TextView) v.findViewById(R.id.txtReportNum);
                 vReportedBy = (TextView) v.findViewById(R.id.txtReportedBy);
                 vDate = (TextView) v.findViewById(R.id.txtDate);
