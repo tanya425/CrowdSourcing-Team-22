@@ -5,6 +5,7 @@
     android:background="@drawable/drawer_list_item_color"
     android:paddingBottom="6dp"
     android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:paddingTop="6dp"
     android:text="@string/test"
     android:textColor="@color/White"
