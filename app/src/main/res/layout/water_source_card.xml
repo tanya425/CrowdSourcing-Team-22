@@ -132,12 +132,14 @@
             android:id="@+id/txtReportNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_view"
-            android:textAlignment="textEnd"
             android:layout_alignBaseline="@+id/txtWaterType"
             android:layout_alignBottom="@+id/txtWaterType"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_alignRight="@+id/txtWaterType"
+            android:layout_marginEnd="10dp"
+            android:maxWidth="150dp"
+            android:text="@string/text_view"
+            android:textAlignment="textEnd" />
 
     </RelativeLayout>
 
