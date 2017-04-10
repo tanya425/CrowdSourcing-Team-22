@@ -70,13 +70,13 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
         public void onBindViewHolder(WaterQualityViewHolder holder, int position) {
             WaterQualityReport source = waterQualityList.get(position);
             holder.vCondition.setText(source.getCondition().toString());
-            holder.vReportNum.setText("#" + String.valueOf(source.getReportNumber()));
+            holder.vReportNum.setText(getString(R.string.report_num, String.valueOf(source.getReportNumber())));
             holder.vReportedBy.setText(source.getWorkerName());
             holder.vDate.setText(source.getDateString());
-            holder.vLatitude.setText("" + source.getLatitude());
-            holder.vLongitude.setText("" + source.getLongitude());
-            holder.vVirusPPM.setText("" + source.getVirusPPM());
-            holder.vContaminantPPM.setText("" + source.getContaminantPPM());
+            holder.vLatitude.setText(String.valueOf(source.getLatitude()));
+            holder.vLongitude.setText(String.valueOf(source.getLongitude()));
+            holder.vVirusPPM.setText(String.valueOf(source.getVirusPPM()));
+            holder.vContaminantPPM.setText(String.valueOf(source.getContaminantPPM()));
         }
 
         @Override

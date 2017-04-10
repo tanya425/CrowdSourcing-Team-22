@@ -31,6 +31,7 @@
     <string name="overall_condition">Overall Condition</string>
     <string name="password">Password</string>
     <string name="reported_by">Reported By:</string>
+    <string name="report_num">#%1$s</string>
     <string name="return_home">Return Home</string>
     <string name="submit">submit</string>
     <string name="submit_quality_report">Submit Quality Report</string>

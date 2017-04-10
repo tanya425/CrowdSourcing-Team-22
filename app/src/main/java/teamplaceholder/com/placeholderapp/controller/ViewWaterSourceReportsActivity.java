@@ -70,12 +70,12 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         public void onBindViewHolder(WaterSourceViewHolder holder, int position) {
             WaterSourceReport source = waterSourceList.get(position);
             holder.vWaterType.setText(source.getWaterType().toString());
-            holder.vReportNum.setText("#" + String.valueOf(source.getReportNumber()));
+            holder.vReportNum.setText(getString(R.string.report_num, String.valueOf(source.getReportNumber())));
             holder.vReportedBy.setText(source.getReporterName());
             holder.vDate.setText(source.getDateString());
             holder.vWaterCondition.setText(source.getCondition().toString());
-            holder.vLatitude.setText("" + source.getLatitude());
-            holder.vLongitude.setText("" + source.getLongitude());
+            holder.vLatitude.setText(String.valueOf(source.getLatitude()));
+            holder.vLongitude.setText(String.valueOf(source.getLongitude()));
         }
 
         @Override
