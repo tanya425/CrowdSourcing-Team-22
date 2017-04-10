@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterNewUserActivity.class);
         startActivity(intent);
     }
+
     /**
-     * Override functionality
+     * Override functionality of back button to implement our own functionality
      */
     public void onBackPressed() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);

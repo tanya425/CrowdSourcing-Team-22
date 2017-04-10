@@ -9,10 +9,24 @@ package teamplaceholder.com.placeholderapp.model;
 
 public class Admin extends AccountHolder {
 
+    /**
+     * Constructor for Admin
+     * @param username Admin username
+     * @param password Admin password
+     * @param email Admin email
+     * @param address Admin address
+     * @param title Admin title
+     */
     public Admin(String username, String password, String email, String address, String title) {
         super(username, password, email, address, title);
         accountType = "Admin";
     }
+
+    /**
+     * Chained constructor
+     * @param username Admin username
+     * @param password Admin password
+     */
     public Admin(String username, String password) {
         this(username, password, null, null, null);
     }

@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Private listener class for navigation drawer
-      */
+     **/
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -228,7 +228,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Called when the edit info button is pressed
-     * @param view is the view in which the logout button is pressed
+     * @param view is the view in which the edit button is pressed
      */
     public void onEditPress(View view) {
         Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
@@ -237,13 +237,17 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Displays the submit water report activity
-     * @param view is the view in which the logout button is pressed
+     * @param view is the view in which the add source button is pressed
      */
     public void onAddSourcePress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Displays the History reports activity
+     * @param view is the view in which the view history button is pressed
+     */
     public void onViewHistoryReportsPress(View view) {
         Intent intent = new Intent(HomeActivity.this, HistoryReportsActivity.class);
         startActivity(intent);
@@ -325,7 +329,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    //Used to draw markers on map
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         waterSourceDB = new DBWaterSourceReportHandler(this);

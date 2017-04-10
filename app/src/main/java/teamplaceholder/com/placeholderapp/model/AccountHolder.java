@@ -23,6 +23,11 @@ public class AccountHolder {
         this.title = title;
     }
 
+    /**
+     * Constructor for Account Holder
+     * @param username the username of the account holder
+     * @param password the password of the account holder
+     */
     public AccountHolder(String username, String password) {
         this(username, password, null, null, null);
     }

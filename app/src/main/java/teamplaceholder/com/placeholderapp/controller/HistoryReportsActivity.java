@@ -46,7 +46,10 @@ public class HistoryReportsActivity extends AppCompatActivity {
         full_report_list = db.getReports();
     }
 
-
+    /**
+     *  Shows virus parts per million vs time for a given loc during a given year
+     * @param view the view of the button press
+     */
     public void onVirusPressed(View view) {
         String sy = year_et.getText().toString();
         String sla = lat_et.getText().toString();
@@ -108,6 +111,10 @@ public class HistoryReportsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Shows Contaminants parts per million vs time for a given loc during a given year
+     * @param view the view of the button press
+     */
     public void onContamPressed(View view) {
         String sy = year_et.getText().toString();
         String sla = lat_et.getText().toString();
