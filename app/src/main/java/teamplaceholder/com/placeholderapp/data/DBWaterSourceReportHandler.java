@@ -21,10 +21,18 @@ public class DBWaterSourceReportHandler extends DBHandler{
 
     private SQLiteDatabase db;
 
+    /**
+     * Calls the super constructor using the context passed in
+     * @param context is the current context being used
+     */
     public DBWaterSourceReportHandler(Context context) {
         super(context);
     }
 
+    /**
+     * adds water source report to the database
+     * @param wsr the water source report to be added
+     */
     public void addWaterSourceReport(WaterSourceReport wsr) {
         db = super.getWritableDatabase();
         ContentValues values = new ContentValues();
