@@ -31,9 +31,6 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     private EditText passwordText;
     private Spinner accountTypeSpinner;
 
-    private String _username;
-    private String _password;
-    private String _accountType;
     private AccountHolder _account;
     private DBAccountHandler db;
 
@@ -64,22 +61,22 @@ public class RegisterNewUserActivity extends AppCompatActivity {
      * @param view is the current view passed into the button handler
      */
     public void onSubmitPressed(View view) {
-        _accountType = (String) accountTypeSpinner.getSelectedItem();
-        _username = usernameText.getText().toString();
-        _password = passwordText.getText().toString();
+        String _accountType = (String) accountTypeSpinner.getSelectedItem();
+        String _username = usernameText.getText().toString();
+        String _password = passwordText.getText().toString();
 
         if (_username.equals("") || _password.equals("") || _username.equals("Username")) {
             Toast.makeText(this, "Invalid user and/or password", Toast.LENGTH_LONG).show();
 
         } else {
             if (_accountType.equals("Admin")) {
-                _account = new Admin(_username,_password);
+                _account = new Admin(_username, _password);
 
             } else if (_accountType.equals("User")) {
-                _account = new User(_username,_password);
+                _account = new User(_username, _password);
 
             } else if (_accountType.equals("Worker")) {
-                _account = new Worker(_username,_password);
+                _account = new Worker(_username, _password);
 
             } else if (_accountType.equals("Manager")) {
                 _account = new Manager(_username, _password);

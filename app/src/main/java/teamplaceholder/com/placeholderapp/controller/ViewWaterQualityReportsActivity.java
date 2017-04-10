@@ -17,12 +17,6 @@ import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterQualityReportsActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    private DBWaterQualityReportHandler db;
-    private ArrayList<WaterQualityReport> waterQualityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +25,16 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        db = new DBWaterQualityReportHandler(this);
-        waterQualityList = db.getReports();
+        DBWaterQualityReportHandler db = new DBWaterQualityReportHandler(this);
+        ArrayList<WaterQualityReport> waterQualityList = db.getReports();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new WaterQualityAdapter(waterQualityList);
+        RecyclerView.Adapter adapter = new WaterQualityAdapter(waterQualityList);
         recyclerView.setAdapter(adapter);
     }
 

@@ -21,7 +21,6 @@ import teamplaceholder.com.placeholderapp.R;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    private SharedPreferences loginInfo;
     private String username;
 
     public static List<String> titles = Arrays.asList("Mr.", "Mrs.", "Ms.", "Dr.");
@@ -39,7 +38,7 @@ public class EditProfileActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        loginInfo = getSharedPreferences("login_info", 0);
+        SharedPreferences loginInfo = getSharedPreferences("login_info", 0);
         username = loginInfo.getString("logged_user", null);
 
         db = new DBAccountHandler(this);

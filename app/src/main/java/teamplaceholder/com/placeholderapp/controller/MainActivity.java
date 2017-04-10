@@ -10,13 +10,12 @@ import android.view.View;
 import teamplaceholder.com.placeholderapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences loginInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginInfo = getSharedPreferences("logged_user", 0);
+        SharedPreferences loginInfo = getSharedPreferences("logged_user", 0);
 
         // makes sure to clear any logged-in user
         SharedPreferences.Editor loginInfoEditor = loginInfo.edit();

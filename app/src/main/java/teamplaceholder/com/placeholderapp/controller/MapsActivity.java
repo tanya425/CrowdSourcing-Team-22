@@ -18,8 +18,6 @@ import teamplaceholder.com.placeholderapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-    private DBWaterSourceReportHandler db;
     private ArrayList<WaterSourceReport> waterSourceList;
 
     @Override
@@ -29,13 +27,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        db = new DBWaterSourceReportHandler(this);
+        DBWaterSourceReportHandler db = new DBWaterSourceReportHandler(this);
         waterSourceList = db.getReports();
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
         for (int i = 0; i < waterSourceList.size(); i++) {
             WaterSourceReport report = waterSourceList.get(i);

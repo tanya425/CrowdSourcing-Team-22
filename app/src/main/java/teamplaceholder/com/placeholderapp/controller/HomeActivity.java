@@ -38,14 +38,8 @@ import teamplaceholder.com.placeholderapp.R;
 public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private SharedPreferences loginInfo;
-    private GoogleMap map;
-    private ArrayList<WaterSourceReport> waterSourceList;
-    private DBWaterSourceReportHandler waterSourceDB;
-    private String username;
     private String userType;
 
-    private ListView drawerList;
-    private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
 
     @Override
@@ -54,7 +48,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.navigation_drawer);
 
         loginInfo = getSharedPreferences("login_info", 0);
-        username = loginInfo.getString("logged_user","");
+        String username = loginInfo.getString("logged_user", "");
         userType = loginInfo.getString("user_type", "");
 
         //Sets up actionbar
@@ -89,8 +83,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
         }
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ListView drawerList = (ListView) findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, options));
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -332,10 +326,10 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        waterSourceDB = new DBWaterSourceReportHandler(this);
-        waterSourceList = waterSourceDB.getReports();
+        DBWaterSourceReportHandler waterSourceDB = new DBWaterSourceReportHandler(this);
+        ArrayList<WaterSourceReport> waterSourceList = waterSourceDB.getReports();
 
-        map = googleMap;
+        GoogleMap map = googleMap;
 
         for (int i = 0; i < waterSourceList.size(); i++) {
             WaterSourceReport report = waterSourceList.get(i);

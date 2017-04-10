@@ -19,7 +19,6 @@ public class WaterSourceReport {
     private double longitude;
     private WaterType type;
     private Condition condition;
-    private boolean isValidReport;
 
     public static List<WaterType> WaterTypeList = Arrays.asList(WaterType.values());
     public static List<Condition> WaterConditionList = Arrays.asList(Condition.values());
@@ -66,7 +65,7 @@ public class WaterSourceReport {
         this.longitude = longitude;
         this.type = type;
         this.condition = condition;
-        this.isValidReport = false; //changed to true by Worker
+        boolean isValidReport = false;
     }
 
     public WaterSourceReport(String reporterName, int reportNumber, double latitude, double longitude,
