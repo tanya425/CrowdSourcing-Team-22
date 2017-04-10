@@ -114,7 +114,7 @@ public class DBAccountHandler extends DBHandler{
                     cursor.getString(5)
             );
         }
-
+        cursor.close();
         throw new IllegalStateException("Account type: " + acc.getAccountType() + " Not valid");
     }
 

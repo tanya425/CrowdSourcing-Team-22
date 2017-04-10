@@ -50,7 +50,9 @@ public class DBWaterSourceReportHandler extends DBHandler{
         Cursor cursor = db.rawQuery(COUNT_REPORTS, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            return cursor.getInt(0);
+            int maxId = cursor.getInt(0);
+            cursor.close();
+            return maxId;
         } else {
             return 0;
         }
@@ -136,6 +138,7 @@ public class DBWaterSourceReportHandler extends DBHandler{
             list.add(report);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 }
