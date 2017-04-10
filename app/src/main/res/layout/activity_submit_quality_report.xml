@@ -77,7 +77,7 @@
         android:layout_alignStart="@+id/longitude_tv"
         android:layout_below="@+id/longitude_et"
         android:layout_marginTop="16dp"
-        android:text="Overall Condition"
+        android:text="@string/overall_condition"
         android:textColor="@color/Black"
         android:textSize="18sp" />
 
@@ -98,7 +98,7 @@
         android:layout_alignBottom="@+id/virus_ppm_et"
         android:layout_alignStart="@+id/textView2"
         android:labelFor="@+id/virus_ppm_et"
-        android:text="Virus PPM"
+        android:text="@string/virus_ppm"
         android:textColor="@color/Black"
         android:textSize="18sp" />
 
@@ -121,7 +121,7 @@
         android:layout_below="@+id/virus_ppm_tv"
         android:layout_marginTop="37dp"
         android:labelFor="@+id/contaminant_ppm_et"
-        android:text="Contaminant PPM"
+        android:text="@string/contaminant_ppm"
         android:textColor="@color/Black"
         android:textSize="18sp" />
 

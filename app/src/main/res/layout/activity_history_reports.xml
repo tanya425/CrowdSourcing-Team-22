@@ -121,7 +121,7 @@
     <Button
 
         android:textColor="@color/Black"
-        android:text="@string/VirusPPM"
+        android:text="@string/view_virus_ppm"
         android:textSize="20sp"
 
         android:layout_width="match_parent"
