@@ -116,7 +116,7 @@
         android:onClick="onContamPressed"
 
 
-        android:id="@+id/Cont_Graph_Button"/>
+        />
 
     <Button
 

@@ -44,7 +44,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reported_by" />
@@ -62,7 +61,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView26"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/date_created" />
@@ -80,7 +78,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/latitude" />
@@ -98,7 +95,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/longitude" />
@@ -117,7 +113,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/virus_ppm" />
@@ -135,7 +130,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView29"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/contaminant_ppm" />

@@ -23,6 +23,7 @@ import teamplaceholder.com.placeholderapp.R;
 
 /**
  * Created by ashwiniiyer on 2/19/17.
+ *      REGISTER NEW USER ACTIVITY
  */
 
 public class RegisterNewUserActivity extends AppCompatActivity {

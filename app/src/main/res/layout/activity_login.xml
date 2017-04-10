@@ -35,7 +35,6 @@
         android:text="@string/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/submit_login"
         android:layout_weight="0.04"
         android:onClick="onSubmitLoginPress"
         android:width="125dp"
@@ -43,7 +42,6 @@
         android:layout_marginTop="15dp" />
 
     <Button
-        android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

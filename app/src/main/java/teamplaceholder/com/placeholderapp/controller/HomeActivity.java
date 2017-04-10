@@ -291,11 +291,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 break;
         }
 
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
     /**

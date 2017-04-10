@@ -14,6 +14,7 @@ import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 
 /**
  * Created by Jason Ngor on 3/23/2017.
+ *      HANDLER FOR THE QUALITY REPORT
  */
 
 public class DBWaterQualityReportHandler extends DBHandler {

@@ -1,9 +1,6 @@
 <resources>
     <string name="Login">Login</string>
-    <string name="Login_Screen">Login Screen</string>
     <string name="Register">Register</string>
-    <string name="Welcome">Welcome!</string>
-    <string name="add_water_report">Add Water Report</string>
     <string name="address">Address:</string>
     <string name="app_name">Placeholder App</string>
     <string name="cancel">Cancel</string>
@@ -21,40 +18,27 @@
     <string name="latitude">Latitude:</string>
     <string name="latitude_hint">enter desired latitude</string>
     <string name="latitutde_helper">Latitutde (ex 100)</string>
-    <string name="location">Location</string>
     <string name="log_out">Log Out</string>
     <string name="longitude">Longitude:</string>
     <string name="longitude_helper">Longitude (ex 100)</string>
     <string name="longitude_hint">enter desired longitude</string>
-    <string name="name">Name</string>
-    <string name="new_report_button_text">Submit New Report Query</string>
     <string name="overall_condition">Overall Condition</string>
     <string name="password">Password</string>
     <string name="reported_by">Reported By:</string>
     <string name="report_num">#%1$s</string>
-    <string name="return_home">Return Home</string>
     <string name="submit">submit</string>
     <string name="submit_quality_report">Submit Quality Report</string>
     <string name="test">test</string>
     <string name="text_view">TextView</string>
-    <string name="time_w_example">time - (dd-mm-yyyy)</string>
     <string name="title">Title:</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_water_availability">Map</string>
-    <string name="title_activity_water_quality_history_graph">WaterQualityHistoryGraphActivity
-    </string>
     <string name="title_activity_water_source_maps">Map</string>
     <string name="type">Type of Water</string>
     <string name="user_id">User ID</string>
-    <string name="user_type">User Type</string>
     <string name="view_contaminants">View Contaminants PPM</string>
-    <string name="view_graph">View Graph</string>
     <string name="view_virus_ppm">View Virus PPM</string>
     <string name="virus_ppm">Virus PPM:</string>
-    <string name="water_availability">Water Availability</string>
     <string name="water_condition">Water Condition</string>
     <string name="water_report">Submit Water Report</string>
     <string name="water_you_looking_at">Water You Looking At</string>
     <string name="year">Year (ex 2017)</string>
-    <string name="you_have_successfully_entered_the_application">You have successfully entered the application!</string>
 </resources>
