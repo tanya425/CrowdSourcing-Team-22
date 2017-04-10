@@ -33,14 +33,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
 
         for (int i = 0; i < waterSourceList.size(); i++) {
             WaterSourceReport report = waterSourceList.get(i);
             LatLng temp = new LatLng(report.getLatitude(),report.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
+            googleMap.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
                     toString()).snippet(report.getReporterName() + " " + report.getDateString()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(temp));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(temp));
         }
 
     }

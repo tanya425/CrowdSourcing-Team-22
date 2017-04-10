@@ -326,14 +326,12 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         DBWaterSourceReportHandler waterSourceDB = new DBWaterSourceReportHandler(this);
         ArrayList<WaterSourceReport> waterSourceList = waterSourceDB.getReports();
 
-        GoogleMap map = googleMap;
-
         for (int i = 0; i < waterSourceList.size(); i++) {
             WaterSourceReport report = waterSourceList.get(i);
             LatLng temp = new LatLng(report.getLatitude(),report.getLongitude());
-            map.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
+            googleMap.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
                     toString()).snippet(report.getReporterName() + " " + report.getDateString()));
-            map.moveCamera(CameraUpdateFactory.newLatLng(temp));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(temp));
         }
     }
 }
