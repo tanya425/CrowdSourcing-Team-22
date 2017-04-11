@@ -30,6 +30,7 @@ public class SubmitQualityReportActivity extends AppCompatActivity {
     private EditText contaminantPPM;
     private DBWaterQualityReportHandler db;
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

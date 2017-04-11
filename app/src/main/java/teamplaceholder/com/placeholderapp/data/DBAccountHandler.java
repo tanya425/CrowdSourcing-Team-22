@@ -79,37 +79,38 @@ public class DBAccountHandler extends DBHandler{
 
         String type = cursor.getString(2);
 
-        if (type.equals("Admin")) {
-            return new Admin(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5));
-        } else if (type.equals("Manager")) {
-            return new Manager(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5)
-            );
-        } else if (type.equals("Worker")) {
-            return new Worker(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5)
-            );
-        } else if (type.equals(("User"))) {
-            return new User(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5)
-            );
+        switch (type) {
+            case "Admin":
+                return new Admin(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5));
+            case "Manager":
+                return new Manager(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+            case "Worker":
+                return new Worker(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+            case ("User"):
+                return new User(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
         }
         cursor.close();
         throw new IllegalStateException("Account type: " + acc.getAccountType() + " Not valid");

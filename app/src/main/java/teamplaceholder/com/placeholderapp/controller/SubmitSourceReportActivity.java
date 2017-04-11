@@ -30,6 +30,7 @@ public class SubmitSourceReportActivity extends AppCompatActivity {
 
     private DBWaterSourceReportHandler db;
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

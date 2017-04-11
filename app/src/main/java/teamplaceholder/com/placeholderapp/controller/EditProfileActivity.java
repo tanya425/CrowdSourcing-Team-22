@@ -31,6 +31,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private DBAccountHandler db;
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

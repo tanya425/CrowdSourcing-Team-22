@@ -35,6 +35,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     private AccountHolder _account;
     private DBAccountHandler db;
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("REGISTERACTIVITY","ENTERED ON CREATE");
@@ -70,17 +71,22 @@ public class RegisterNewUserActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid user and/or password", Toast.LENGTH_LONG).show();
 
         } else {
-            if (_accountType.equals("Admin")) {
-                _account = new Admin(_username, _password);
+            switch (_accountType) {
+                case "Admin":
+                    _account = new Admin(_username, _password);
 
-            } else if (_accountType.equals("User")) {
-                _account = new User(_username, _password);
+                    break;
+                case "User":
+                    _account = new User(_username, _password);
 
-            } else if (_accountType.equals("Worker")) {
-                _account = new Worker(_username, _password);
+                    break;
+                case "Worker":
+                    _account = new Worker(_username, _password);
 
-            } else if (_accountType.equals("Manager")) {
-                _account = new Manager(_username, _password);
+                    break;
+                case "Manager":
+                    _account = new Manager(_username, _password);
+                    break;
             }
         }
         db.addAccount(_account);
