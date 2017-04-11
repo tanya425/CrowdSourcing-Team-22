@@ -60,23 +60,14 @@ public class WaterQualityReport {
 
     public boolean isCorrectlyClassified() {
         if ((virusPPM <= 1.0 && virusPPM >= 0) && (contaminantPPM <= 1.5 && contaminantPPM >= 0)) {
-            if (condition.toString().equals(OverallCondition.SAFE.toString())) {
-                return true;
-            }
-            return false;
+            return condition.toString().equals(OverallCondition.SAFE.toString());
         }
 
         if ((virusPPM > 1.0 && virusPPM <= 3.3) && (contaminantPPM > 1.5 && contaminantPPM <= 4.7)) {
-            if (condition.toString().equals(OverallCondition.TREATABLE.toString())) {
-                return true;
-            }
-            return false;
+            return condition.toString().equals(OverallCondition.TREATABLE.toString());
         }
         if (virusPPM > 3.3 && contaminantPPM  > 4.7) {
-            if (condition.toString().equals(OverallCondition.UNSAFE.toString())) {
-                return true;
-            }
-            return false;
+            return condition.toString().equals(OverallCondition.UNSAFE.toString());
         }
         throw new IllegalStateException("Water Quality Report is not correctly written");
     }

@@ -110,7 +110,7 @@ public class HistoryReportsActivity extends AppCompatActivity {
             LineChart Vchart = (LineChart) findViewById(R.id.Vchart);
 
             LineDataSet virData = new LineDataSet(Viruses_Entries, "Virus PPM");
-            virData.setColor(Color.BLUE);;
+            virData.setColor(Color.BLUE);
             LineData vLD = new LineData(virData);
             Vchart.setData(vLD);
             Vchart.invalidate();

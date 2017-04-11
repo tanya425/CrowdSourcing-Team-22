@@ -79,16 +79,10 @@ public class WaterSourceReport {
 
     public boolean isWaterQualitySufficient() {
         if (condition.toString().equals(Condition.POTABLE.toString())) {
-            if (type.toString().equals(WaterType.OTHER.toString())) {
-                return false;
-            }
-            return true;
+            return !type.toString().equals(WaterType.OTHER.toString());
         }
         if (condition.toString().equals(Condition.TREATABLECLEAR.toString())) {
-            if (type.toString().equals(WaterType.OTHER.toString())) {
-                return false;
-            }
-            return true;
+            return !type.toString().equals(WaterType.OTHER.toString());
         }
         if (condition.toString().equals(Condition.TREATABLEMUDDY.toString())) {
             if (type.toString().equals(WaterType.STREAM.toString())) {
@@ -97,10 +91,7 @@ public class WaterSourceReport {
             if (type.toString().equals(WaterType.SPRING.toString())) {
                 return true;
             }
-            if (type.toString().equals(WaterType.LAKE.toString())) {
-                return true;
-            }
-            return false;
+            return type.toString().equals(WaterType.LAKE.toString());
         }
         if (condition.toString().equals(Condition.WASTE.toString())) {
             return false;
