@@ -31,8 +31,6 @@ public class HistoryReportsActivity extends AppCompatActivity {
     private double sLat;
     private double sLon;
 
-    private DBWaterQualityReportHandler db;
-
     private ArrayList<WaterQualityReport> full_report_list;
     private ArrayList<WaterQualityReport> graph_report_list;
 
@@ -46,7 +44,7 @@ public class HistoryReportsActivity extends AppCompatActivity {
         lat_et = (EditText) findViewById(R.id.latitude_ET);
         lon_et = (EditText) findViewById(R.id.longitude_ET);
 
-        db = new DBWaterQualityReportHandler(this);
+        DBWaterQualityReportHandler db = new DBWaterQualityReportHandler(this);
         full_report_list = db.getReports();
     }
 

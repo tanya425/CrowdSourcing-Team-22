@@ -88,10 +88,7 @@ public class WaterSourceReport {
             if (type.toString().equals(WaterType.STREAM.toString())) {
                 return true;
             }
-            if (type.toString().equals(WaterType.SPRING.toString())) {
-                return true;
-            }
-            return type.toString().equals(WaterType.LAKE.toString());
+            return type.toString().equals(WaterType.SPRING.toString()) || type.toString().equals(WaterType.LAKE.toString());
         }
         if (condition.toString().equals(Condition.WASTE.toString())) {
             return false;
