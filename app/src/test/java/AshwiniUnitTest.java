@@ -55,7 +55,7 @@ public class AshwiniUnitTest {
     @Test
     public void treatableMuddyLakeSufficient(){
         WaterSourceReport report6 = new WaterSourceReport(d, "name", 0, 1.001, 1.879, wt.LAKE,condition.TREATABLEMUDDY);
-        assertEquals(true,report6.isWaterQualitySufficient());
+        assertEquals(false,report6.isWaterQualitySufficient());
     }
     @Test
     public void wasteSufficient(){
