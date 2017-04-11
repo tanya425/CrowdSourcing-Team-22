@@ -4,7 +4,7 @@ import org.junit.Test;
 
 //import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

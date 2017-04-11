@@ -17,8 +17,7 @@ import teamplaceholder.com.placeholderapp.model.Worker;
 /**
  * Created by Jack on 3/1/2017.
  * This File handles USER database creation and operations
- */
-/**
+ *
  * This class handles the table in the database that stores water report details.
  */
 public class DBAccountHandler extends DBHandler{
@@ -43,10 +42,6 @@ public class DBAccountHandler extends DBHandler{
         db.close();
     }
 
-    /**
-     * Deletes a row in the account table corresponding to the username passed in
-     * @param username - username belonging to the account to be deleted
-     */
     public void deleteAccount(String username) {
         SQLiteDatabase db = super.getWritableDatabase();
         db.delete(UserTable.TABLE_NAME, UserTable.COLUMN_USER_USERNAME + "=?", new String[] {username});

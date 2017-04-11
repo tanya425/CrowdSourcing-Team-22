@@ -9,9 +9,6 @@ import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 /**
  * Created by Jason Ngor on 2/21/2017.
  * This File Initialiizes and updates database
- */
-
-/**
  * This class handles the database that stores data for the app. It contains an accounts table.
  */
 class DBHandler extends SQLiteOpenHelper {

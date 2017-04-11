@@ -17,6 +17,7 @@ import java.util.List;
 
 import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
 import teamplaceholder.com.placeholderapp.model.AccountHolder;
+
 import teamplaceholder.com.placeholderapp.R;
 
 public class EditProfileActivity extends AppCompatActivity {

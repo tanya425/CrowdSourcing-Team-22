@@ -34,7 +34,7 @@ public class HistoryReportsActivity extends AppCompatActivity {
     private DBWaterQualityReportHandler db;
 
     private ArrayList<WaterQualityReport> full_report_list;
-    ArrayList<WaterQualityReport> graph_report_list;
+    private ArrayList<WaterQualityReport> graph_report_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

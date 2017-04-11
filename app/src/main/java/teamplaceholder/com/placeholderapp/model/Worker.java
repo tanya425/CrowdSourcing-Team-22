@@ -14,8 +14,8 @@ public class Worker extends User {
 
     /**
      *
-     * @param username
-     * @param password
+     * @param username the identification id of the user for logging in
+     * @param password the value that gives the user access to his/her account
      */
     public Worker(String username, String password) {
         this(username, password, null, null, null);

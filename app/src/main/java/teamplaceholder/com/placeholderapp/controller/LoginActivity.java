@@ -71,7 +71,7 @@ public class LoginActivity  extends AppCompatActivity {
         } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
         }
-}
+    }
 
     /**
      * Called when the cancel login button is pressed
