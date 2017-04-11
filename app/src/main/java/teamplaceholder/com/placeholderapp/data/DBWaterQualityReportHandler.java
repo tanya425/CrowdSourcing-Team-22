@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,12 +8,13 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 
 /**
  * Created by Jason Ngor on 3/23/2017.
+ *      HANDLER FOR THE QUALITY REPORT
  */
 
 public class DBWaterQualityReportHandler extends DBHandler {
@@ -53,7 +54,9 @@ public class DBWaterQualityReportHandler extends DBHandler {
         Cursor cursor = db.rawQuery(COUNT_REPORTS, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            return cursor.getInt(0);
+            int maxId = cursor.getInt(0);
+            cursor.close();
+            return maxId;
         } else {
             return 0;
         }
@@ -112,6 +115,7 @@ public class DBWaterQualityReportHandler extends DBHandler {
             list.add(report);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 }

@@ -20,8 +20,9 @@
             android:layout_marginTop="14dp"
             android:background="@color/MediumAquamarine"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="Condition"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:text="@string/condition"
             android:textAlignment="gravity"
             android:textColor="@color/White"
             android:textSize="20sp" />
@@ -43,16 +44,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reported By:" />
+                    android:text="@string/reported_by" />
 
                 <TextView
                     android:id="@+id/txtReportedBy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
             </TableRow>
 
@@ -61,16 +61,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView26"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date Created:" />
+                    android:text="@string/date_created" />
 
                 <TextView
                     android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
             </TableRow>
 
@@ -79,16 +78,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latitude" />
+                    android:text="@string/latitude" />
 
                 <TextView
                     android:id="@+id/txtLatitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
             </TableRow>
 
@@ -97,16 +95,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Longitude" />
+                    android:text="@string/longitude" />
 
                 <TextView
                     android:id="@+id/txtLongitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
 
             </TableRow>
@@ -116,16 +113,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Virus PPM:" />
+                    android:text="@string/virus_ppm" />
 
                 <TextView
                     android:id="@+id/txtVirusPPM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
             </TableRow>
 
@@ -134,16 +130,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contaminant PPM:" />
+                    android:text="@string/contaminant_ppm" />
 
                 <TextView
                     android:id="@+id/txtContaminantPPM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/text_view"
                     android:textAlignment="textEnd" />
             </TableRow>
 
@@ -157,8 +152,10 @@
             android:layout_alignBaseline="@+id/txtCondition"
             android:layout_alignBottom="@+id/txtCondition"
             android:layout_alignParentEnd="true"
+            android:layout_alignEnd="@+id/txtCondition"
             android:layout_marginEnd="10dp"
-            android:text="TextView"
+            android:maxWidth="150dp"
+            android:text="@string/text_view"
             android:textAlignment="textEnd" />
 
     </RelativeLayout>

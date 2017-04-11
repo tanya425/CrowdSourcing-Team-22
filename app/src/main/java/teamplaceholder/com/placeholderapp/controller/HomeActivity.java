@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -38,15 +38,8 @@ import teamplaceholder.com.placeholderapp.R;
 public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private SharedPreferences loginInfo;
-    private SharedPreferences.Editor loginInfoEditor;
-    private GoogleMap map;
-    private ArrayList<WaterSourceReport> waterSourceList;
-    private DBWaterSourceReportHandler waterSourceDB;
-    private String username;
     private String userType;
 
-    private ListView drawerList;
-    private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
 
     @Override
@@ -55,8 +48,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.navigation_drawer);
 
         loginInfo = getSharedPreferences("login_info", 0);
-        loginInfoEditor = loginInfo.edit();
-        username = loginInfo.getString("logged_user","");
+        String username = loginInfo.getString("logged_user", "");
         userType = loginInfo.getString("user_type", "");
 
         //Sets up actionbar
@@ -91,8 +83,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
         }
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ListView drawerList = (ListView) findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, options));
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -117,7 +109,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Private listener class for navigation drawer
-      */
+     **/
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -209,10 +201,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         alert.setTitle("Confirm Logout");
         alert.setMessage("Do you really wish to log out?");
 
-
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
+                SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
                 loginInfoEditor.putString("logged_user", null);
+                loginInfoEditor.apply();
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -229,7 +222,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Called when the edit info button is pressed
-     * @param view is the view in which the logout button is pressed
+     * @param view is the view in which the edit button is pressed
      */
     public void onEditPress(View view) {
         Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
@@ -238,13 +231,17 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     /**
      * Displays the submit water report activity
-     * @param view is the view in which the logout button is pressed
+     * @param view is the view in which the add source button is pressed
      */
     public void onAddSourcePress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Displays the History reports activity
+     * @param view is the view in which the view history button is pressed
+     */
     public void onViewHistoryReportsPress(View view) {
         Intent intent = new Intent(HomeActivity.this, HistoryReportsActivity.class);
         startActivity(intent);
@@ -294,11 +291,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 break;
         }
 
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -326,20 +320,18 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    //Used to draw markers on map
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        waterSourceDB = new DBWaterSourceReportHandler(this);
-        waterSourceList = waterSourceDB.getReports();
-
-        map = googleMap;
+        DBWaterSourceReportHandler waterSourceDB = new DBWaterSourceReportHandler(this);
+        ArrayList<WaterSourceReport> waterSourceList = waterSourceDB.getReports();
 
         for (int i = 0; i < waterSourceList.size(); i++) {
             WaterSourceReport report = waterSourceList.get(i);
             LatLng temp = new LatLng(report.getLatitude(),report.getLongitude());
-            map.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
+            googleMap.addMarker(new MarkerOptions().position(temp).title(report.getCondition().
                     toString()).snippet(report.getReporterName() + " " + report.getDateString()));
-            map.moveCamera(CameraUpdateFactory.newLatLng(temp));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(temp));
         }
     }
 }

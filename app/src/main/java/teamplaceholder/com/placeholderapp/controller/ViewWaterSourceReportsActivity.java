@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,17 +12,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterSourceReportsActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    private DBWaterSourceReportHandler db;
-    private ArrayList<WaterSourceReport> waterSourceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +25,16 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        db = new DBWaterSourceReportHandler(this);
-        waterSourceList = db.getReports();
+        DBWaterSourceReportHandler db = new DBWaterSourceReportHandler(this);
+        ArrayList<WaterSourceReport> waterSourceList = db.getReports();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new WaterSourceAdapter(waterSourceList);
+        RecyclerView.Adapter adapter = new WaterSourceAdapter(waterSourceList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -70,12 +64,12 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
         public void onBindViewHolder(WaterSourceViewHolder holder, int position) {
             WaterSourceReport source = waterSourceList.get(position);
             holder.vWaterType.setText(source.getWaterType().toString());
-            holder.vReportNum.setText("#" + String.valueOf(source.getReportNumber()));
+            holder.vReportNum.setText(getString(R.string.report_num, String.valueOf(source.getReportNumber())));
             holder.vReportedBy.setText(source.getReporterName());
             holder.vDate.setText(source.getDateString());
             holder.vWaterCondition.setText(source.getCondition().toString());
-            holder.vLatitude.setText("" + source.getLatitude());
-            holder.vLongitude.setText("" + source.getLongitude());
+            holder.vLatitude.setText(String.valueOf(source.getLatitude()));
+            holder.vLongitude.setText(String.valueOf(source.getLongitude()));
         }
 
         @Override
@@ -101,7 +95,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
              */
             public WaterSourceViewHolder(View v) {
                 super(v);
-                vWaterType = (TextView) v.findViewById(R.id.txtCondition);
+                vWaterType = (TextView) v.findViewById(R.id.txtWaterType);
                 vReportNum = (TextView) v.findViewById(R.id.txtReportNum);
                 vReportedBy = (TextView) v.findViewById(R.id.txtReportedBy);
                 vDate = (TextView) v.findViewById(R.id.txtDate);

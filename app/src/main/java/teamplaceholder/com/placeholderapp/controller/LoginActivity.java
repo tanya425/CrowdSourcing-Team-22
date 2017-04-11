@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,12 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
-import teamplaceholder.com.placeholderapp.Model.Admin;
-import teamplaceholder.com.placeholderapp.Model.Manager;
-import teamplaceholder.com.placeholderapp.Model.User;
-import teamplaceholder.com.placeholderapp.Model.Worker;
+import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.model.AccountHolder;
+import teamplaceholder.com.placeholderapp.model.Admin;
+import teamplaceholder.com.placeholderapp.model.Manager;
+import teamplaceholder.com.placeholderapp.model.Worker;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -26,7 +25,6 @@ import teamplaceholder.com.placeholderapp.R;
 public class LoginActivity  extends AppCompatActivity {
 
     private SharedPreferences loginInfo;
-    private SharedPreferences.Editor loginInfoEditor;
     private DBAccountHandler db;
 
     @Override
@@ -35,7 +33,6 @@ public class LoginActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         db = new DBAccountHandler(this);
         loginInfo = getSharedPreferences("login_info", 0);
-        loginInfoEditor = loginInfo.edit();
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
@@ -63,9 +60,11 @@ public class LoginActivity  extends AppCompatActivity {
             } else {
                 userType = "user";
             }
+            SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
+
             loginInfoEditor.putString("user_type", userType);
             loginInfoEditor.putString("logged_user", username);
-            loginInfoEditor.commit();
+            loginInfoEditor.apply();
 
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);

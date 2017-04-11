@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,18 +10,18 @@ import android.view.View;
 import teamplaceholder.com.placeholderapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences loginInfo;
-    private SharedPreferences.Editor loginInfoEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginInfo = getSharedPreferences("logged_user", 0);
-        loginInfoEditor = loginInfo.edit();
+        SharedPreferences loginInfo = getSharedPreferences("logged_user", 0);
 
         // makes sure to clear any logged-in user
+        SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
         loginInfoEditor.putString("logged_user", null);
+        loginInfoEditor.apply();
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
@@ -43,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterNewUserActivity.class);
         startActivity(intent);
     }
+
     /**
-     * Override functionality
+     * Override functionality of back button to implement our own functionality
      */
     public void onBackPressed() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);

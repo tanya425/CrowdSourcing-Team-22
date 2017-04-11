@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,11 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -19,9 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBHandler;
-import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class HistoryReportsActivity extends AppCompatActivity {
@@ -49,7 +46,10 @@ public class HistoryReportsActivity extends AppCompatActivity {
         full_report_list = db.getReports();
     }
 
-
+    /**
+     *  Shows virus parts per million vs time for a given loc during a given year
+     * @param view the view of the button press
+     */
     public void onVirusPressed(View view) {
         String sy = year_et.getText().toString();
         String sla = lat_et.getText().toString();
@@ -111,6 +111,10 @@ public class HistoryReportsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Shows Contaminants parts per million vs time for a given loc during a given year
+     * @param view the view of the button press
+     */
     public void onContamPressed(View view) {
         String sy = year_et.getText().toString();
         String sla = lat_et.getText().toString();

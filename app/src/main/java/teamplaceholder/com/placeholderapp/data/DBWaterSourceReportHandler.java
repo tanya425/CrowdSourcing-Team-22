@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 
 
 /**
@@ -21,10 +21,18 @@ public class DBWaterSourceReportHandler extends DBHandler{
 
     private SQLiteDatabase db;
 
+    /**
+     * Calls the super constructor using the context passed in
+     * @param context is the current context being used
+     */
     public DBWaterSourceReportHandler(Context context) {
         super(context);
     }
 
+    /**
+     * adds water source report to the database
+     * @param wsr the water source report to be added
+     */
     public void addWaterSourceReport(WaterSourceReport wsr) {
         db = super.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -50,7 +58,9 @@ public class DBWaterSourceReportHandler extends DBHandler{
         Cursor cursor = db.rawQuery(COUNT_REPORTS, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            return cursor.getInt(0);
+            int maxId = cursor.getInt(0);
+            cursor.close();
+            return maxId;
         } else {
             return 0;
         }
@@ -136,6 +146,7 @@ public class DBWaterSourceReportHandler extends DBHandler{
             list.add(report);
             cursor.moveToNext();
         }
+        cursor.close();
         return list;
     }
 }

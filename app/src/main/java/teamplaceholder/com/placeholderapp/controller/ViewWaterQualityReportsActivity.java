@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,17 +12,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterQualityReportsActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    private DBWaterQualityReportHandler db;
-    private ArrayList<WaterQualityReport> waterQualityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +25,16 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        db = new DBWaterQualityReportHandler(this);
-        waterQualityList = db.getReports();
+        DBWaterQualityReportHandler db = new DBWaterQualityReportHandler(this);
+        ArrayList<WaterQualityReport> waterQualityList = db.getReports();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new WaterQualityAdapter(waterQualityList);
+        RecyclerView.Adapter adapter = new WaterQualityAdapter(waterQualityList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -70,13 +64,13 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
         public void onBindViewHolder(WaterQualityViewHolder holder, int position) {
             WaterQualityReport source = waterQualityList.get(position);
             holder.vCondition.setText(source.getCondition().toString());
-            holder.vReportNum.setText("#" + String.valueOf(source.getReportNumber()));
+            holder.vReportNum.setText(getString(R.string.report_num, String.valueOf(source.getReportNumber())));
             holder.vReportedBy.setText(source.getWorkerName());
             holder.vDate.setText(source.getDateString());
-            holder.vLatitude.setText("" + source.getLatitude());
-            holder.vLongitude.setText("" + source.getLongitude());
-            holder.vVirusPPM.setText("" + source.getVirusPPM());
-            holder.vContaminantPPM.setText("" + source.getContaminantPPM());
+            holder.vLatitude.setText(String.valueOf(source.getLatitude()));
+            holder.vLongitude.setText(String.valueOf(source.getLongitude()));
+            holder.vVirusPPM.setText(String.valueOf(source.getVirusPPM()));
+            holder.vContaminantPPM.setText(String.valueOf(source.getContaminantPPM()));
         }
 
         @Override

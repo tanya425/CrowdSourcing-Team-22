@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 /**
  * Created by Jason Ngor on 2/21/2017.
@@ -7,11 +7,24 @@ package teamplaceholder.com.placeholderapp.Model;
  */
 
 public class Manager extends Worker {
-
+    /**
+     * Constructor for manager
+     * @param username name
+     * @param password pass
+     * @param email email
+     * @param address addr
+     * @param title title
+     */
     public Manager(String username, String password, String email, String address, String title) {
         super(username, password, email, address, title);
         accountType = "Manager";
     }
+
+    /**
+     * Chained construcctor
+     * @param username user
+     * @param password pass
+     */
     public Manager(String username, String password) {
         this(username, password, null, null, null);
     }

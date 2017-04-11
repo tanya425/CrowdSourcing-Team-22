@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,13 +15,12 @@ import android.widget.Spinner;
 import java.util.Arrays;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    private SharedPreferences loginInfo;
     private String username;
 
     public static List<String> titles = Arrays.asList("Mr.", "Mrs.", "Ms.", "Dr.");
@@ -39,7 +38,7 @@ public class EditProfileActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        loginInfo = getSharedPreferences("login_info", 0);
+        SharedPreferences loginInfo = getSharedPreferences("login_info", 0);
         username = loginInfo.getString("logged_user", null);
 
         db = new DBAccountHandler(this);
