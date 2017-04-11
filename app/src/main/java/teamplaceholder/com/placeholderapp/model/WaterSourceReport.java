@@ -85,10 +85,7 @@ public class WaterSourceReport {
             return !type.toString().equals(WaterType.OTHER.toString());
         }
         if (condition.toString().equals(Condition.TREATABLEMUDDY.toString())) {
-            if (type.toString().equals(WaterType.STREAM.toString())) {
-                return true;
-            }
-            return type.toString().equals(WaterType.SPRING.toString()) || type.toString().equals(WaterType.LAKE.toString());
+            return type.toString().equals(WaterType.STREAM.toString()) || type.toString().equals(WaterType.SPRING.toString()) || type.toString().equals(WaterType.LAKE.toString());
         }
         if (condition.toString().equals(Condition.WASTE.toString())) {
             return false;
