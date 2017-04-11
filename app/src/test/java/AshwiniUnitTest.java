@@ -3,7 +3,7 @@ import org.mockito.Mock;
 
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 
 import static org.junit.Assert.*;
 /**

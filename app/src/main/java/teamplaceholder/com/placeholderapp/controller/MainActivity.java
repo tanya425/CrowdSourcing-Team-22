@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

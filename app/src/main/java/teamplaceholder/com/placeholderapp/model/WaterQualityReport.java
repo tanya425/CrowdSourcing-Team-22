@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.model;
+package teamplaceholder.com.placeholderapp.Model;
 
 import java.util.Arrays;
 import java.util.Date;

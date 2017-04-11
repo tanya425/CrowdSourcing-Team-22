@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,8 +15,8 @@ import android.widget.Spinner;
 import java.util.Arrays;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
-import teamplaceholder.com.placeholderapp.model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.Model.AccountHolder;
 import teamplaceholder.com.placeholderapp.R;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -88,7 +88,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 EditProfileActivity.this.finish();
             }
         });
-        final AlertDialog dialog = alert.create();
+        //final AlertDialog dialog = alert.create();
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 dialog.dismiss();
@@ -110,7 +110,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 EditProfileActivity.this.finish();
             }
         });
-        final AlertDialog dialog = alert.create();
+        //final AlertDialog dialog = alert.create();
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 dialog.dismiss();

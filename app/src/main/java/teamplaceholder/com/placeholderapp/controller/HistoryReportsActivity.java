@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class HistoryReportsActivity extends AppCompatActivity {
@@ -77,7 +77,9 @@ public class HistoryReportsActivity extends AppCompatActivity {
                 Double rLon = wrpt.getLongitude();
 
                 if ((sLat == rLat) && (sLon == rLon) && (sYear == rYear)) {
-                    int months, days, hours, mins, secs;
+                    //int months;
+                    //int mins, hours;
+                    int days, secs;
 
                     int month = cal.get(Calendar.MONTH);
                     days = 0;
@@ -85,14 +87,14 @@ public class HistoryReportsActivity extends AppCompatActivity {
                         days += ms[i];
                     }
 
-                    int day = cal.get(Calendar.DAY_OF_MONTH);
-                    days += day - 1;
+                    //int day = cal.get(Calendar.DAY_OF_MONTH);
+                    //days += day - 1;
 
-                    int hour = cal.get(Calendar.HOUR_OF_DAY);
-                    hours = hour + days * 24;
+                    //int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    //hours = hour + days * 24;
 
                     int min = cal.get(Calendar.MINUTE);
-                    mins = min + hours * 60;
+                    //mins = min + hours * 60;
 
                     int sec = cal.get(Calendar.SECOND);
                     secs = sec + min * 60;
@@ -143,7 +145,10 @@ public class HistoryReportsActivity extends AppCompatActivity {
                 Double rLon = wrpt.getLongitude();
 
                 if ((sLat == rLat) && (sLon == rLon) && (sYear == rYear)) {
-                    int months, days, hours, mins, secs;
+                    //int months;
+                    //int mins;
+                    //int hours
+                    int days,secs;
 
                     int month = cal.get(Calendar.MONTH);
                     days = 0;
@@ -151,14 +156,14 @@ public class HistoryReportsActivity extends AppCompatActivity {
                         days += ms[i];
                     }
 
-                    int day = cal.get(Calendar.DAY_OF_MONTH);
-                    days += day - 1;
+                    //int day = cal.get(Calendar.DAY_OF_MONTH);
+                    //days += day - 1;
 
-                    int hour = cal.get(Calendar.HOUR_OF_DAY);
-                    hours = hour + days * 24;
+                    //int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    //hours = hour + days * 24;
 
                     int min = cal.get(Calendar.MINUTE);
-                    mins = min + hours * 60;
+                    //mins = min + hours * 60;
 
                     int sec = cal.get(Calendar.SECOND);
                     secs = sec + min * 60;

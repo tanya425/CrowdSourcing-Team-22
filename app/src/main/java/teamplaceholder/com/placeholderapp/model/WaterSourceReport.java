@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.model;
+package teamplaceholder.com.placeholderapp.Model;
 
 
 import java.util.Arrays;
@@ -65,7 +65,7 @@ public class WaterSourceReport {
         this.longitude = longitude;
         this.type = type;
         this.condition = condition;
-        boolean isValidReport = false;
+        //boolean isValidReport = false;
     }
 
     public WaterSourceReport(String reporterName, int reportNumber, double latitude, double longitude,

@@ -2,9 +2,9 @@ package teamplaceholder.com.placeholderapp;
 
 import org.junit.Test;
 
-import java.util.Date;
+//import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

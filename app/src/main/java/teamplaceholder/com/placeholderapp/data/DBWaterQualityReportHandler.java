@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.data;
+package teamplaceholder.com.placeholderapp.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 
-import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 
 /**
  * Created by Jason Ngor on 3/23/2017.
@@ -85,10 +85,12 @@ public class DBWaterQualityReportHandler extends DBHandler {
 
         if (cursor != null) {
             cursor.moveToFirst();
-        }
+        } else {
+            return list;
+        }/*
         if (cursor.getCount() == 0) {
             return list;
-        }
+        }*/
 
         while (!cursor.isAfterLast()) {
             WaterQualityReport.OverallCondition condition;

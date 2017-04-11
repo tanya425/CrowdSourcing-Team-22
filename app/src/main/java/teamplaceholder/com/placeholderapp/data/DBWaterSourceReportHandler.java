@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.data;
+package teamplaceholder.com.placeholderapp.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
-import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 
 
 /**
@@ -88,10 +88,12 @@ public class DBWaterSourceReportHandler extends DBHandler{
 
         if (cursor != null) {
             cursor.moveToFirst();
-        }
+        } else {
+            return list;
+        }/*
         if (cursor.getCount() == 0) {
             return list;
-        }
+        }*/
 
         while (!cursor.isAfterLast()) {
             WaterSourceReport.WaterType type;

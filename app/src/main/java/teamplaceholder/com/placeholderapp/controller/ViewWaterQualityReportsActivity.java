@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterQualityReportsActivity extends AppCompatActivity {

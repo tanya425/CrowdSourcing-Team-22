@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.data;
+package teamplaceholder.com.placeholderapp.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,12 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import teamplaceholder.com.placeholderapp.model.AccountHolder;
-import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
-import teamplaceholder.com.placeholderapp.model.Admin;
-import teamplaceholder.com.placeholderapp.model.Manager;
-import teamplaceholder.com.placeholderapp.model.User;
-import teamplaceholder.com.placeholderapp.model.Worker;
+import teamplaceholder.com.placeholderapp.Model.AccountHolder;
+import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.Model.Admin;
+import teamplaceholder.com.placeholderapp.Model.Manager;
+import teamplaceholder.com.placeholderapp.Model.User;
+import teamplaceholder.com.placeholderapp.Model.Worker;
 
 
 /**
@@ -58,7 +58,7 @@ public class DBAccountHandler extends DBHandler{
      * @return the AccountHolder stored in the database
      * @throws IllegalArgumentException when the user does not exist in the database
      */
-    public AccountHolder getAccount(String username) throws IllegalArgumentException {
+    public AccountHolder getAccount(String username) throws NullPointerException, IllegalArgumentException {
         SQLiteDatabase db = super.getReadableDatabase();
         Cursor cursor = db.query(UserTable.TABLE_NAME,
                 new String[] {
@@ -73,10 +73,12 @@ public class DBAccountHandler extends DBHandler{
                 null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
-        }
+        } else {
+            throw new IllegalArgumentException("getAccount - username does not exist");
+        }/*
         if (cursor.getCount() == 0) {
             throw new IllegalArgumentException("getAccount - username does not exist");
-        }
+        }*/
         AccountHolder acc = new AccountHolder(cursor.getString(0), cursor.getString(1),
                 cursor.getString(3), cursor.getString(4), cursor.getString(5));
 

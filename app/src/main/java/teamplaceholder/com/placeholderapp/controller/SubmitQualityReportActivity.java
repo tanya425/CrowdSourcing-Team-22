@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -11,10 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.util.Date;
+//import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class SubmitQualityReportActivity extends AppCompatActivity {
@@ -62,7 +62,7 @@ public class SubmitQualityReportActivity extends AppCompatActivity {
      * @param view is the current view passed into the button handler
      */
     public void onSubmitPress(View view){
-        Date now = new Date();
+        //Date now = new Date();
         int report_id = db.getMaxId() + 1;
         username = loginInfo.getString("logged_user", null);
 
@@ -100,7 +100,7 @@ public class SubmitQualityReportActivity extends AppCompatActivity {
                 SubmitQualityReportActivity.this.finish();
             }
         });
-        final AlertDialog dialog = alert.create();
+        //final AlertDialog dialog = alert.create();
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 dialog.dismiss();

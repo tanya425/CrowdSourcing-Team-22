@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.controller;
+package teamplaceholder.com.placeholderapp.Controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -48,13 +48,17 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.navigation_drawer);
 
         loginInfo = getSharedPreferences("login_info", 0);
-        String username = loginInfo.getString("logged_user", "");
+        //String username = loginInfo.getString("logged_user", "");
         userType = loginInfo.getString("user_type", "");
 
         //Sets up actionbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -211,7 +215,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-        final AlertDialog dialog = alert.create();
+        //final AlertDialog dialog = alert.create();
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 dialog.dismiss();
@@ -310,7 +314,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(intent);
             }
         });
-        final AlertDialog dialog = alert.create();
+        //final AlertDialog dialog = alert.create();
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 dialog.dismiss();
