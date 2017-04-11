@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 /**
@@ -200,7 +200,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Called when the logout button is pressed
      * @param view is the view in which the logout button is pressed
      */
-    public void onLogoutPress(View view) {
+    private void onLogoutPress(View view) {
         final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
         alert.setTitle("Confirm Logout");
         alert.setMessage("Do you really wish to log out?");
@@ -228,7 +228,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Called when the edit info button is pressed
      * @param view is the view in which the edit button is pressed
      */
-    public void onEditPress(View view) {
+    private void onEditPress(View view) {
         Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
         startActivity(intent);
     }
@@ -237,7 +237,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the submit water report activity
      * @param view is the view in which the add source button is pressed
      */
-    public void onAddSourcePress(View view) {
+    private void onAddSourcePress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitSourceReportActivity.class);
         startActivity(intent);
     }
@@ -246,7 +246,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the History reports activity
      * @param view is the view in which the view history button is pressed
      */
-    public void onViewHistoryReportsPress(View view) {
+    private void onViewHistoryReportsPress(View view) {
         Intent intent = new Intent(HomeActivity.this, HistoryReportsActivity.class);
         startActivity(intent);
     }
@@ -255,7 +255,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the water source reports activity
      * @param view is the view in which the view water source report button is pressed
      */
-    public void onViewSourcesPress(View view) {
+    private void onViewSourcesPress(View view) {
         Intent intent = new Intent(HomeActivity.this, ViewWaterSourceReportsActivity.class);
         startActivity(intent);
     }
@@ -264,7 +264,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the submit water quality report activity
      * @param view is the view in which the logout button is pressed
      */
-    public void onAddQualityPress(View view) {
+    private void onAddQualityPress(View view) {
         Intent intent = new Intent(HomeActivity.this, SubmitQualityReportActivity.class);
         startActivity(intent);
     }
@@ -273,7 +273,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Displays the water quality reports activity
      * @param view is the view in which the view water quality report button is pressed
      */
-    public void onViewQualityReportsPress(View view) {
+    private void onViewQualityReportsPress(View view) {
         Intent intent = new Intent(HomeActivity.this, ViewWaterQualityReportsActivity.class);
         startActivity(intent);
     }

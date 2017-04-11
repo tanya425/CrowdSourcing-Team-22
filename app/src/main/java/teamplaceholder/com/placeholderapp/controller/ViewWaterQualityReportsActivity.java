@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterQualityReportsActivity extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
      * Adapter for recycler view to read the data from the database
      */
     public class WaterQualityAdapter extends RecyclerView.Adapter<WaterQualityAdapter.WaterQualityViewHolder> {
-        private ArrayList<WaterQualityReport> waterQualityList;
+        private final ArrayList<WaterQualityReport> waterQualityList;
 
         public WaterQualityAdapter(ArrayList<WaterQualityReport> waterQualityList) {
             this.waterQualityList = waterQualityList;
@@ -82,14 +82,14 @@ public class ViewWaterQualityReportsActivity extends AppCompatActivity {
          * handles view of water quality report
          */
         public class WaterQualityViewHolder extends RecyclerView.ViewHolder {
-            protected TextView vCondition;
-            protected TextView vReportNum;
-            protected TextView vReportedBy;
-            protected TextView vDate;
-            protected TextView vLatitude;
-            protected TextView vLongitude;
-            protected TextView vVirusPPM;
-            protected TextView vContaminantPPM;
+            final TextView vCondition;
+            final TextView vReportNum;
+            final TextView vReportedBy;
+            final TextView vDate;
+            final TextView vLatitude;
+            final TextView vLongitude;
+            final TextView vVirusPPM;
+            final TextView vContaminantPPM;
 
             /**
              * view handler code for water quality view

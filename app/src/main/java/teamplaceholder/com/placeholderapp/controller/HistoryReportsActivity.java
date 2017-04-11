@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,20 +17,24 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterQualityReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterQualityReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterQualityReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class HistoryReportsActivity extends AppCompatActivity {
 
-    EditText year_et, lat_et, lon_et;
+    private EditText year_et;
+    private EditText lat_et;
+    private EditText lon_et;
 
-    int sYear;
-    double sLat, sLon;
+    private int sYear;
+    private double sLat;
+    private double sLon;
 
-    DBWaterQualityReportHandler db;
+    private DBWaterQualityReportHandler db;
 
-    ArrayList<WaterQualityReport> full_report_list, graph_report_list;
+    private ArrayList<WaterQualityReport> full_report_list;
+    ArrayList<WaterQualityReport> graph_report_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

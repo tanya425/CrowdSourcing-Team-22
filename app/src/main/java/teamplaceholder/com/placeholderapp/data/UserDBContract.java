@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.provider.BaseColumns;
 
@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
  * to store and display user account information
  */
 
-public final class UserDBContract {
+final class UserDBContract {
 
     /**
      * private constructor to prevent instantiation

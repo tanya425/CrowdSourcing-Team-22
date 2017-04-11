@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -13,8 +13,8 @@ import android.widget.Spinner;
 
 //import java.util.Date;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class SubmitSourceReportActivity extends AppCompatActivity {

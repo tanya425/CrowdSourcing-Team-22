@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -12,16 +12,16 @@ import java.util.List;
  */
 
 public class WaterQualityReport {
-    private Date dateCreated;
-    private int reportNumber;
-    private String workerName;
+    private final Date dateCreated;
+    private final int reportNumber;
+    private final String workerName;
     private double latitude;
     private double longitude;
     private OverallCondition condition;
     private double virusPPM;
     private double contaminantPPM;
 
-    public static List<WaterQualityReport.OverallCondition> WaterOverallConditionList =
+    public static final List<WaterQualityReport.OverallCondition> WaterOverallConditionList =
             Arrays.asList(WaterQualityReport.OverallCondition.values());
 
     public enum OverallCondition {
@@ -29,7 +29,7 @@ public class WaterQualityReport {
         TREATABLE("Treatable"),
         UNSAFE("Unsafe");
 
-        private String cond;
+        private final String cond;
         OverallCondition(String cond) {
             this.cond = cond;
         }

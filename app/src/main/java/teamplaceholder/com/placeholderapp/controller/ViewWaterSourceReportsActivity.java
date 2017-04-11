@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Controller;
+package teamplaceholder.com.placeholderapp.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import teamplaceholder.com.placeholderapp.Data.DBWaterSourceReportHandler;
-import teamplaceholder.com.placeholderapp.Model.WaterSourceReport;
+import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
+import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
 
 public class ViewWaterSourceReportsActivity extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
      * Adapter for recycler view to read the data from the database
      */
     public class WaterSourceAdapter extends RecyclerView.Adapter<WaterSourceAdapter.WaterSourceViewHolder> {
-        private ArrayList<WaterSourceReport> waterSourceList;
+        private final ArrayList<WaterSourceReport> waterSourceList;
 
         public WaterSourceAdapter(ArrayList<WaterSourceReport> waterSourceList) {
             this.waterSourceList = waterSourceList;
@@ -81,13 +81,13 @@ public class ViewWaterSourceReportsActivity extends AppCompatActivity {
          * handles view of water source
          */
         public class WaterSourceViewHolder extends RecyclerView.ViewHolder {
-            protected TextView vWaterType;
-            protected TextView vReportNum;
-            protected TextView vReportedBy;
-            protected TextView vDate;
-            protected TextView vWaterCondition;
-            protected TextView vLatitude;
-            protected TextView vLongitude;
+            final TextView vWaterType;
+            final TextView vReportNum;
+            final TextView vReportedBy;
+            final TextView vDate;
+            final TextView vWaterCondition;
+            final TextView vLatitude;
+            final TextView vLongitude;
 
             /**
              * view handler code for water source view

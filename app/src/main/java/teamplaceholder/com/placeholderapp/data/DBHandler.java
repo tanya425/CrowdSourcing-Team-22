@@ -1,10 +1,10 @@
-package teamplaceholder.com.placeholderapp.Data;
+package teamplaceholder.com.placeholderapp.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
+import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
 
 /**
  * Created by Jason Ngor on 2/21/2017.
@@ -14,11 +14,11 @@ import teamplaceholder.com.placeholderapp.Data.UserDBContract.*;
 /**
  * This class handles the database that stores data for the app. It contains an accounts table.
  */
-public class DBHandler extends SQLiteOpenHelper {
+class DBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 7;
     private static final String DATABASE_NAME = "appDatabase.db";
 
-    public DBHandler(Context context) {
+    DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

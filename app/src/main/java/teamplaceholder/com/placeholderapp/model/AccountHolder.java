@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 /**
  * Created by ashwiniiyer on 2/19/17.
@@ -9,12 +9,12 @@ package teamplaceholder.com.placeholderapp.Model;
  * Base class for an generic account holder of the app
  */
 public class AccountHolder {
-    protected String username;
-    protected String password;
-    protected String accountType;
-    protected String email;
-    protected String address;
-    protected String title;
+    private String username;
+    private String password;
+    String accountType;
+    private String email;
+    private String address;
+    private String title;
 
     public AccountHolder(String username, String password, String email, String address, String title) {
         this.username = username;

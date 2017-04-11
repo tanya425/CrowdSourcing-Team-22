@@ -1,4 +1,4 @@
-package teamplaceholder.com.placeholderapp.Model;
+package teamplaceholder.com.placeholderapp.model;
 
 
 import java.util.Arrays;
@@ -12,16 +12,16 @@ import java.util.List;
  */
 
 public class WaterSourceReport {
-    private Date dateCreated;
-    private int reportNumber;
-    private String reporterName;
+    private final Date dateCreated;
+    private final int reportNumber;
+    private final String reporterName;
     private double latitude;
     private double longitude;
     private WaterType type;
     private Condition condition;
 
-    public static List<WaterType> WaterTypeList = Arrays.asList(WaterType.values());
-    public static List<Condition> WaterConditionList = Arrays.asList(Condition.values());
+    public static final List<WaterType> WaterTypeList = Arrays.asList(WaterType.values());
+    public static final List<Condition> WaterConditionList = Arrays.asList(Condition.values());
 
     public enum WaterType {
         BOTTLED("Bottled"),
@@ -31,7 +31,7 @@ public class WaterSourceReport {
         SPRING("Spring"),
         OTHER("Other");
 
-        private String type;
+        private final String type;
         WaterType(String type) {
             this.type = type;
         }
@@ -47,7 +47,7 @@ public class WaterSourceReport {
         TREATABLEMUDDY("Treatable Muddy"),
         POTABLE("Potable");
 
-        private String cond;
+        private final String cond;
         Condition(String cond) {
             this.cond = cond;
         }
