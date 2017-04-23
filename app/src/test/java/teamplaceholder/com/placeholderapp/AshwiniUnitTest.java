@@ -1,7 +1,6 @@
 package teamplaceholder.com.placeholderapp;
 
 import org.junit.Test;
-import org.mockito.Mock;
 
 import java.util.Date;
 
