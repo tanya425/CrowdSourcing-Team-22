@@ -1,12 +1,17 @@
 package teamplaceholder.com.placeholderapp.Controller;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import teamplaceholder.com.placeholderapp.Data.DBAccountHandler;
@@ -57,7 +62,7 @@ public class LoginActivity  extends AppCompatActivity {
         } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
         }
-}
+    }
 
     /**
      * Called when the cancel login button is pressed

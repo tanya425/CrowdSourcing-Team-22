@@ -30,10 +30,12 @@ public class RegisterNewUserActivity extends AppCompatActivity {
     public static List<String> legalAccountTypes = Arrays.asList("User", "Worker", "Manager", "Admin");
     private EditText usernameText;
     private EditText passwordText;
+    private EditText emailText;
     private Spinner accountTypeSpinner;
 
     private String _username;
     private String _password;
+    private String _emailAddress;
     private String _accountType;
     private AccountHolder _account;
     private DBAccountHandler db;
@@ -68,6 +70,7 @@ public class RegisterNewUserActivity extends AppCompatActivity {
         _accountType = (String) accountTypeSpinner.getSelectedItem();
         _username = usernameText.getText().toString();
         _password = passwordText.getText().toString();
+        _emailAddress = emailText.getText().toString();
 
         if (_username.equals("") || _password.equals("") || _username.equals("Username")) {
             Toast.makeText(this, "Invalid user and/or password", Toast.LENGTH_LONG).show();
