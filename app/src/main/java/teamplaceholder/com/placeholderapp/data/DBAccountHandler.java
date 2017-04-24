@@ -5,6 +5,17 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import teamplaceholder.com.placeholderapp.model.AccountHolder;
 import teamplaceholder.com.placeholderapp.data.UserDBContract.*;
@@ -22,8 +33,11 @@ import teamplaceholder.com.placeholderapp.model.Worker;
  */
 public class DBAccountHandler extends DBHandler{
 
+    private RequestQueue queue;
+
     public DBAccountHandler(Context context) {
         super(context);
+        queue = Volley.newRequestQueue(context);
     }
 
 
@@ -31,15 +45,32 @@ public class DBAccountHandler extends DBHandler{
      * Adds an account to the database.
      * @param acc - AccountHolder object to be added to the database
      */
-    public void addAccount(AccountHolder acc) {
-        SQLiteDatabase db = super.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UserTable.COLUMN_USER_USERNAME, acc.getUsername());
-        values.put(UserTable.COLUMN_USER_PASSWORD, acc.getPassword());
-        values.put(UserTable.COLUMN_USER_TYPE, acc.getAccountType());
-        Log.w("verify adding user", acc.getAccountType());
-        db.insert(UserTable.TABLE_NAME, null, values);
-        db.close();
+    public void addAccount(final AccountHolder acc) {
+        final String username = acc.getUsername();
+        final String password = acc.getPassword();
+        final String accountType = acc.getAccountType();
+        String url = "http://crowdsourcing-php.000webhostapp.com/insertAccount.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", username);
+                params.put("password", password);
+                params.put("accountType", accountType);
+                return params;
+            }
+        };
+        queue.add(stringRequest);
     }
 
     public void deleteAccount(String username) {
