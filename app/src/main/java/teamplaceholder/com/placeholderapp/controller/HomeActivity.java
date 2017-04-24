@@ -69,18 +69,18 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Sets up navigation drawer
         String[] options;
         switch (userType) {
-            case "admin":
+            case "Admin":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
-            case "manager":
+            case "Manager":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports ",
                         "Add Water Quality Report", "View Water Quality Reports", "View Historical Purity Report"};
                 break;
-            case "worker":
+            case "Worker":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports",
                         "Add Water Quality Report"};
                 break;
-            case "user":
+            case "User":
                 options = new String[] {"Edit Profile", "Add Water Source Report", "View Water Source Reports"};
                 break;
             default:
