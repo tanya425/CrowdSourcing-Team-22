@@ -15,12 +15,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -122,7 +124,8 @@ public class DBAccountHandler extends DBHandler {
                 sb.append((char) c);
             String jsonAcc = sb.toString();
             Gson gson = new Gson();
-            HashMap<String, String> accMap = gson.fromJson(jsonAcc, HashMap.class);
+            Type stringStringMap = new TypeToken<HashMap<String, String>>(){}.getType();
+            HashMap<String, String> accMap = gson.fromJson(jsonAcc, stringStringMap);
 
             switch (accMap.get("accountType")) {
                 case "Admin":
@@ -160,7 +163,7 @@ public class DBAccountHandler extends DBHandler {
             }
 
         } catch (Exception e) {
-            Log.d("HELLO", e.getMessage());
+            Log.d("HELLO", e.toString());
             return null;
         }
     }
@@ -173,13 +176,29 @@ public class DBAccountHandler extends DBHandler {
      * @param address  - address associated with the AccountHolder
      * @param title    - title associated with the AccountHolder
      */
-    public void setProfile(String username, String email, String address, String title) {
-        SQLiteDatabase db = super.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UserTable.COLUMN_USER_EMAIL, email);
-        values.put(UserTable.COLUMN_USER_ADDRESS, address);
-        values.put(UserTable.COLUMN_USER_TITLE, title);
-
-        db.update(UserTable.TABLE_NAME, values, UserTable.COLUMN_USER_USERNAME + "=?", new String[]{username});
+    public void setProfile(final String username, final String email, final String address, final String title) {
+        String url = "http://crowdsourcing-php.000webhostapp.com/updateProfile.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", username);
+                params.put("email", email);
+                params.put("address", address);
+                params.put("title", title);
+                return params;
+            }
+        };
+        queue.add(stringRequest);
     }
 }

@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import teamplaceholder.com.placeholderapp.data.DBAccountHandler;
+import teamplaceholder.com.placeholderapp.data.getAccountTask;
 import teamplaceholder.com.placeholderapp.model.AccountHolder;
 
 import teamplaceholder.com.placeholderapp.R;
@@ -49,10 +50,7 @@ public class EditProfileActivity extends AppCompatActivity {
         addressText = (EditText) findViewById(R.id.address_et);
         titleSpinner = (Spinner) findViewById(R.id.title_spinner);
 
-        AccountHolder acc = db.getAccount(username);
-        emailText.setText(acc.getEmail());
-        addressText.setText(acc.getAddress());
-        titleSpinner.setSelection(titles.indexOf(acc.getTitle()));
+        new getAccountTask(this, emailText, addressText, titleSpinner).execute(username);
 
         /*
           Set up the adapter to display the allowable accounts in the spinner
