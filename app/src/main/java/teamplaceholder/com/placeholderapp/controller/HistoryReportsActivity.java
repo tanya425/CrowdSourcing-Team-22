@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -72,12 +73,13 @@ public class HistoryReportsActivity extends AppCompatActivity {
             List<Entry> Viruses_Entries = new ArrayList<>();
 
             for (WaterQualityReport wrpt : full_report_list) {
+                Log.d("ENTERS FOR LOOP", "TRUE");
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(wrpt.getDateCreated());
                 int rYear = cal.get(Calendar.YEAR);
                 Double rLat = wrpt.getLatitude();
                 Double rLon = wrpt.getLongitude();
-
+                Log.d("rYear", String.valueOf(rYear));
                 if ((sLat == rLat) && (sLon == rLon) && (sYear == rYear)) {
                     //int months;
                     //int mins, hours;
@@ -106,7 +108,6 @@ public class HistoryReportsActivity extends AppCompatActivity {
             }
             setContentView(R.layout.activity_vgraph);
             LineChart Vchart = (LineChart) findViewById(R.id.Vchart);
-
             LineDataSet virData = new LineDataSet(Viruses_Entries, "Virus PPM");
             virData.setColor(Color.BLUE);
             LineData vLD = new LineData(virData);

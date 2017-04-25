@@ -69,7 +69,7 @@ public class LoginActivity  extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("failure")) {
-                                throw new IllegalArgumentException();
+                                Toast.makeText(context, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
                             } else {
                                 SharedPreferences.Editor loginInfoEditor = loginInfo.edit();
 
@@ -100,7 +100,7 @@ public class LoginActivity  extends AppCompatActivity {
 
         } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Incorrect user and/or password", Toast.LENGTH_LONG).show();
-        }
+    }
     }
 
     /**

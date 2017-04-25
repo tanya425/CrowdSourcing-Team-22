@@ -23,9 +23,17 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import teamplaceholder.com.placeholderapp.data.DBWaterQualityReportHandler;
 import teamplaceholder.com.placeholderapp.data.DBWaterSourceReportHandler;
 import teamplaceholder.com.placeholderapp.model.WaterSourceReport;
 import teamplaceholder.com.placeholderapp.R;
@@ -39,6 +47,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private SharedPreferences loginInfo;
     private String userType;
+    private DBWaterSourceReportHandler sourceDB;
+    private DBWaterQualityReportHandler qualityDB;
 
     private ActionBarDrawerToggle drawerToggle;
 
@@ -46,6 +56,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
+
+        sourceDB = new DBWaterSourceReportHandler(this);
+        qualityDB = new DBWaterQualityReportHandler(this);
 
         loginInfo = getSharedPreferences("login_info", 0);
         //String username = loginInfo.getString("logged_user", "");
@@ -61,10 +74,6 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
-        //Sets up map fragment
-        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
-        mapFragment.getMapAsync(this);
 
         //Sets up navigation drawer
         String[] options;
@@ -118,7 +127,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (userType) {
-                case "admin":
+                case "Admin":
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
@@ -130,7 +139,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                     }
                     break;
-                case "manager":
+                case "Manager":
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
@@ -147,7 +156,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                     }
                     break;
-                case "worker":
+                case "Worker":
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
@@ -161,7 +170,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             break;
                     }
                     break;
-                case "user":
+                case "User":
                     switch (position) {
                         case 0: onEditPress(view);
                             break;
@@ -337,5 +346,16 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     toString()).snippet(report.getReporterName() + " " + report.getDateString()));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(temp));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Sets up map fragment
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);
+
+        sourceDB.updateWaterReports();
+        qualityDB.updateQualityReports();
     }
 }
